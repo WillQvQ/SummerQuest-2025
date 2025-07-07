@@ -3,6 +3,7 @@ import os
 import threading
 import time
 import webbrowser
+from contextlib import redirect_stdout
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from typing import Optional, Dict, List, Any
 from urllib import request
@@ -12,7 +13,6 @@ import requests
 
 WAITING_TIME = 0.01
 MAX_OPS = 500
-
 
 class SimpleLarkAuth:
     """飞书简化授权管理类，仅支持用户授权模式，支持token缓存和自动刷新"""
@@ -441,96 +441,179 @@ class SimpleLark:
 
 # 使用示例
 if __name__ == "__main__":
-    # 从环境变量获取配置信息
-    app_id = os.environ.get("FEISHU_APP_ID", "你的 APP_ID")
-    app_secret = os.environ.get("FEISHU_APP_SECRET", "你的 APP_SECRET")
-    bitable_url = "https://fudan-nlp.feishu.cn/base/KH8obWHvqam2Y4sXGGuct2HFnEb?table=tbljlS1fS0UepxBn&view=vewCig26Kk"
+    # 获取当前Python文件所在目录
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    log_file_path = os.path.join(script_dir, "hw1.log")
     
-    # 检查是否提供了真实凭据
-    if app_id == "your_app_id" or app_secret == "your_app_secret":
-        print("❌ 错误：请设置环境变量 FEISHU_APP_ID 和 FEISHU_APP_SECRET")
-        print("\n设置方法：")
-        print("export FEISHU_APP_ID='你的 APP_ID'")
-        print("export FEISHU_APP_SECRET='你的 APP_SECRET'")
-        print("\n或者直接在代码中替换 app_id 和 app_secret 的值")
-        exit(1)
-    
-    # 创建实例
-    lark = SimpleLark(app_id, app_secret, bitable_url)
-    
-    print("=" * 50)
-    print("Demo: 查询多维表格内容（支持Token缓存）")
-    print("=" * 50)
-    
-    # 显示当前token状态
-    print("📊 Token状态检查:")
-    token_info = lark.auth.get_token_info()
-    if token_info:
-        print(f"  🔹 Access Token有效: {'✅' if token_info['access_token_valid'] else '❌'}")
-        print(f"  🔹 Refresh Token有效: {'✅' if token_info['refresh_token_valid'] else '❌'}")
-        if token_info['access_token_valid']:
-            print(f"  🔹 Access Token剩余时间: {int(token_info['access_token_expires_in_seconds'])} 秒")
-    else:
-        print("  📝 无本地token缓存")
-    
-    print("\n" + "=" * 50)
-    
-    # 1. 获取所有记录
-    print("1. 获取所有记录:")
-    try:
-        all_records = lark.get_records()
-        
-        # 显示前3条记录的关键信息
-        for i, record in enumerate(all_records[:3]):
-            print(f"\n记录 {i+1}:")
-            fields = record.get("fields", {})
-            # 只显示关键字段
-            for field_name in ["主讲", "日期", "课程"]:
-                if field_name in fields:
-                    field_value = fields[field_name]
-                    # 简化显示复杂字段
-                    if isinstance(field_value, list) and field_value:
-                        if isinstance(field_value[0], dict) and 'name' in field_value[0]:
-                            display_value = ", ".join([item.get('name', '') for item in field_value])
-                        else:
-                            display_value = str(field_value)
-                    else:
-                        display_value = str(field_value)
-                    print(f"  {field_name}: {display_value}")
+    # 重定向所有输出到hw1.log文件
+    with open(log_file_path, 'w', encoding='utf-8') as log_file:
+        with redirect_stdout(log_file):
+            # 从环境变量获取配置信息
+            app_id = os.environ.get("FEISHU_APP_ID", "cli_a8e1d134c073500c")
+            app_secret = os.environ.get("FEISHU_APP_SECRET", "54LPL3Q8iTuFfbucv1RrUf6vfNACDG0w")
+            bitable_url = "https://fudan-nlp.feishu.cn/base/KH8obWHvqam2Y4sXGGuct2HFnEb?table=tbljlS1fS0UepxBn&view=vewCig26Kk"
             
-    except Exception as e:
-        print(f"❌ 获取记录失败: {str(e)}")
+            # 检查是否提供了真实凭据
+            if app_id == "your_app_id" or app_secret == "your_app_secret":
+                print("❌ 错误：请设置环境变量 FEISHU_APP_ID 和 FEISHU_APP_SECRET")
+                print("\n设置方法：")
+                print("export FEISHU_APP_ID='你的 APP_ID'")
+                print("export FEISHU_APP_SECRET='你的 APP_SECRET'")
+                print("\n或者直接在代码中替换 app_id 和 app_secret 的值")
+                exit(1)
+            
+            # 创建实例
+            lark = SimpleLark(app_id, app_secret, bitable_url)
+            
+            print("=" * 50)
+            print("Demo: 查询多维表格内容（支持Token缓存）")
+            print("=" * 50)
+            
+            # 显示当前token状态
+            print("📊 Token状态检查:")
+            token_info = lark.auth.get_token_info()
+            if token_info:
+                print(f"  🔹 Access Token有效: {'✅' if token_info['access_token_valid'] else '❌'}")
+                print(f"  🔹 Refresh Token有效: {'✅' if token_info['refresh_token_valid'] else '❌'}")
+                if token_info['access_token_valid']:
+                    print(f"  🔹 Access Token剩余时间: {int(token_info['access_token_expires_in_seconds'])} 秒")
+            else:
+                print("  📝 无本地token缓存")
+            
+            print("\n" + "=" * 50)
     
-    # 2. 筛选特定字段的记录
-    print("\n2. 筛选记录演示:")
-    field_name = "课程"  # 替换为你的字段名
-    field_value = "常见框架介绍( llamafactory, verl, vllm)"  # 替换为你要筛选的值
-    
-    try:
-        filtered_records = lark.get_filtered_records("default", field_name, field_value)
-        print(f"筛选条件: {field_name} = {field_value}")
-        print(f"✅ 筛选结果: {len(filtered_records)} 条记录")
-        
-        for i, record in enumerate(filtered_records):
-            print(f"\n筛选记录 {i+1}:")
-            fields = record.get("fields", {})
-            # 只显示关键字段
-            for field_name_item in ["主讲", "助教", "日期", "课程"]:
-                if field_name_item in fields:
-                    field_value_item = fields[field_name_item]
-                    # 简化显示复杂字段
-                    if isinstance(field_value_item, list) and field_value_item:
-                        if isinstance(field_value_item[0], dict) and 'name' in field_value_item[0]:
-                            display_value = ", ".join([item.get('name', '') for item in field_value_item])
-                        else:
-                            display_value = str(field_value_item)
-                    else:
-                        display_value = str(field_value_item)
-                    print(f"  {field_name_item}: {display_value}")
+            # # 1. 获取所有记录
+            # print("1. 获取所有记录:")
+            # try:
+            #     all_records = lark.get_records()
                 
-    except Exception as e:
-        print(f"❌ 筛选记录失败: {str(e)}")
+            #     # 显示前3条记录的关键信息
+            #     for i, record in enumerate(all_records[:3]):
+            #         print(f"\n记录 {i+1}:")
+            #         fields = record.get("fields", {})
+            #         # 只显示关键字段
+            #         for field_name in ["主讲", "日期", "课程"]:
+            #             if field_name in fields:
+            #                 field_value = fields[field_name]
+            #                 # 简化显示复杂字段
+            #                 if isinstance(field_value, list) and field_value:
+            #                     if isinstance(field_value[0], dict) and 'name' in field_value[0]:
+            #                         display_value = ", ".join([item.get('name', '') for item in field_value])
+            #                     else:
+            #                         display_value = str(field_value)
+            #                 else:
+            #                     display_value = str(field_value)
+            #                 print(f"  {field_name}: {display_value}")
+                    
+            # except Exception as e:
+            #     print(f"❌ 获取记录失败: {str(e)}")
+            
+            # # 2. 筛选特定字段的记录
+            # print("\n2. 筛选记录演示:")
+            # field_name = "课程"  # 替换为你的字段名
+            # field_value = "常见框架介绍( llamafactory, verl, vllm)"  # 替换为你要筛选的值
+            
+            # try:
+            #     filtered_records = lark.get_filtered_records("default", field_name, field_value)
+            #     print(f"筛选条件: {field_name} = {field_value}")
+            #     print(f"✅ 筛选结果: {len(filtered_records)} 条记录")
+                
+            #     for i, record in enumerate(filtered_records):
+            #         print(f"\n筛选记录 {i+1}:")
+            #         fields = record.get("fields", {})
+            #         # 只显示关键字段
+            #         for field_name_item in ["主讲", "助教", "日期", "课程"]:
+            #             if field_name_item in fields:
+            #                 field_value_item = fields[field_name_item]
+            #                 # 简化显示复杂字段
+            #                 if isinstance(field_value_item, list) and field_value_item:
+            #                     if isinstance(field_value_item[0], dict) and 'name' in field_value_item[0]:
+            #                         display_value = ", ".join([item.get('name', '') for item in field_value_item])
+            #                     else:
+            #                         display_value = str(field_value_item)
+            #                 else:
+            #                     display_value = str(field_value_item)
+            #                 print(f"  {field_name_item}: {display_value}")
+                        
+            # except Exception as e:
+            #     print(f"❌ 筛选记录失败: {str(e)}")
+            
+            # 3. 查询主讲或助教中包含"刘智耿"的条目
+            print("\n查询主讲或助教中包含'刘智耿'的条目:")
+            try:
+                all_records = lark.get_records()
+                matched_records = []
+                
+                for record in all_records:
+                    fields = record.get("fields", {})
+                    found = False
+                    
+                    # 检查"主讲"字段
+                    if "主讲" in fields:
+                        lecturer_value = fields["主讲"]
+                        if isinstance(lecturer_value, str) and "刘智耿" in lecturer_value:
+                            found = True
+                        elif isinstance(lecturer_value, list):
+                            for item in lecturer_value:
+                                if isinstance(item, str) and "刘智耿" in item:
+                                    found = True
+                                    break
+                                elif isinstance(item, dict) and "name" in item and "刘智耿" in item["name"]:
+                                    found = True
+                                    break
+                    
+                    # 检查"助教"字段
+                    if not found and "助教" in fields:
+                        assistant_value = fields["助教"]
+                        if isinstance(assistant_value, str) and "刘智耿" in assistant_value:
+                            found = True
+                        elif isinstance(assistant_value, list):
+                            for item in assistant_value:
+                                if isinstance(item, str) and "刘智耿" in item:
+                                    found = True
+                                    break
+                                elif isinstance(item, dict) and "name" in item and "刘智耿" in item["name"]:
+                                    found = True
+                                    break
+                    
+                    if found:
+                        matched_records.append(record)
+                
+                print(f"✅ 找到 {len(matched_records)} 条包含'刘智耿'的记录:")
+                
+                for i, record in enumerate(matched_records):
+                    print(f"\n记录 {i+1}:")
+                    fields = record.get("fields", {})
+                    
+                    # 显示关键字段
+                    for field_name in ["主讲", "助教", "日期", "课程", "备注"]:
+                        if field_name in fields:
+                            field_value = fields[field_name]
+                            # 处理不同数据类型的显示
+                            if isinstance(field_value, list) and field_value:
+                                if isinstance(field_value[0], dict) and 'name' in field_value[0]:
+                                    display_value = ", ".join([item.get('name', '') for item in field_value])
+                                else:
+                                    display_value = ", ".join([str(item) for item in field_value])
+                            else:
+                                display_value = str(field_value)
+                            
+                            # 高亮显示包含"刘智耿"的字段
+                            if "刘智耿" in display_value:
+                                print(f"  {field_name}: {display_value} ")
+                            else:
+                                print(f"  {field_name}: {display_value}")
+                
+                if len(matched_records) == 0:
+                    print("❌ 未找到包含'刘智耿'的记录")
+                    
+            except Exception as e:
+                print(f"❌ 查询刘智耿记录失败: {str(e)}")
+            
+            print("\n" + "=" * 50)
+            print("Demo 完成")
+            print("=" * 50)
     
-    print("\n" + "=" * 50)
-    print("Demo 完成")
-    print("=" * 50)
+    # 在控制台提示用户重定向完成
+    print(f"✅ 输出已重定向到文件: {log_file_path}")
+    print("请查看 hw1.log 文件获取详细结果。")
