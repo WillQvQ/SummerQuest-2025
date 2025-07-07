@@ -1,3 +1,4 @@
+      
 import json
 import os
 import threading
@@ -427,6 +428,15 @@ class SimpleLark:
                 fields = record.get("fields", {})
                 field_val = fields.get(field_name, "")
                 
+                    # 简化显示复杂字段
+                if isinstance(field_val, list) and field_val:
+                    if isinstance(field_val[0], dict) and 'name' in field_val[0]:
+                        field_val = ", ".join([item.get('name', '') for item in field_val])
+                    else:
+                        field_val = str(field_val)
+                else:
+                        field_val= str(field_val)
+
                 # 支持字符串包含匹配
                 if isinstance(field_val, str) and field_value in field_val:
                     filtered_records.append(record)
@@ -441,8 +451,8 @@ class SimpleLark:
 # 使用示例
 if __name__ == "__main__":
     # 从环境变量获取配置信息
-    app_id = os.environ.get("FEISHU_APP_ID", "你的 APP_ID")
-    app_secret = os.environ.get("FEISHU_APP_SECRET", "你的 APP_SECRET")
+    app_id = 'cli_a8e1d265ac3a9013'
+    app_secret = 'hE318H8twEBZEee7XFVbzdEsFzphrJ4M'
     bitable_url = "https://fudan-nlp.feishu.cn/base/KH8obWHvqam2Y4sXGGuct2HFnEb?table=tbljlS1fS0UepxBn&view=vewCig26Kk"
     
     # 检查是否提供了真实凭据
@@ -502,11 +512,14 @@ if __name__ == "__main__":
     
     # 2. 筛选特定字段的记录
     print("\n2. 筛选记录演示:")
-    field_name = "课程"  # 替换为你的字段名
-    field_value = "常见框架介绍( llamafactory, verl, vllm)"  # 替换为你要筛选的值
+    field_name1 = "主讲"  # 替换为你的字段
+    field_name2 = "助教"  # 替换为你的字段名
+    field_value = "刘智耿"  # 替换为你要筛选的值
     
     try:
-        filtered_records = lark.get_filtered_records("default", field_name, field_value)
+        filtered_records1 = lark.get_filtered_records("default", field_name1, field_value)
+        filtered_records2= lark.get_filtered_records("default", field_name2, field_value)
+        filtered_records = filtered_records1 + filtered_records2
         print(f"筛选条件: {field_name} = {field_value}")
         print(f"✅ 筛选结果: {len(filtered_records)} 条记录")
         
