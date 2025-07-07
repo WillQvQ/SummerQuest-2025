@@ -13,6 +13,7 @@ import requests
 WAITING_TIME = 0.01
 MAX_OPS = 500
 
+
 class SimpleLarkAuth:
     """飞书简化授权管理类，仅支持用户授权模式，支持token缓存和自动刷新"""
     
