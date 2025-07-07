@@ -25,13 +25,13 @@ print("注意: vLLM 初始化可能需要几分钟时间")
 
 # 加载分词器用于格式化输入
 print("正在加载分词器...")
-tokenizer = AutoTokenizer.from_pretrained("/remote-home1/share/models/Qwen3-8B")
+tokenizer = AutoTokenizer.from_pretrained("/inspire/hdd/project/embodied-multimodality/public/xyzii/models/Qwen3-8B")
 print("vLLM 引擎和分词器初始化完成！")
 print()
 
 # vLLM 引擎配置
 llm = vllm.LLM(
-    model="/remote-home1/share/models/Qwen3-8B",
+    model="/inspire/hdd/project/embodied-multimodality/public/xyzii/models/Qwen3-8B",
     gpu_memory_utilization=0.8, 
     trust_remote_code=True,
     enforce_eager=True,
