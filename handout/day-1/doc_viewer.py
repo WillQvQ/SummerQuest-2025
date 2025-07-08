@@ -441,8 +441,8 @@ class SimpleLark:
 # 使用示例
 if __name__ == "__main__":
     # 从环境变量获取配置信息
-    app_id = os.environ.get("FEISHU_APP_ID", "你的 APP_ID")
-    app_secret = os.environ.get("FEISHU_APP_SECRET", "你的 APP_SECRET")
+    app_id = os.environ.get("FEISHU_APP_ID", "cli_a8e1d7f9a49d900c")
+    app_secret = os.environ.get("FEISHU_APP_SECRET", "dUz6crEu2XW5mMrffBdwMdDveUgWFWeC")
     bitable_url = "https://fudan-nlp.feishu.cn/base/KH8obWHvqam2Y4sXGGuct2HFnEb?table=tbljlS1fS0UepxBn&view=vewCig26Kk"
     
     # 检查是否提供了真实凭据
@@ -450,10 +450,10 @@ if __name__ == "__main__":
         print("❌ 错误：请设置环境变量 FEISHU_APP_ID 和 FEISHU_APP_SECRET")
         print("\n设置方法：")
         print("export FEISHU_APP_ID='你的 APP_ID'")
-        print("export FEISHU_APP_SECRET='你的 APP_SECRET'")
+        print("export FEISHU_APP_SECRET='dUz6crEu2XW5mMrffBdwMdDveUgWFWeC'")
         print("\n或者直接在代码中替换 app_id 和 app_secret 的值")
         exit(1)
-    
+ 
     # 创建实例
     lark = SimpleLark(app_id, app_secret, bitable_url)
     
