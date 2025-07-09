@@ -25,9 +25,9 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 # 加载 Qwen3-8B 模型和分词器
 print("=== 模型加载 ===")
 print("正在加载 Qwen3-8B 模型...")
-model = AutoModelForCausalLM.from_pretrained("/remote-home1/share/models/Qwen3-8B").half().cuda().eval()
+model = AutoModelForCausalLM.from_pretrained("/data-mnt/data/downloaded_ckpts/Qwen3-8B").half().cuda().eval()
 print("正在加载分词器...")
-tokenizer = AutoTokenizer.from_pretrained("/remote-home1/share/models/Qwen3-8B")
+tokenizer = AutoTokenizer.from_pretrained("/data-mnt/data/downloaded_ckpts/Qwen3-8B")
 print("模型和分词器加载完成！")
 print()
 
