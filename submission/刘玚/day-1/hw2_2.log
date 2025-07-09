@@ -1,0 +1,74 @@
+srun: job 89379 queued and waiting for resources
+srun: job 89379 has been allocated resources
+# conda environments:
+#
+base                     /remote-home1/yliu/anaconda3
+alpacaeval               /remote-home1/yliu/anaconda3/envs/alpacaeval
+llama                    /remote-home1/yliu/anaconda3/envs/llama
+verl                     /remote-home1/yliu/anaconda3/envs/verl
+vllm118                  /remote-home1/yliu/anaconda3/envs/vllm118
+vllm121               *  /remote-home1/yliu/anaconda3/envs/vllm121
+
+/remote-home1/yliu/anaconda3/envs/vllm121/bin/python
+=== 环境信息检查 ===
+
+PyTorch 版本: 2.7.0+cu126
+CUDA 是否可用: True
+CUDA 版本: 12.6
+可用 GPU 数量: 1
+
+Transformers 版本: 4.52.4
+
+=== 模型加载 ===
+正在加载 Qwen3-8B 模型...
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:22<01:28, 22.14s/it]Loading checkpoint shards:  40%|████      | 2/5 [00:40<00:58, 19.63s/it]Loading checkpoint shards:  60%|██████    | 3/5 [00:57<00:37, 18.63s/it]Loading checkpoint shards:  80%|████████  | 4/5 [01:09<00:15, 15.95s/it]Loading checkpoint shards: 100%|██████████| 5/5 [01:14<00:00, 12.10s/it]Loading checkpoint shards: 100%|██████████| 5/5 [01:14<00:00, 14.91s/it]
+正在加载分词器...
+模型和分词器加载完成！
+
+=== 测试1: 普通对话模式 ===
+输入文本: <|im_start|>system
+你是一个会深思熟虑的AI助手。<|im_end|>
+<|im_start|>user
+你好，我是邱锡鹏老师的学生。<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+
+
+开始生成回复...
+AI回复（普通模式）:
+============================================================
+啊，你好！很高兴认识你。邱锡鹏老师可是自然语言处理领域的知名学者，他的研究方向和成果都令人钦佩。你是在哪个方面学习他的工作呢？比如是模型架构、训练方法，还是应用层面的研究？如果你有任何问题或者想讨论某个具体话题，我很乐意和你一起探讨。
+============================================================
+推理耗时: 6.78 秒
+
+==================================================
+
+=== 测试2: 思维链推理模式 ===
+输入文本: <|im_start|>system
+你是一个会深思熟虑的AI助手。<|im_end|>
+<|im_start|>user
+你好，我是邱锡鹏老师的学生。<|im_end|>
+<|im_start|>assistant
+
+
+开始生成回复（思维链模式）...
+AI回复（思维链模式）:
+============================================================
+<think>
+好的，用户是邱锡鹏老师的学生，这可能意味着他有学术背景或者对某个领域有深入了解。首先，我需要确认邱锡鹏老师的研究领域，以便提供相关的信息。邱锡鹏老师可能在人工智能、自然语言处理或其他相关领域有专长。
+
+接下来，用户可能希望讨论学术问题、项目进展，或者寻求建议。作为AI助手，我需要表现出专业性和支持性，同时保持开放的态度，鼓励用户提出具体问题。此外，考虑到用户是学生，可能需要指导如何进行研究、撰写论文，或者解决技术难题。
+
+还要注意用户可能的深层需求，比如对某个技术的困惑，或者对学术方向的迷茫。这时候，提供资源、建议或引导讨论会更有帮助。同时，保持友好和鼓励的态度，让用户感到被理解和支持。
+
+最后，确保回复简洁明了，避免使用过于专业的术语，除非用户明确表示需要。保持对话的流畅性和互动性，让用户愿意继续交流。
+</think>
+
+你好！很高兴认识你，邱锡鹏老师的学生。你目前在研究或学习哪个具体方向呢？比如自然语言处理、机器学习，还是其他领域？如果你有任何问题或需要讨论的内容，随时告诉我，我会尽力提供帮助！ 😊
+============================================================
+推理耗时: 8.27 秒
+
+=== 测试完成 ===
