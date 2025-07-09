@@ -1,0 +1,95 @@
+# conda environments:
+#
+base                     /remote-home1/sdzhang/anaconda3
+RoboTwin                 /remote-home1/sdzhang/anaconda3/envs/RoboTwin
+acdc                     /remote-home1/sdzhang/anaconda3/envs/acdc
+aloha                    /remote-home1/sdzhang/anaconda3/envs/aloha
+camp                  *  /remote-home1/sdzhang/anaconda3/envs/camp
+cogact                   /remote-home1/sdzhang/anaconda3/envs/cogact
+dmc                      /remote-home1/sdzhang/anaconda3/envs/dmc
+gr00t                    /remote-home1/sdzhang/anaconda3/envs/gr00t
+maniskill                /remote-home1/sdzhang/anaconda3/envs/maniskill
+mujoco                   /remote-home1/sdzhang/anaconda3/envs/mujoco
+octo                     /remote-home1/sdzhang/anaconda3/envs/octo
+octo_eval                /remote-home1/sdzhang/anaconda3/envs/octo_eval
+openpi                   /remote-home1/sdzhang/anaconda3/envs/openpi
+openrt                   /remote-home1/sdzhang/anaconda3/envs/openrt
+openvla                  /remote-home1/sdzhang/anaconda3/envs/openvla
+pi                       /remote-home1/sdzhang/anaconda3/envs/pi
+rdt                      /remote-home1/sdzhang/anaconda3/envs/rdt
+rlbench                  /remote-home1/sdzhang/anaconda3/envs/rlbench
+rlds_env                 /remote-home1/sdzhang/anaconda3/envs/rlds_env
+robodiff                 /remote-home1/sdzhang/anaconda3/envs/robodiff
+robotcasa                /remote-home1/sdzhang/anaconda3/envs/robotcasa
+simpler_env              /remote-home1/sdzhang/anaconda3/envs/simpler_env
+tfds                     /remote-home1/sdzhang/anaconda3/envs/tfds
+tram                     /remote-home1/sdzhang/anaconda3/envs/tram
+virtualhome              /remote-home1/sdzhang/anaconda3/envs/virtualhome
+vla                      /remote-home1/sdzhang/anaconda3/envs/vla
+vlabench                 /remote-home1/sdzhang/anaconda3/envs/vlabench
+
+/remote-home1/sdzhang/anaconda3/envs/camp/bin/python
+=== 环境信息检查 ===
+
+PyTorch 版本: 2.7.0+cu126
+CUDA 是否可用: True
+CUDA 版本: 12.6
+可用 GPU 数量: 1
+
+Transformers 版本: 4.53.1
+
+=== 模型加载 ===
+正在加载 Qwen3-8B 模型...
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:03,  1.33it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:02,  1.34it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.36it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:02<00:00,  1.48it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.95it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.65it/s]
+正在加载分词器...
+模型和分词器加载完成！
+
+=== 测试1: 普通对话模式 ===
+输入文本: <|im_start|>system
+你是一个会深思熟虑的AI助手。<|im_end|>
+<|im_start|>user
+你好，我是邱锡鹏老师的学生。<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+
+
+开始生成回复...
+AI回复（普通模式）:
+============================================================
+你好，邱锡鹏老师的学生！很高兴认识你。我是通义千问，一个由通义实验室研发的超大规模语言模型。我在这里可以为你提供各种帮助，比如解答问题、创作文字、编程等等。有什么我可以帮你的吗？
+============================================================
+推理耗时: 3.47 秒
+
+==================================================
+
+=== 测试2: 思维链推理模式 ===
+输入文本: <|im_start|>system
+你是一个会深思熟虑的AI助手。<|im_end|>
+<|im_start|>user
+你好，我是邱锡鹏老师的学生。<|im_end|>
+<|im_start|>assistant
+
+
+开始生成回复（思维链模式）...
+AI回复（思维链模式）:
+============================================================
+<think>
+好的，用户是邱锡鹏老师的学生，这可能意味着他/她对自然语言处理或深度学习领域有一定了解。作为邱锡鹏老师的学生，可能对学术研究、项目实践或者最新的技术进展感兴趣。我需要以专业但友好的态度回应，同时保持一定的思考深度。
+
+邱锡鹏老师在自然语言处理领域有显著贡献，特别是在Transformer模型和大模型研究方面。作为他的学生，用户可能关注这些方向的最新动态，或者希望获得关于研究方向、论文写作、项目实践等方面的建议。
+
+在回应时，我应该表现出对学术研究的热情，同时提供有价值的信息。可以提到一些相关的研究方向，如大模型的优化、多模态学习、模型压缩等，这些都是当前的热点。此外，也可以询问用户具体的研究兴趣或遇到的挑战，以便提供更有针对性的帮助。
+
+同时，保持语气友好，避免过于技术化，让用户感到轻松和被理解。可以加入一些鼓励的话语，表达对学术探索的支持。此外，注意使用口语化的表达，避免生硬的术语堆砌，让对话更自然。
+
+最后，确保回应结构清晰，先表达欢迎和认可，再提出可能的讨论方向，最后邀请用户进一步说明需求。这样既展示了专业性，又保持了开放性和互动性。
+</think>
+
+你好！很高兴认识你，邱锡鹏老师的学生。作为他的学生，你一定对自然语言处理（NLP）或者深度学习领域有浓厚的兴趣吧？最近在研究什么方向呢？或者有没有什么问题想和我讨论？我虽然不是老师，但很乐意和你交流学术上的想法，比如大模型、多模态学习、模型压缩，或者论文写作的技巧等等。你更感兴趣的是哪个方向呢？😊
+============================================================
+推理耗时: 10.72 秒
+
+=== 测试完成 ===
