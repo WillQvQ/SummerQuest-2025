@@ -1,0 +1,91 @@
+
+# conda environments:
+#
+base                   /remote-home1/zlwang/miniconda3
+
+=== 环境信息检查 ===
+
+vLLM 版本: 0.7.3
+
+=== vLLM 引擎初始化 ===
+正在初始化 vLLM 引擎...
+注意: vLLM 初始化可能需要几分钟时间
+正在加载分词器...
+vLLM 引擎和分词器初始化完成！
+
+INFO 07-07 06:09:37 __init__.py:207] Automatically detected platform cuda.
+INFO 07-07 06:09:47 config.py:549] This model supports multiple tasks: {'reward', 'embed', 'classify', 'score', 'generate'}. Defaulting to 'generate'.
+WARNING 07-07 06:09:47 cuda.py:95] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+WARNING 07-07 06:09:47 config.py:685] Async output processing is not supported on the current platform type cuda.
+INFO 07-07 06:09:48 llm_engine.py:234] Initializing a V0 LLM engine (v0.7.3) with config: model='/remote-home1/share/models/Qwen3-8B', speculative_config=None, tokenizer='/remote-home1/share/models/Qwen3-8B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=/remote-home1/share/models/Qwen3-8B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=False, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[],"max_capture_size":0}, use_cached_outputs=False, 
+INFO 07-07 06:09:50 cuda.py:229] Using Flash Attention backend.
+INFO 07-07 06:09:51 model_runner.py:1110] Starting to load model /remote-home1/share/models/Qwen3-8B...
+WARNING 07-07 06:09:51 utils.py:78] Qwen3ForCausalLM has no vLLM implementation, falling back to Transformers implementation. Some features may not be supported and performance may not be optimal.
+INFO 07-07 06:09:51 transformers.py:129] Using Transformers backend.
+Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:00<00:02,  1.69it/s]
+Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:02<00:03,  1.15s/it]
+Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:04<00:03,  1.54s/it]
+Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:06<00:01,  1.73s/it]
+Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:08<00:00,  1.84s/it]
+Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:08<00:00,  1.64s/it]
+
+INFO 07-07 06:10:05 model_runner.py:1115] Loading model weights took 15.2585 GB
+INFO 07-07 06:10:06 worker.py:267] Memory profiling takes 1.12 seconds
+INFO 07-07 06:10:06 worker.py:267] the current vLLM instance can use total_gpu_memory (23.55GiB) x gpu_memory_utilization (0.80) = 18.84GiB
+INFO 07-07 06:10:06 worker.py:267] model weights take 15.26GiB; non_torch_memory takes 0.08GiB; PyTorch activation peak memory takes 1.42GiB; the rest of the memory reserved for KV Cache is 2.09GiB.
+INFO 07-07 06:10:06 executor_base.py:111] # cuda blocks: 949, # CPU blocks: 1820
+INFO 07-07 06:10:06 executor_base.py:116] Maximum concurrency for 4096 tokens per request: 3.71x
+INFO 07-07 06:10:08 llm_engine.py:436] init engine (profile, create kv cache, warmup model) took 3.81 seconds
+=== 测试1: 普通对话模式 (vLLM) ===
+输入文本: <|im_start|>system
+你是一个会深思熟虑的AI助手。<|im_end|>
+<|im_start|>user
+你好，我是邱锡鹏老师的学生。<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+
+
+开始生成回复 (vLLM)...
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:03<00:00,  3.02s/it, est. speed input: 12.25 toks/s, output: 21.53 toks/s]Processed prompts: 100%|██████████| 1/1 [00:03<00:00,  3.02s/it, est. speed input: 12.25 toks/s, output: 21.53 toks/s]
+AI回复（普通模式 - vLLM）:
+============================================================
+你好，很高兴认识你！我是邱锡鹏老师的学生，非常荣幸能和你交流。邱老师在自然语言处理领域有着深厚的造诣，他的研究方向包括语言模型、深度学习等，我从他那里学到了很多知识。你对哪个方向特别感兴趣呢？我们可以一起探讨。
+============================================================
+推理耗时: 3.03 秒
+
+==================================================
+
+=== 测试2: 思维链推理模式 (vLLM) ===
+输入文本: <|im_start|>system
+你是一个会深思熟虑的AI助手。<|im_end|>
+<|im_start|>user
+你好，我是邱锡鹏老师的学生。<|im_end|>
+<|im_start|>assistant
+
+
+开始生成回复（思维链模式 - vLLM）...
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:15<00:00, 15.10s/it, est. speed input: 2.19 toks/s, output: 24.77 toks/s]Processed prompts: 100%|██████████| 1/1 [00:15<00:00, 15.10s/it, est. speed input: 2.19 toks/s, output: 24.77 toks/s]
+AI回复（思维链模式 - vLLM）:
+============================================================
+<think>
+好的，用户说他是邱锡鹏老师的学生，我需要先确认邱锡鹏老师是谁，以及他的研究领域。邱锡鹏是上海交通大学的教授，主要研究方向包括自然语言处理、深度学习、机器学习等，尤其在大模型和语言模型方面有显著贡献。作为他的学生，用户可能对相关领域的研究有深入了解，或者正在从事相关项目。
+
+接下来，我需要考虑如何回应才能既表达欢迎，又能够引导对话继续。首先，应该表达欢迎，并提到邱教授的成就，这样能体现出对用户的认可。然后，可以询问用户的具体需求，比如是否在做某个项目，或者对某个领域感兴趣，这样可以提供更有针对性的帮助。
+
+同时，要避免使用过于专业的术语，保持口语化，让用户感到亲切。另外，需要确保信息准确，比如邱教授的职位和研究方向，避免错误。还要注意语气友好，鼓励用户进一步说明需求，以便更好地提供帮助。
+
+可能用户需要关于研究方向的建议、论文写作的帮助，或者项目合作的讨论。因此，回应中应包含开放性的问题，引导用户详细说明他们的需求。此外，可以提到邱教授的某些研究成果，如大模型、语言模型等，以展示对领域的了解，增强对话的可信度。
+
+最后，保持回应简洁，不过于冗长，但足够详细以显示专业性和友好态度。确保用户感到被重视，并且知道可以继续深入讨论任何相关话题。
+</think>
+
+你好！很高兴认识你，邱锡鹏老师确实是自然语言处理和深度学习领域的知名学者，他在大模型、语言模型等方向有很多开创性的工作。作为他的学生，你一定对这些领域有深入的了解吧？最近在研究什么方向呢？如果有什么问题或者需要讨论的地方，我很乐意帮忙！
+============================================================
+推理耗时: 15.10 秒
+
+=== 测试完成 ===
+[rank0]:[W707 06:10:27.303117568 ProcessGroupNCCL.cpp:1250] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())

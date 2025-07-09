@@ -1,0 +1,80 @@
+
+# conda environments:
+#
+base                   /remote-home1/jqchen/miniconda3
+llm118                 /remote-home1/jqchen/miniconda3/envs/llm118
+llm118_debug           /remote-home1/jqchen/miniconda3/envs/llm118_debug
+llm118_new             /remote-home1/jqchen/miniconda3/envs/llm118_new
+new_stb                /remote-home1/jqchen/miniconda3/envs/new_stb
+test                   /remote-home1/jqchen/miniconda3/envs/test
+th_r                   /remote-home1/jqchen/miniconda3/envs/th_r
+toolhall               /remote-home1/jqchen/miniconda3/envs/toolhall
+toolhall_2             /remote-home1/jqchen/miniconda3/envs/toolhall_2
+toolhall_clean         /remote-home1/jqchen/miniconda3/envs/toolhall_clean
+toolhall_copy          /remote-home1/jqchen/miniconda3/envs/toolhall_copy
+toolhall_require       /remote-home1/jqchen/miniconda3/envs/toolhall_require
+vllm0.7              * /remote-home1/jqchen/miniconda3/envs/vllm0.7
+
+/remote-home1/jqchen/miniconda3/envs/vllm0.7/bin/python
+=== 环境信息检查 ===
+
+PyTorch 版本: 2.5.1+cu124
+CUDA 是否可用: True
+CUDA 版本: 12.4
+可用 GPU 数量: 1
+
+Transformers 版本: 4.53.0
+
+=== 模型加载 ===
+正在加载 Qwen3-8B 模型...
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:02,  1.40it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:02,  1.41it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.43it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:02<00:00,  1.55it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  2.05it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  1.74it/s]
+正在加载分词器...
+模型和分词器加载完成！
+
+=== 测试1: 普通对话模式 ===
+输入文本: <|im_start|>system
+你是一个会深思熟虑的AI助手。<|im_end|>
+<|im_start|>user
+你好，我是邱锡鹏老师的学生。<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+
+
+开始生成回复...
+AI回复（普通模式）:
+============================================================
+啊，你好！很高兴认识你，邱锡鹏老师的学生。他是自然语言处理领域的知名学者，我对他研究的很多方向都很感兴趣。你是在学习他的哪方面的研究呢？比如模型架构、训练方法，还是其他相关领域？如果你愿意分享，我很乐意和你讨论。
+============================================================
+推理耗时: 2.06 秒
+
+==================================================
+
+=== 测试2: 思维链推理模式 ===
+输入文本: <|im_start|>system
+你是一个会深思熟虑的AI助手。<|im_end|>
+<|im_start|>user
+你好，我是邱锡鹏老师的学生。<|im_end|>
+<|im_start|>assistant
+
+
+开始生成回复（思维链模式）...
+AI回复（思维链模式）:
+============================================================
+<think>
+好的，用户是邱锡鹏老师的学生，我需要先确认他的身份和需求。邱锡鹏老师是自然语言处理领域的专家，可能用户在学习或研究相关领域。我需要保持专业但友好的态度，同时提供有用的信息。
+
+首先，用户可能想讨论学术问题，比如模型训练、数据处理或最新研究。我需要准备好相关领域的知识，比如Transformer、BERT、大模型等。同时，用户可能希望得到指导或建议，所以需要询问具体问题。
+
+另外，用户可能对邱老师的课程或研究项目感兴趣，可以询问是否有特定主题或项目需要帮助。保持开放式的提问，让用户更清楚如何继续对话。避免使用过于专业的术语，保持自然流畅的交流。
+
+还要注意用户可能的需求层次，比如学习资源、研究方向或职业发展建议。需要根据用户的回答进一步调整回应。确保回应既专业又亲切，鼓励用户详细说明问题，以便提供更有针对性的帮助。
+</think>
+
+你好！很高兴认识你，邱锡鹏老师的学生。你目前在学习或研究哪个具体方向呢？比如自然语言处理、深度学习模型、或者大模型相关的技术？如果你有任何问题或需要讨论的内容，随时告诉我，我会尽力提供帮助！ 😊
+============================================================
+推理耗时: 7.29 秒
+
+=== 测试完成 ===

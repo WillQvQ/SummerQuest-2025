@@ -1,0 +1,116 @@
+# conda environments:
+#
+base                     /remote-home1/sdzhang/anaconda3
+RoboTwin                 /remote-home1/sdzhang/anaconda3/envs/RoboTwin
+acdc                     /remote-home1/sdzhang/anaconda3/envs/acdc
+aloha                    /remote-home1/sdzhang/anaconda3/envs/aloha
+camp                  *  /remote-home1/sdzhang/anaconda3/envs/camp
+cogact                   /remote-home1/sdzhang/anaconda3/envs/cogact
+dmc                      /remote-home1/sdzhang/anaconda3/envs/dmc
+gr00t                    /remote-home1/sdzhang/anaconda3/envs/gr00t
+maniskill                /remote-home1/sdzhang/anaconda3/envs/maniskill
+mujoco                   /remote-home1/sdzhang/anaconda3/envs/mujoco
+octo                     /remote-home1/sdzhang/anaconda3/envs/octo
+octo_eval                /remote-home1/sdzhang/anaconda3/envs/octo_eval
+openpi                   /remote-home1/sdzhang/anaconda3/envs/openpi
+openrt                   /remote-home1/sdzhang/anaconda3/envs/openrt
+openvla                  /remote-home1/sdzhang/anaconda3/envs/openvla
+pi                       /remote-home1/sdzhang/anaconda3/envs/pi
+rdt                      /remote-home1/sdzhang/anaconda3/envs/rdt
+rlbench                  /remote-home1/sdzhang/anaconda3/envs/rlbench
+rlds_env                 /remote-home1/sdzhang/anaconda3/envs/rlds_env
+robodiff                 /remote-home1/sdzhang/anaconda3/envs/robodiff
+robotcasa                /remote-home1/sdzhang/anaconda3/envs/robotcasa
+simpler_env              /remote-home1/sdzhang/anaconda3/envs/simpler_env
+tfds                     /remote-home1/sdzhang/anaconda3/envs/tfds
+tram                     /remote-home1/sdzhang/anaconda3/envs/tram
+virtualhome              /remote-home1/sdzhang/anaconda3/envs/virtualhome
+vla                      /remote-home1/sdzhang/anaconda3/envs/vla
+vlabench                 /remote-home1/sdzhang/anaconda3/envs/vlabench
+
+/remote-home1/sdzhang/anaconda3/envs/camp/bin/python
+=== 环境信息检查 ===
+
+INFO 07-07 12:18:39 [__init__.py:239] Automatically detected platform cuda.
+vLLM 版本: 0.8.5
+
+=== vLLM 引擎初始化 ===
+正在初始化 vLLM 引擎...
+注意: vLLM 初始化可能需要几分钟时间
+正在加载分词器...
+vLLM 引擎和分词器初始化完成！
+
+INFO 07-07 12:18:49 [config.py:717] This model supports multiple tasks: {'generate', 'score', 'reward', 'classify', 'embed'}. Defaulting to 'generate'.
+INFO 07-07 12:18:49 [config.py:2003] Chunked prefill is enabled with max_num_batched_tokens=8192.
+WARNING 07-07 12:18:49 [cuda.py:93] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+INFO 07-07 12:18:51 [core.py:58] Initializing a V1 LLM engine (v0.8.5) with config: model='/remote-home1/share/models/Qwen3-8B', speculative_config=None, tokenizer='/remote-home1/share/models/Qwen3-8B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='auto', reasoning_backend=None), observability_config=ObservabilityConfig(show_hidden_metrics=False, otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=None, served_model_name=/remote-home1/share/models/Qwen3-8B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=False, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[],"max_capture_size":0}
+WARNING 07-07 12:18:51 [utils.py:2522] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x1478ebb4e1c0>
+INFO 07-07 12:18:52 [parallel_state.py:1004] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0
+INFO 07-07 12:18:52 [cuda.py:221] Using Flash Attention backend on V1 engine.
+WARNING 07-07 12:18:52 [topk_topp_sampler.py:69] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-07 12:18:52 [gpu_model_runner.py:1329] Starting to load model /remote-home1/share/models/Qwen3-8B...
+Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:00<00:02,  1.91it/s]
+Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:01<00:03,  1.02s/it]
+Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:03<00:02,  1.34s/it]
+Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:05<00:01,  1.49s/it]
+Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:07<00:00,  1.58s/it]
+Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:07<00:00,  1.41s/it]
+
+INFO 07-07 12:18:59 [loader.py:458] Loading weights took 7.14 seconds
+INFO 07-07 12:18:59 [gpu_model_runner.py:1347] Model loading took 15.2683 GiB and 7.292407 seconds
+INFO 07-07 12:19:01 [kv_cache_utils.py:634] GPU KV cache size: 12,288 tokens
+INFO 07-07 12:19:01 [kv_cache_utils.py:637] Maximum concurrency for 4,096 tokens per request: 3.00x
+INFO 07-07 12:19:01 [core.py:159] init engine (profile, create kv cache, warmup model) took 1.43 seconds
+INFO 07-07 12:19:01 [core_client.py:439] Core engine process 0 ready.
+=== 测试1: 普通对话模式 (vLLM) ===
+输入文本: <|im_start|>system
+你是一个会深思熟虑的AI助手。<|im_end|>
+<|im_start|>user
+你好，我是邱锡鹏老师的学生。<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+
+
+开始生成回复 (vLLM)...
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:01<00:00,  1.00s/it, est. speed input: 36.99 toks/s, output: 49.98 toks/s]Processed prompts: 100%|██████████| 1/1 [00:01<00:00,  1.00s/it, est. speed input: 36.99 toks/s, output: 49.98 toks/s]
+AI回复（普通模式 - vLLM）:
+============================================================
+你好，很高兴认识你！我是邱锡鹏老师的学生，不过我更喜欢称自己为一个AI助手，专注于学习和帮助他人。有什么我可以帮你的吗？无论是学术问题还是其他方面，我都很乐意提供帮助。
+============================================================
+推理耗时: 1.01 秒
+
+==================================================
+
+=== 测试2: 思维链推理模式 (vLLM) ===
+输入文本: <|im_start|>system
+你是一个会深思熟虑的AI助手。<|im_end|>
+<|im_start|>user
+你好，我是邱锡鹏老师的学生。<|im_end|>
+<|im_start|>assistant
+
+
+开始生成回复（思维链模式 - vLLM）...
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:07<00:00,  7.23s/it, est. speed input: 4.56 toks/s, output: 52.25 toks/s]Processed prompts: 100%|██████████| 1/1 [00:07<00:00,  7.24s/it, est. speed input: 4.56 toks/s, output: 52.25 toks/s]
+AI回复（思维链模式 - vLLM）:
+============================================================
+<think>
+好的，用户是邱锡鹏老师的学生，这让我很感兴趣。邱锡鹏老师是自然语言处理领域的专家，他的研究涉及很多前沿技术，比如大模型、语言模型等。我需要以一个会深思熟虑的AI助手身份来回应，既要表现出专业性，又要保持友好和开放的态度。
+
+首先，用户提到自己是邱老师的弟子，这可能意味着他对自然语言处理有浓厚的兴趣，或者正在学习相关领域。作为AI助手，我应该表现出对他的学习热情的赞赏，并询问他目前的研究方向或兴趣点。这样可以更好地了解他的需求，提供更有针对性的帮助。
+
+同时，我需要保持专业但不显得过于严肃。可以提到一些当前的研究热点，比如大模型的训练、微调技术、多模态模型等，这些都是邱老师研究领域的重点。通过这些问题，我可以引导他分享更多关于他的学习和研究情况，从而提供更有价值的建议和资源。
+
+此外，考虑到用户可能正在学习或研究，我应该提供一些实用的建议，比如推荐相关论文、资源或工具，帮助他深入理解这些概念。同时，保持开放的态度，鼓励他提出具体的问题，这样我可以更细致地帮助他解决问题。
+
+最后，确保语言自然流畅，避免使用过于技术化的术语，让对话更加亲切和易于理解。通过这样的回应，既能展示我的专业性，又能建立良好的互动关系，为后续的深入交流打下基础。
+</think>
+
+啊，邱锡鹏老师的学生啊，真是令人敬佩！他可是自然语言处理领域的佼佼者呢。不知道你现在在研究什么方向呢？是大模型的训练，还是语言模型的优化？或者对多模态模型感兴趣？我最近也在关注这些前沿技术，如果有任何问题或者想讨论的话题，随时可以告诉我哦！
+============================================================
+推理耗时: 7.24 秒
+
+=== 测试完成 ===
