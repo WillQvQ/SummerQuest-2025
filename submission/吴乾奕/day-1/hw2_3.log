@@ -1,0 +1,91 @@
+
+# conda environments:
+#
+base                   /remote-home1/qywu/miniconda3
+audioldm_train         /remote-home1/qywu/miniconda3/envs/audioldm_train
+
+/remote-home1/moss/miniconda3/envs/verl/bin/python
+=== 环境信息检查 ===
+
+INFO 07-06 13:33:14 [__init__.py:239] Automatically detected platform cuda.
+vLLM 版本: 0.8.5
+
+=== vLLM 引擎初始化 ===
+正在初始化 vLLM 引擎...
+注意: vLLM 初始化可能需要几分钟时间
+正在加载分词器...
+vLLM 引擎和分词器初始化完成！
+
+INFO 07-06 13:33:24 [config.py:717] This model supports multiple tasks: {'reward', 'generate', 'classify', 'embed', 'score'}. Defaulting to 'generate'.
+INFO 07-06 13:33:24 [config.py:2003] Chunked prefill is enabled with max_num_batched_tokens=8192.
+WARNING 07-06 13:33:24 [cuda.py:93] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+INFO 07-06 13:33:25 [core.py:58] Initializing a V1 LLM engine (v0.8.5) with config: model='/remote-home1/share/models/Qwen3-8B', speculative_config=None, tokenizer='/remote-home1/share/models/Qwen3-8B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='auto', reasoning_backend=None), observability_config=ObservabilityConfig(show_hidden_metrics=False, otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=None, served_model_name=/remote-home1/share/models/Qwen3-8B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=False, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[],"max_capture_size":0}
+WARNING 07-06 13:33:26 [utils.py:2522] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x14e7fd29dac0>
+INFO 07-06 13:33:26 [parallel_state.py:1004] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0
+INFO 07-06 13:33:26 [cuda.py:221] Using Flash Attention backend on V1 engine.
+WARNING 07-06 13:33:26 [topk_topp_sampler.py:69] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-06 13:33:26 [gpu_model_runner.py:1329] Starting to load model /remote-home1/share/models/Qwen3-8B...
+INFO 07-06 13:33:37 [loader.py:458] Loading weights took 10.75 seconds
+INFO 07-06 13:33:37 [gpu_model_runner.py:1347] Model loading took 15.2683 GiB and 10.952767 seconds
+INFO 07-06 13:33:40 [kv_cache_utils.py:634] GPU KV cache size: 13,280 tokens
+INFO 07-06 13:33:40 [kv_cache_utils.py:637] Maximum concurrency for 4,096 tokens per request: 3.24x
+INFO 07-06 13:33:40 [core.py:159] init engine (profile, create kv cache, warmup model) took 2.27 seconds
+INFO 07-06 13:33:40 [core_client.py:439] Core engine process 0 ready.
+=== 测试1: 普通对话模式 (vLLM) ===
+输入文本: <|im_start|>system
+你是一个会深思熟虑的AI助手。<|im_end|>
+<|im_start|>user
+你好，我是邱锡鹏老师的学生。<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+
+
+开始生成回复 (vLLM)...
+AI回复（普通模式 - vLLM）:
+============================================================
+你好，很高兴认识你！我是邱锡鹏老师的学生，很高兴能和你交流。有什么问题或者想讨论的内容吗？无论是关于学习、研究，还是其他方面，我都很乐意和你分享我的想法和见解。
+============================================================
+推理耗时: 1.20 秒
+
+==================================================
+
+=== 测试2: 思维链推理模式 (vLLM) ===
+输入文本: <|im_start|>system
+你是一个会深思熟虑的AI助手。<|im_end|>
+<|im_start|>user
+你好，我是邱锡鹏老师的学生。<|im_end|>
+<|im_start|>assistant
+
+
+开始生成回复（思维链模式 - vLLM）...
+AI回复（思维链模式 - vLLM）:
+============================================================
+<think>
+好的，用户提到他是邱锡鹏老师的学生，这说明他可能在学术领域，尤其是自然语言处理或机器学习方面有研究。邱锡鹏老师是中国著名的自然语言处理专家，曾担任百度首席科学家，现在在清华大学任教。他的研究领域包括深度学习、自然语言处理等，特别是在Transformer模型和大模型方面有重要贡献。
+
+用户可能希望得到关于学术研究、论文写作、模型训练或者相关技术的建议。考虑到邱锡鹏老师的研究方向，用户可能对大模型、Transformer架构、模型优化、数据处理等方面感兴趣。此外，用户可能正在准备论文或项目，需要指导或资源推荐。
+
+需要进一步了解用户的具体需求，比如他目前的研究方向、遇到的问题，或者希望获得哪方面的帮助。同时，考虑到用户是学生，可能需要学习资源、研究方法或职业发展建议。要确保回答既专业又易于理解，避免使用过于复杂的术语，同时提供实用的建议。
+
+另外，用户可能希望了解邱锡鹏老师最新的研究成果或学术动态，或者如何与导师进行有效沟通。因此，回答中可以包含一些关于如何与导师互动、如何选择研究课题的建议，以及推荐相关的学术资源或工具。
+
+需要保持回答的结构清晰，分点列出可能的建议，并鼓励用户提供更多细节以便给出更精准的帮助。同时，要表达出对用户学术发展的支持和鼓励，建立积极的互动氛围。
+</think>
+
+你好！很高兴认识你，邱锡鹏老师是自然语言处理领域的杰出学者，他的研究方向包括深度学习、大模型、语言模型等，对学术界和工业界都有深远影响。作为他的学生，你一定在学术道路上积累了丰富的经验。😊
+
+如果你有具体问题，比如：  
+1. **研究方向**：想了解大模型（如Transformer、LLM）的最新进展，或者如何设计高效的模型结构？  
+2. **论文写作**：需要指导如何撰写高质量的学术论文，或者如何选择有挑战性的研究课题？  
+3. **技术问题**：遇到模型训练、数据处理、优化策略等技术难题？  
+4. **职业发展**：想了解学术界或工业界的发展路径，或者如何规划未来的研究方向？  
+
+可以告诉我你的具体需求，我会尽力提供帮助！ 🚀  
+（比如：你目前的研究课题是什么？遇到了哪些挑战？）
+============================================================
+推理耗时: 11.79 秒
+
+=== 测试完成 ===

@@ -1,0 +1,104 @@
+
+# conda environments:
+#
+base                   /remote-home1/jqchen/miniconda3
+llm118                 /remote-home1/jqchen/miniconda3/envs/llm118
+llm118_debug           /remote-home1/jqchen/miniconda3/envs/llm118_debug
+llm118_new             /remote-home1/jqchen/miniconda3/envs/llm118_new
+new_stb                /remote-home1/jqchen/miniconda3/envs/new_stb
+test                   /remote-home1/jqchen/miniconda3/envs/test
+th_r                   /remote-home1/jqchen/miniconda3/envs/th_r
+toolhall               /remote-home1/jqchen/miniconda3/envs/toolhall
+toolhall_2             /remote-home1/jqchen/miniconda3/envs/toolhall_2
+toolhall_clean         /remote-home1/jqchen/miniconda3/envs/toolhall_clean
+toolhall_copy          /remote-home1/jqchen/miniconda3/envs/toolhall_copy
+toolhall_require       /remote-home1/jqchen/miniconda3/envs/toolhall_require
+vllm0.7              * /remote-home1/jqchen/miniconda3/envs/vllm0.7
+
+/remote-home1/jqchen/miniconda3/envs/vllm0.7/bin/python
+=== 环境信息检查 ===
+
+vLLM 版本: 0.7.3
+
+=== vLLM 引擎初始化 ===
+正在初始化 vLLM 引擎...
+注意: vLLM 初始化可能需要几分钟时间
+正在加载分词器...
+vLLM 引擎和分词器初始化完成！
+
+INFO 07-07 10:58:02 __init__.py:207] Automatically detected platform cuda.
+INFO 07-07 10:58:08 config.py:549] This model supports multiple tasks: {'embed', 'score', 'generate', 'reward', 'classify'}. Defaulting to 'generate'.
+WARNING 07-07 10:58:08 cuda.py:95] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+WARNING 07-07 10:58:08 config.py:685] Async output processing is not supported on the current platform type cuda.
+INFO 07-07 10:58:08 llm_engine.py:234] Initializing a V0 LLM engine (v0.7.3) with config: model='/remote-home1/share/models/Qwen3-8B', speculative_config=None, tokenizer='/remote-home1/share/models/Qwen3-8B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=/remote-home1/share/models/Qwen3-8B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=False, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[],"max_capture_size":0}, use_cached_outputs=False, 
+INFO 07-07 10:58:09 cuda.py:229] Using Flash Attention backend.
+INFO 07-07 10:58:09 model_runner.py:1110] Starting to load model /remote-home1/share/models/Qwen3-8B...
+WARNING 07-07 10:58:09 utils.py:78] Qwen3ForCausalLM has no vLLM implementation, falling back to Transformers implementation. Some features may not be supported and performance may not be optimal.
+INFO 07-07 10:58:09 transformers.py:129] Using Transformers backend.
+Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:00<00:02,  1.92it/s]
+Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:01<00:03,  1.01s/it]
+Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:03<00:02,  1.33s/it]
+Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:05<00:01,  1.48s/it]
+Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:07<00:00,  1.57s/it]
+Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:07<00:00,  1.40s/it]
+
+INFO 07-07 10:58:17 model_runner.py:1115] Loading model weights took 15.2585 GB
+INFO 07-07 10:58:19 worker.py:267] Memory profiling takes 1.04 seconds
+INFO 07-07 10:58:19 worker.py:267] the current vLLM instance can use total_gpu_memory (23.55GiB) x gpu_memory_utilization (0.80) = 18.84GiB
+INFO 07-07 10:58:19 worker.py:267] model weights take 15.26GiB; non_torch_memory takes 0.07GiB; PyTorch activation peak memory takes 1.42GiB; the rest of the memory reserved for KV Cache is 2.09GiB.
+INFO 07-07 10:58:19 executor_base.py:111] # cuda blocks: 951, # CPU blocks: 1820
+INFO 07-07 10:58:19 executor_base.py:116] Maximum concurrency for 4096 tokens per request: 3.71x
+INFO 07-07 10:58:20 llm_engine.py:436] init engine (profile, create kv cache, warmup model) took 3.07 seconds
+=== 测试1: 普通对话模式 (vLLM) ===
+输入文本: <|im_start|>system
+你是一个会深思熟虑的AI助手。<|im_end|>
+<|im_start|>user
+你好，我是邱锡鹏老师的学生。<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+
+
+开始生成回复 (vLLM)...
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:02<00:00,  2.01s/it, est. speed input: 18.45 toks/s, output: 33.91 toks/s]Processed prompts: 100%|██████████| 1/1 [00:03<00:00,  3.04s/it, est. speed input: 18.45 toks/s, output: 33.91 toks/s]
+AI回复（普通模式 - vLLM）:
+============================================================
+你好，很高兴认识你！我是邱锡鹏老师的学生，非常荣幸能和你交流。邱老师在自然语言处理领域有着深厚的造诣，他的研究对我们这一代学者影响深远。你对他的研究有什么特别感兴趣的方向吗？或者你最近在学习或研究中遇到了什么问题，需要讨论吗？
+============================================================
+推理耗时: 3.05 秒
+
+==================================================
+
+=== 测试2: 思维链推理模式 (vLLM) ===
+输入文本: <|im_start|>system
+你是一个会深思熟虑的AI助手。<|im_end|>
+<|im_start|>user
+你好，我是邱锡鹏老师的学生。<|im_end|>
+<|im_start|>assistant
+
+
+开始生成回复（思维链模式 - vLLM）...
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.38s/it, est. speed input: 3.52 toks/s, output: 34.86 toks/s]Processed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.38s/it, est. speed input: 3.52 toks/s, output: 34.86 toks/s]
+AI回复（思维链模式 - vLLM）:
+============================================================
+<think>
+好的，用户是邱锡鹏老师的学生，这可能意味着他可能对自然语言处理、深度学习等领域有浓厚兴趣。邱锡鹏老师是阿里巴巴达摩院的研究员，专注于自然语言处理和机器学习，所以用户可能对这些领域有深入的研究或学习经历。
+
+在回应时，需要体现出对学术和研究的热情，同时保持友好和开放的态度。可以通过询问用户目前的研究方向或感兴趣的课题，来促进更深入的交流。同时，考虑到用户可能正在学习或从事相关领域，可以分享一些最新的研究成果或资源，帮助他拓展知识面。
+
+另外，用户可能希望得到一些指导或建议，因此在回应中可以表达愿意提供帮助的意愿，但也要注意不要过于直接，保持适度的距离感。通过询问具体的问题或需求，可以更好地了解用户的实际需要，从而提供更有针对性的支持。
+
+还要注意保持语言的自然和口语化，避免过于正式或生硬。可以适当使用一些表情符号或轻松的语气，让对话更加亲切。同时，保持回答的简洁性，避免信息过载，让用户能够轻松理解和回应。
+
+最后，确保回应中包含鼓励和积极的态度，让用户感受到支持和认可，这有助于建立良好的互动氛围。同时，保持开放性，让用户有更多机会进一步交流和分享。
+</think>
+
+你好！很高兴认识你！邱锡鹏老师在自然语言处理和深度学习领域确实有很多精彩的成果，比如他在Transformer、大模型等方面的研究。你目前在研究什么方向呢？如果有什么问题或者想讨论的内容，随时可以告诉我！ 😊
+============================================================
+推理耗时: 9.38 秒
+
+=== 测试完成 ===
+[rank0]:[W707 10:58:33.457940169 ProcessGroupNCCL.cpp:1250] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())

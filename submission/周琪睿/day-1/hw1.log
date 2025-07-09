@@ -1,0 +1,69 @@
+{
+  "fields": {
+    "主讲": [
+      {
+        "email": "",
+        "en_name": "郑逸宁",
+        "id": "ou_b40b32ddc16b61dea45b808af0fb33de",
+        "name": "郑逸宁"
+      }
+    ],
+    "习题": "暑期集训-2025-homework-1",
+    "助教": [
+      {
+        "email": "",
+        "en_name": "陈敬麒",
+        "id": "ou_8ea3ad738a6717ac8516b4a031bae6ea",
+        "name": "陈敬麒"
+      },
+      {
+        "email": "",
+        "en_name": "刘智耿",
+        "id": "ou_13edae653b39cb86ca20d3ccc413caf6",
+        "name": "刘智耿"
+      }
+    ],
+    "往年资料参考": "Slurm平台的用法",
+    "日期": "Day-1（7.7）",
+    "课程": "Slurm 使用方法（组内新生用 slurm）",
+    "课程文档": "[Day-1]Slurm平台的用法"
+  },
+  "id": "recuPHXbDCv9Yv",
+  "record_id": "recuPHXbDCv9Yv"
+}
+{
+  "fields": {
+    "主讲": [
+      {
+        "email": "",
+        "en_name": "刘智耿",
+        "id": "ou_13edae653b39cb86ca20d3ccc413caf6",
+        "name": "刘智耿"
+      }
+    ],
+    "助教": [
+      {
+        "email": "",
+        "en_name": "怀天宇",
+        "id": "ou_1fcf342b6ddb3110fb35ec647cc8e4fd",
+        "name": "怀天宇"
+      },
+      {
+        "email": "",
+        "en_name": "方世成",
+        "id": "ou_976f2337f6c2e539f03400ffe66d701a",
+        "name": "方世成"
+      },
+      {
+        "email": "",
+        "en_name": "宋悦荣",
+        "id": "ou_f1cc8578c36c1d7962fbc2f9b7d51b5c",
+        "name": "宋悦荣"
+      }
+    ],
+    "日期": "Day-5（7.11）",
+    "课程": "常见框架介绍( llamafactory, opencompass, vllm)"
+  },
+  "id": "recuPI4d0wUJid",
+  "record_id": "recuPI4d0wUJid"
+}
