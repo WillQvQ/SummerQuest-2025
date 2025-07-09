@@ -14,7 +14,7 @@ tokenizer = AutoTokenizer.from_pretrained("./tokenizer_with_special_tokens", tru
 
 # vLLM 引擎配置
 llm = vllm.LLM(
-    model="/remote-home1/share/models/Qwen3-8B",
+    model="/data-mnt/data/downloaded_ckpts/Qwen3-8B",
     gpu_memory_utilization=0.8, 
     trust_remote_code=True,
     enforce_eager=True,

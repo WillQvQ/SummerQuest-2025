@@ -1,0 +1,245 @@
+
+=== 第一条数据 ===
+
+--- Token详情 (每行一个token和ID) ---
+Token   0: 帮我              | ID: 108965
+Token   1: 修复              | ID: 104749
+Token   2: 这个              | ID: 99487
+Token   3: 代码              | ID: 46100
+Token   4: 中的              | ID: 101047
+Token   5:  BUG            | ID: 68534
+Token   6: '
+
+'            | ID: 271
+Token   7: def             | ID: 750
+Token   8:  add            | ID: 912
+Token   9: (a              | ID: 2877
+Token  10: ,               | ID: 11
+Token  11:  b              | ID: 293
+Token  12: ):
+             | ID: 982
+Token  13: '   '           | ID: 262
+Token  14:  return         | ID: 470
+Token  15:  a              | ID: 264
+Token  16:  -              | ID: 481
+Token  17:  b              | ID: 293
+Token  18: \n              | ID: 198
+Token  19: <think>         | ID: 151667
+Token  20:  用户             | ID: 50042
+Token  21: 没有              | ID: 80443
+Token  22: 直接              | ID: 101041
+Token  23: 告诉我             | ID: 106525
+Token  24:  BUG            | ID: 68534
+Token  25:  是              | ID: 54851
+Token  26: 什么              | ID: 99245
+Token  27: ，               | ID: 3837
+Token  28: 所以我             | ID: 107020
+Token  29: 需要              | ID: 85106
+Token  30: 先               | ID: 60726
+Token  31: 调试              | ID: 110760
+Token  32: 代码              | ID: 46100
+Token  33: 再               | ID: 87256
+Token  34: 进行              | ID: 71817
+Token  35: 分析              | ID: 101042
+Token  36: ，               | ID: 3837
+Token  37: 我               | ID: 35946
+Token  38: 应该              | ID: 99730
+Token  39: 使用              | ID: 37029
+Token  40: 代理              | ID: 101259
+Token  41: 模式              | ID: 100144
+Token  42: 进行              | ID: 71817
+Token  43: 尝试              | ID: 104482
+Token  44: </think>        | ID: 151668
+Token  45: \n              | ID: 198
+Token  46: <|AGENT|>       | ID: 151669
+Token  47: \n              | ID: 198
+Token  48: 我会              | ID: 105351
+Token  49: 使用              | ID: 37029
+Token  50: 代理              | ID: 101259
+Token  51: 模式              | ID: 100144
+Token  52: 进行              | ID: 71817
+Token  53: 处理              | ID: 54542
+Token  54: {"              | ID: 4913
+Token  55: name            | ID: 606
+Token  56: ":              | ID: 788
+Token  57:  "              | ID: 330
+Token  58: python          | ID: 12669
+Token  59: ",              | ID: 497
+Token  60:  "              | ID: 330
+Token  61: arguments       | ID: 16370
+Token  62: ":              | ID: 788
+Token  63:  {"             | ID: 5212
+Token  64: code            | ID: 1851
+Token  65: ":              | ID: 788
+Token  66:  "              | ID: 330
+Token  67: def             | ID: 750
+Token  68:  add            | ID: 912
+Token  69: (a              | ID: 2877
+Token  70: ,               | ID: 11
+Token  71:  b              | ID: 293
+Token  72: ):\             | ID: 89049
+Token  73: n               | ID: 77
+Token  74: '   '           | ID: 262
+Token  75:  return         | ID: 470
+Token  76:  a              | ID: 264
+Token  77:  -              | ID: 481
+Token  78:  b              | ID: 293
+Token  79: "}}             | ID: 30975
+
+
+=== 最后一条数据 ===
+
+--- Token详情 (每行一个token和ID) ---
+Token   0: 报               | ID: 42278
+Token   1: 错               | ID: 28726
+Token   2: 信息              | ID: 27369
+Token   3: ：               | ID: 5122
+Token   4: Indent          | ID: 42729
+Token   5: ation           | ID: 367
+Token   6: Error           | ID: 1454
+Token   7: :               | ID: 25
+Token   8:  expected       | ID: 3601
+Token   9:  an             | ID: 458
+Token  10:  ind            | ID: 1257
+Token  11: ented           | ID: 15864
+Token  12:  block          | ID: 2504
+Token  13: \n              | ID: 198
+Token  14: 修复              | ID: 104749
+Token  15: 这个              | ID: 99487
+Token  16: 缩               | ID: 99872
+Token  17: 进               | ID: 41299
+Token  18: 错误              | ID: 32100
+Token  19: '
+
+'            | ID: 271
+Token  20: def             | ID: 750
+Token  21:  check          | ID: 1779
+Token  22: _positive       | ID: 54160
+Token  23: (num            | ID: 8068
+Token  24: ):
+             | ID: 982
+Token  25: if              | ID: 333
+Token  26:  num            | ID: 1629
+Token  27:  >              | ID: 861
+Token  28: _               | ID: 220
+Token  29: 0               | ID: 15
+Token  30: :
+              | ID: 510
+Token  31: return          | ID: 689
+Token  32:  True           | ID: 3007
+Token  33: \n              | ID: 198
+Token  34: else            | ID: 1503
+Token  35: :
+              | ID: 510
+Token  36: return          | ID: 689
+Token  37:  False          | ID: 3557
+Token  38: \n              | ID: 198
+Token  39: <think>         | ID: 151667
+Token  40:  用户             | ID: 50042
+Token  41: 提供了             | ID: 104257
+Token  42: Indent          | ID: 42729
+Token  43: ation           | ID: 367
+Token  44: Error           | ID: 1454
+Token  45: 错误              | ID: 32100
+Token  46: 信息              | ID: 27369
+Token  47: ，               | ID: 3837
+Token  48: 说明              | ID: 66394
+Token  49: 缩               | ID: 99872
+Token  50: 进               | ID: 41299
+Token  51: 不               | ID: 16530
+Token  52: 正确              | ID: 88991
+Token  53: ，               | ID: 3837
+Token  54: 我               | ID: 35946
+Token  55: 应该              | ID: 99730
+Token  56: 直接              | ID: 101041
+Token  57: 修复              | ID: 104749
+Token  58: 缩               | ID: 99872
+Token  59: 进               | ID: 41299
+Token  60: 问题              | ID: 86119
+Token  61: </think>        | ID: 151668
+Token  62: \n              | ID: 198
+Token  63: <|EDIT|>        | ID: 151670
+Token  64: \n              | ID: 198
+Token  65: 我会              | ID: 105351
+Token  66: 使用              | ID: 37029
+Token  67: 编辑              | ID: 57019
+Token  68: 模式              | ID: 100144
+Token  69: 修复              | ID: 104749
+Token  70: 缩               | ID: 99872
+Token  71: 进               | ID: 41299
+Token  72: 错误              | ID: 32100
+Token  73: {"              | ID: 4913
+Token  74: name            | ID: 606
+Token  75: ":              | ID: 788
+Token  76:  "              | ID: 330
+Token  77: editor          | ID: 8868
+Token  78: ",              | ID: 497
+Token  79:  "              | ID: 330
+Token  80: arguments       | ID: 16370
+Token  81: ":              | ID: 788
+Token  82:  {"             | ID: 5212
+Token  83: original        | ID: 9889
+Token  84: _code           | ID: 4136
+Token  85: ":              | ID: 788
+Token  86:  "              | ID: 330
+Token  87: def             | ID: 750
+Token  88:  check          | ID: 1779
+Token  89: _positive       | ID: 54160
+Token  90: (num            | ID: 8068
+Token  91: ):\             | ID: 89049
+Token  92: n               | ID: 77
+Token  93: if              | ID: 333
+Token  94:  num            | ID: 1629
+Token  95:  >              | ID: 861
+Token  96: _               | ID: 220
+Token  97: 0               | ID: 15
+Token  98: :\              | ID: 7190
+Token  99: n               | ID: 77
+Token 100: return          | ID: 689
+Token 101:  True           | ID: 3007
+Token 102: \n              | ID: 1699
+Token 103: else            | ID: 1503
+Token 104: :\              | ID: 7190
+Token 105: n               | ID: 77
+Token 106: return          | ID: 689
+Token 107:  False          | ID: 3557
+Token 108: ",              | ID: 497
+Token 109:  "              | ID: 330
+Token 110: modified        | ID: 27162
+Token 111: _code           | ID: 4136
+Token 112: ":              | ID: 788
+Token 113:  "              | ID: 330
+Token 114: def             | ID: 750
+Token 115:  check          | ID: 1779
+Token 116: _positive       | ID: 54160
+Token 117: (num            | ID: 8068
+Token 118: ):\             | ID: 89049
+Token 119: n               | ID: 77
+Token 120: '   '           | ID: 262
+Token 121:  if             | ID: 421
+Token 122:  num            | ID: 1629
+Token 123:  >              | ID: 861
+Token 124: _               | ID: 220
+Token 125: 0               | ID: 15
+Token 126: :\              | ID: 7190
+Token 127: n               | ID: 77
+Token 128: '       '       | ID: 286
+Token 129:  return         | ID: 470
+Token 130:  True           | ID: 3007
+Token 131: \n              | ID: 1699
+Token 132: '   '           | ID: 262
+Token 133:  else           | ID: 770
+Token 134: :\              | ID: 7190
+Token 135: n               | ID: 77
+Token 136: '       '       | ID: 286
+Token 137:  return         | ID: 470
+Token 138:  False          | ID: 3557
+Token 139: "}}             | ID: 30975
+
+
+已生成 hw3_1.json，共处理 20 条数据
+
+=== 验证保存的tokenizer ===
+成功从 ./tokenizer_with_special_tokens 加载tokenizer
+特殊token '<|AGENT|>': 原始ID=151669, 加载后ID=151669, 一致性=✓
+特殊token '<|EDIT|>': 原始ID=151670, 加载后ID=151670, 一致性=✓
