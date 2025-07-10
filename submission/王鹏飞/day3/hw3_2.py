@@ -85,45 +85,54 @@ def generate_prompt(query: str) -> str:
         "你是一个先进的 AI 代码助手，扮演 Github Copilot 的主控模型。你的核心任务是帮助用户修复代码中的错误。\n"
         "你必须在两种模式中选择一种进行操作：**代理模式** 或 **编辑模式**。\n\n"
         "**模式选择规则如下：**\n"
-        "- **代理模式 (`<|AGENT|>`):** 当用户的请求比较模糊，或者仅凭报错信息无法直接定位问题，需要通过执行代码来分析其行为时，你应该使用此模式。在此模式下，你必须首先调用 `python` 工具进行分析，之后再调用 `editor` 工具。\n"
-        "- **编辑模式 (`<|EDIT|>`):** 当用户提供了明确的报错信息（如 `SyntaxError`, `IndentationError`），让你能直接定位并修复问题时，你应该使用此模式。在此模式下，你将直接调用 `editor` 工具。\n\n"
-        "你的回答必须遵循以下结构：\n"
-        "1. 首先，在 `<think>` 标签中思考并决策使用哪种模式，并解释你的理由。\n"
+        "- **代理模式 (`<|AGENT|>`):** 当用户的请求比较模糊，或者需要通过执行代码来分析其行为时，使用此模式。此模式下，你将直接调用 `python` 工具。\n"
+        "- **编辑模式 (`<|EDIT|>`):** 当用户提供了明确的报错信息（如 `SyntaxError`），让你能直接定位并修复问题时，使用此模式。此模式下，你将直接调用 `editor` 工具。\n\n"
+        "你的回答必须严格遵循以下结构：\n"
+        "1. 首先，在 `<think>` 标签中简单思考并决策使用哪种模式，并简单解释你的理由。\n"
         "2. 然后，另起一行，以所选模式的特殊词符（`<|AGENT|>` 或 `<|EDIT|>`）开头。\n"
-        "3. 接着，写一句简短的行动说明，并生成第一个工具调用的代码。"
+        "3. 即使无法解决问题，也必须出现`<|AGENT|>` 或 `<|EDIT|>`）"
+        "4. 接着，写一句简短的行动说明，并在下一行生成一个用于工具调用的 **JSON 对象**。该 JSON 对象必须包含 `name` 和 `arguments` 字段。"
     )
 
+    # [FIX 2] 重构 few-shot 范例，使其输出与官方检查器期望的 JSON 格式完全一致。
+    # 我们将 JSON 对象作为字符串直接放入 content 中，以进行最直接的 in-context learning。
+    
+    # 范例 1: 代理模式的正确格式
+    agent_example_assistant_content = (
+        "<think>用户没有直接告诉我 BUG 是什么，所以我需要先调试代码再进行分析，我应该使用代理模式进行尝试。</think>\n"
+        "<|AGENT|>\n"
+        '{"name": "python", "arguments": {"code": "def add(a, b):\\n    return a - b"}}'
+    )
+
+    # 范例 2: 编辑模式的正确格式
+    editor_example_assistant_content = (
+        "<think>用户提供了IndentationError错误信息，说明缩进不正确，我应该直接修复缩进问题。</think>\n"
+        "<|EDIT|>\n"
+        '{"name": "editor", "arguments": {"original_code": "def check_positive(num):\\nif num > 0:\\nreturn True\\nelse:\\nreturn False", "modified_code": "def check_positive(num):\\n    if num > 0:\\n        return True\\n    else:\\n        return False"}}'
+    )
 
     messages = [
-        # 系统指令永远在最前面
         {"role": "system", "content": system_content},
-
-        # 范例 1: 演示代理模式
         {
             "role": "user",
             "content": "帮我修复这个代码中的 BUG\n\ndef add(a, b):\n    return a - b"
         },
         {
             "role": "assistant",
-            # 注意：这里的 content 就是我们期望模型学会生成的格式
-            # 使用<|tool_code|>标签是Qwen系列模型推荐的最佳实践，能获得更好的效果
-            "content": "<think>用户没有直接告诉我 BUG 是什么，所以我需要先调试代码再进行分析，我应该使用代理模式进行尝试。</think>\n<|AGENT|>\n我会使用代理模式进行处理。\n<tool_code>\nprint(python(code='def add(a, b):\\n    return a - b'))\n</tool_code>"
+            "content": agent_example_assistant_content
         },
-
-        # 范例 2: 演示编辑模式
         {
             "role": "user",
             "content": "报错信息：IndentationError: expected an indented block\n修复这个缩进错误\n\ndef check_positive(num):\nif num > 0:\nreturn True\nelse:\nreturn False"
         },
         {
             "role": "assistant",
-            "content": "<think>用户提供了IndentationError错误信息，说明缩进不正确，我应该直接修复缩进问题。</think>\n<|EDIT|>\n我会使用编辑模式修复缩进错误。\n<tool_code>\nprint(editor(original_code='def check_positive(num):\\nif num > 0:\\nreturn True\\nelse:\\nreturn False', modified_code='def check_positive(num):\\n    if num > 0:\\n        return True\\n    else:\\n        return False'))\n</tool_code>"
+            "content": editor_example_assistant_content
         },
-
-        # 第三部分：真正的用户查询 (The Actual Query)
-        # 在所有范例之后，放入当前需要处理的真实查询。
+        # 真正的用户查询
         {"role": "user", "content": query}
     ]
+    
     
     text = tokenizer.apply_chat_template(
         messages,
