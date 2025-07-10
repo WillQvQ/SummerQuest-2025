@@ -1,0 +1,74 @@
+# conda environments:
+#
+base                     /root/miniconda
+ROS2                  *  /root/miniconda/envs/ROS2
+jupyterlab               /root/miniconda/envs/jupyterlab
+vllm                     /root/miniconda/envs/vllm
+
+/root/miniconda/envs/ROS2/bin/python
+=== 环境信息检查 ===
+
+vLLM 版本: 0.6.5
+
+=== vLLM 引擎初始化 ===
+正在初始化 vLLM 引擎...
+注意: vLLM 初始化可能需要几分钟时间
+正在加载分词器...
+vLLM 引擎和分词器初始化完成！
+
+INFO 07-10 00:51:58 config.py:478] This model supports multiple tasks: {'classify', 'reward', 'generate', 'embed', 'score'}. Defaulting to 'generate'.
+WARNING 07-10 00:51:58 cuda.py:98] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+WARNING 07-10 00:51:58 config.py:604] Async output processing is not supported on the current platform type cuda.
+INFO 07-10 00:51:58 llm_engine.py:249] Initializing an LLM engine (v0.6.5) with config: model='/data-mnt/data/downloaded_ckpts/Qwen2.5-7B-Instruct', speculative_config=None, tokenizer='/data-mnt/data/downloaded_ckpts/Qwen2.5-7B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=/data-mnt/data/downloaded_ckpts/Qwen2.5-7B-Instruct, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=False, mm_cache_preprocessor=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"candidate_compile_sizes":[],"compile_sizes":[],"capture_sizes":[],"max_capture_size":0}, use_cached_outputs=False, 
+INFO 07-10 00:52:00 selector.py:120] Using Flash Attention backend.
+INFO 07-10 00:52:01 model_runner.py:1092] Starting to load model /data-mnt/data/downloaded_ckpts/Qwen2.5-7B-Instruct...
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:21<01:05, 21.90s/it]
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:44<00:44, 22.09s/it]
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [01:15<00:26, 26.34s/it]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [01:42<00:00, 26.40s/it]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [01:42<00:00, 25.50s/it]
+
+INFO 07-10 00:53:44 model_runner.py:1097] Loading model weights took 14.2487 GB
+INFO 07-10 00:53:46 worker.py:241] Memory profiling takes 2.19 seconds
+INFO 07-10 00:53:46 worker.py:241] the current vLLM instance can use total_gpu_memory (23.68GiB) x gpu_memory_utilization (0.80) = 18.95GiB
+INFO 07-10 00:53:46 worker.py:241] model weights take 14.25GiB; non_torch_memory takes 0.10GiB; PyTorch activation peak memory takes 1.42GiB; the rest of the memory reserved for KV Cache is 3.18GiB.
+INFO 07-10 00:53:47 gpu_executor.py:76] # GPU blocks: 3722, # CPU blocks: 4681
+INFO 07-10 00:53:47 gpu_executor.py:80] Maximum concurrency for 4096 tokens per request: 14.54x
+INFO 07-10 00:53:50 llm_engine.py:446] init engine (profile, create kv cache, warmup model) took 6.20 seconds
+=== 测试1: 普通对话模式 (vLLM) ===
+输入文本: <|im_start|>system
+你是一个会深思熟虑的AI助手。<|im_end|>
+<|im_start|>user
+你好，我是邱锡鹏老师的学生。<|im_end|>
+<|im_start|>assistant
+
+
+开始生成回复 (vLLM)...
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:02<00:00,  2.12s/it, est. speed input: 15.57 toks/s, output: 31.61 toks/s]Processed prompts: 100%|██████████| 1/1 [00:02<00:00,  2.12s/it, est. speed input: 15.57 toks/s, output: 31.61 toks/s]
+AI回复（普通模式 - vLLM）:
+============================================================
+你好！很高兴认识你，邱锡鹏老师是机器学习和深度学习领域的知名学者，他的教学和研究工作对很多学生和从业者都产生了积极的影响。作为他的学生，你一定也能从中受益匪浅。请问你在学习过程中遇到什么问题，或者有什么想了解的内容，我很乐意帮助你。
+============================================================
+推理耗时: 2.22 秒
+
+==================================================
+
+=== 测试2: 思维链推理模式 (vLLM) ===
+输入文本: <|im_start|>system
+你是一个会深思熟虑的AI助手。<|im_end|>
+<|im_start|>user
+你好，我是邱锡鹏老师的学生。<|im_end|>
+<|im_start|>assistant
+
+
+开始生成回复（思维链模式 - vLLM）...
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:01<00:00,  1.37s/it, est. speed input: 24.03 toks/s, output: 45.87 toks/s]Processed prompts: 100%|██████████| 1/1 [00:01<00:00,  1.37s/it, est. speed input: 24.03 toks/s, output: 45.87 toks/s]
+AI回复（思维链模式 - vLLM）:
+============================================================
+你好！很高兴认识你，邱锡鹏老师是深度学习领域非常有影响力的人物，他在深度学习教育和研究方面做出了很大的贡献。作为他的学生，你一定受益匪浅。请问你对深度学习或机器学习有什么具体的问题或兴趣点吗？我很乐意和你交流。
+============================================================
+推理耗时: 1.38 秒
+
+=== 测试完成 ===
+[rank0]:[W710 00:53:55.818068826 ProcessGroupNCCL.cpp:1250] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
