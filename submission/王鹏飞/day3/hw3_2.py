@@ -94,9 +94,6 @@ def generate_prompt(query: str) -> str:
         "4. 接着，写一句简短的行动说明，并在下一行生成一个用于工具调用的 **JSON 对象**。该 JSON 对象必须包含 `name` 和 `arguments` 字段。"
     )
 
-    # [FIX 2] 重构 few-shot 范例，使其输出与官方检查器期望的 JSON 格式完全一致。
-    # 我们将 JSON 对象作为字符串直接放入 content 中，以进行最直接的 in-context learning。
-    
     # 范例 1: 代理模式的正确格式
     agent_example_assistant_content = (
         "<think>用户没有直接告诉我 BUG 是什么，所以我需要先调试代码再进行分析，我应该使用代理模式进行尝试。</think>\n"
@@ -104,7 +101,6 @@ def generate_prompt(query: str) -> str:
         '{"name": "python", "arguments": {"code": "def add(a, b):\\n    return a - b"}}'
     )
 
-    # 范例 2: 编辑模式的正确格式
     editor_example_assistant_content = (
         "<think>用户提供了IndentationError错误信息，说明缩进不正确，我应该直接修复缩进问题。</think>\n"
         "<|EDIT|>\n"
