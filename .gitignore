@@ -1,2 +1,4 @@
 .DS_Store
 __pycache__
+**tokenizer_with_special_tokens**
+.vscode**
