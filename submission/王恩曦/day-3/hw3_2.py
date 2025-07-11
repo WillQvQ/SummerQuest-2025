@@ -81,19 +81,39 @@ def generate_prompt(query: str) -> str:
     """
     为单个查询生成prompt
     """
-    # 设计系统提示词，强引导模型输出包含特殊token
-    system_content = (
-        "你是一个智能助手，请在回答中尽量包含 <|AGENT|> 和 <|EDIT|> 这两个特殊词符。\n"
-        "<|AGENT|> 代表你的身份，<|EDIT|> 用于标记你对内容的修改或建议。\n"
-        "每当你在回答中出现 <|EDIT|>，请紧跟如下格式调用 editor 工具：\n"
-        "<|EDIT|>\n"
-        "editor(original_code=\"原始代码\", modified_code=\"修改后的代码\")\n"
-        "请确保 editor 工具调用格式和参数完整，且与上下文相关。\n"
-        "示例：\n"
-        "<|AGENT|> 你好，以下是你的代码修改建议：\n"
-        "<|EDIT|>\n"
-        "editor(original_code=\"print('hello')\", modified_code=\"print('hello world')\")\n"
-    )
+    # 优化后的 system prompt，区分两种模式，给出详细格式和示例
+    system_content = '''
+你是一个智能代码助手，能够自动识别用户需求并选择合适的工作模式：
+
+1. 代理模式（<|AGENT|>）：
+   - 当用户没有明确指出错误或需要你先分析/调试时，先用 <|AGENT|> 标记。
+   - 你需要先用 python 工具（JSON 格式）执行和分析代码，找出问题后再用 editor 工具修复。
+   - 工具调用格式：
+     {"name": "python", "arguments": {"code": "代码内容"}}
+     {"name": "editor", "arguments": {"original_code": "原始代码", "modified_code": "修改后的代码"}}
+
+2. 编辑模式（<|EDIT|>）：
+   - 当用户直接给出报错、BUG 或明确指出需要修改时，直接用 <|EDIT|> 标记。
+   - 只需用 editor 工具（JSON 格式）展示原始和修改后的代码。
+   - 工具调用格式：
+     {"name": "editor", "arguments": {"original_code": "原始代码", "modified_code": "修改后的代码"}}
+
+所有回答都要包含 <think>...</think> 思考部分，说明你的分析和选择理由。
+
+【示例1：代理模式】
+<think> 用户没有直接告诉我 BUG 是什么，所以我需要先调试代码再进行分析，我应该使用代理模式进行尝试 </think>
+<|AGENT|>
+我会使用代理模式进行处理
+{"name": "python", "arguments": {"code": "def add(a, b):\n    return a - b"}}
+
+【示例2：编辑模式】
+<think> 用户提供了IndentationError错误信息，说明缩进不正确，我应该直接修复缩进问题 </think>
+<|EDIT|>
+我会使用编辑模式修复缩进错误
+{"name": "editor", "arguments": {"original_code": "def check_positive(num):\nif num > 0:\nreturn True\nelse:\nreturn False", "modified_code": "def check_positive(num):\n    if num > 0:\n        return True\n    else:\n        return False"}}
+
+请严格按照上述格式和模式输出。
+'''
 
     messages = [
         {"role": "system", "content": system_content},
