@@ -1,0 +1,5 @@
+学会了使用Cursor配合 arxiv_mcp_server.py 收集某个小方向的若干论文，整理到 papers.md 中
+
+一开始尝试给Trae配置一个新Agent，能够调用arxiv_mcp_server.py的方法，获得相关论文的信息存储为json文件
+
+但是Trae对论文的整理工作并没有做的很好，于是我最终转向使用Cursor进行论文检索与分类整理
