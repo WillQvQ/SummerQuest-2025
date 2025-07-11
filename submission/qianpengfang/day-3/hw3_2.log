@@ -1,0 +1,43 @@
+INFO 07-09 14:00:40 [__init__.py:244] Automatically detected platform cuda.
+=== vLLM 引擎初始化 ===
+正在初始化 vLLM 引擎...
+注意: vLLM 初始化可能需要几分钟时间
+INFO 07-09 14:00:51 [config.py:823] This model supports multiple tasks: {'score', 'reward', 'embed', 'generate', 'classify'}. Defaulting to 'generate'.
+INFO 07-09 14:00:51 [config.py:2195] Chunked prefill is enabled with max_num_batched_tokens=8192.
+WARNING 07-09 14:00:51 [cuda.py:91] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+INFO 07-09 14:00:53 [core.py:455] Waiting for init message from front-end.
+INFO 07-09 14:00:53 [core.py:70] Initializing a V1 LLM engine (v0.9.1) with config: model='/remote-home1/share/models/Qwen3-8B', speculative_config=None, tokenizer='/remote-home1/share/models/Qwen3-8B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=/remote-home1/share/models/Qwen3-8B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=False, pooler_config=None, compilation_config={"level":0,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":[],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":0,"cudagraph_capture_sizes":[],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":0,"local_cache_dir":null}
+WARNING 07-09 14:00:53 [utils.py:2737] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x1483a6abb7d0>
+INFO 07-09 14:00:54 [parallel_state.py:1065] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 07-09 14:00:54 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 07-09 14:00:54 [gpu_model_runner.py:1595] Starting to load model /remote-home1/share/models/Qwen3-8B...
+INFO 07-09 14:00:54 [gpu_model_runner.py:1600] Loading model from scratch...
+INFO 07-09 14:00:54 [cuda.py:252] Using Flash Attention backend on V1 engine.
+Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:00<00:02,  1.34it/s]
+Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:02<00:03,  1.18s/it]
+Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:03<00:02,  1.45s/it]
+Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:05<00:01,  1.56s/it]
+Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:07<00:00,  1.64s/it]
+Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:07<00:00,  1.50s/it]
+
+INFO 07-09 14:01:02 [default_loader.py:272] Loading weights took 7.56 seconds
+INFO 07-09 14:01:02 [gpu_model_runner.py:1624] Model loading took 15.2683 GiB and 7.754199 seconds
+INFO 07-09 14:01:04 [gpu_worker.py:227] Available KV cache memory: 2.11 GiB
+INFO 07-09 14:01:04 [kv_cache_utils.py:715] GPU KV cache size: 15,344 tokens
+INFO 07-09 14:01:04 [kv_cache_utils.py:719] Maximum concurrency for 4,096 tokens per request: 3.75x
+INFO 07-09 14:01:04 [core.py:171] init engine (profile, create kv cache, warmup model) took 1.89 seconds
+vLLM 引擎和分词器初始化完成！
+=== 开始处理查询 ===
+正在生成所有查询的prompt...
+所有prompt生成完成，共10个
+
+开始批量推理...
+Adding requests:   0%|          | 0/10 [00:00<?, ?it/s]Adding requests: 100%|██████████| 10/10 [00:00<00:00, 237.30it/s]
+Processed prompts:   0%|          | 0/10 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:  10%|█         | 1/10 [00:05<00:49,  5.45s/it, est. speed input: 184.20 toks/s, output: 45.87 toks/s]Processed prompts:  20%|██        | 2/10 [00:06<00:20,  2.60s/it, est. speed input: 331.32 toks/s, output: 87.24 toks/s]Processed prompts:  30%|███       | 3/10 [00:08<00:16,  2.40s/it, est. speed input: 366.12 toks/s, output: 110.83 toks/s]Processed prompts:  40%|████      | 4/10 [00:09<00:10,  1.79s/it, est. speed input: 441.53 toks/s, output: 146.77 toks/s]Processed prompts:  50%|█████     | 5/10 [00:09<00:06,  1.24s/it, est. speed input: 537.39 toks/s, output: 189.29 toks/s]Processed prompts:  60%|██████    | 6/10 [00:09<00:03,  1.06it/s, est. speed input: 622.52 toks/s, output: 229.15 toks/s]Processed prompts:  70%|███████   | 7/10 [00:10<00:03,  1.04s/it, est. speed input: 645.59 toks/s, output: 249.80 toks/s]Processed prompts:  80%|████████  | 8/10 [00:11<00:01,  1.33it/s, est. speed input: 729.82 toks/s, output: 294.07 toks/s]Processed prompts:  90%|█████████ | 9/10 [00:13<00:01,  1.30s/it, est. speed input: 669.06 toks/s, output: 287.27 toks/s]Processed prompts: 100%|██████████| 10/10 [00:28<00:00,  5.56s/it, est. speed input: 352.77 toks/s, output: 187.00 toks/s]Processed prompts: 100%|██████████| 10/10 [00:28<00:00,  2.87s/it, est. speed input: 352.77 toks/s, output: 187.00 toks/s]
+批量推理完成，耗时: 28.75 秒
+
+整理结果...
+
+=== 处理完成 ===
+结果已保存到: hw3_2.json
