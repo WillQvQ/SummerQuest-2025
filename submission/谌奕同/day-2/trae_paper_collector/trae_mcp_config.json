@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "arxiv-citation-analyzer": {
+      "command": "/home/ubuntu/Coding/homework/SummerQuest-2025/submission/谌奕同/day-2/trae_paper_collector/arxiv_mcp_server.py",
+      "args": ["/home/ubuntu/Coding/homework/SummerQuest-2025/submission/谌奕同/day-2/trae_paper_collector/arxiv_mcp_server.py"],
+      "env": {
+        "PYTHONPATH": "/home/ubuntu/Coding/homework/SummerQuest-2025/submission/谌奕同/day-2/trae_paper_collector/arxiv_mcp_server.py"
+      },
+      "description": "ArXiv论文引用分析工具，支持alphaxiv链接，具备智能缓存机制",
+      "capabilities": [
+        "analyze_arxiv_citations"
+      ]
+    }
+  }
+}

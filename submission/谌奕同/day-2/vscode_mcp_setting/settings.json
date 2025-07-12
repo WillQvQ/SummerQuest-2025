@@ -1,0 +1,22 @@
+{
+    "python.createEnvironment.trigger": "off",
+    "editor.fontSize": 18,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false,
+        "jsonc": true
+    },
+    "mcp": {
+        "servers": {
+            "my-mcp-server-570324c6": {
+                "type": "stdio",
+                "command": "/home/user/miniconda3/envs/paper/bin/python",
+                "args": ["/home/user/Workspace/paper_collect/SummerQuest-2025/handout/day-2/trae_paper_collector/arxiv_mcp_server.py"],
+                "env": {"PYTHONPATH":"SummerQuest-2025/handout/day-2/trae_paper_collector"},
+            }
+        }
+    },
+    "github.copilot.nextEditSuggestions.enabled": true
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "Query": "报错信息：SyntaxError: invalid syntax\n修复这个条件判断\n\ndef check_grade(score):\n    if score >= 90\n        return 'A'\n    elif score >= 80:\n        return 'B'\n    else:\n        return 'C'"
+  },
+  {
+    "Query": "这个数组去重函数有问题，能帮我看看吗？\n\ndef remove_duplicates(arr):\n    unique = []\n    for item in arr:\n        if item not in unique:\n            unique.append(item)\n    return unique.sort()"
+  },
+  {
+    "Query": "这个日期格式化函数有bug，但我找不出来\n\ndef format_date(year, month, day):\n    if month < 10:\n        month = '0' + month\n    if day < 10:\n        day = '0' + day\n    return f'{year}-{month}-{day}'"
+  },
+  {
+    "Query": "报错信息：NameError: name 'math' is not defined\n修复这个数学计算函数\n\ndef calculate_circle_area(radius):\n    return math.pi * radius ** 2"
+  },
+  {
+    "Query": "报错信息：TypeError: 'str' object is not callable\n修复这个字符串长度检查\n\ndef check_length(text):\n    return len(text) > 10 and text.len() < 100"
+  },
+  {
+    "Query": "报错信息：ModuleNotFoundError: No module named 'datetime'\n修复这个时间处理函数\n\nfrom datetime import datetime\n\ndef get_current_time():\n    return datetime.now().strftime('%Y-%m-%d %H:%M:%S')"
+  },
+  {
+    "Query": "这个字符串处理函数好像有逻辑错误\n\ndef reverse_words(sentence):\n    words = sentence.split(' ')\n    reversed_words = []\n    for word in words:\n        reversed_words.append(word[::-1])\n    return ' '.join(reversed_words[::-1])"
+  },
+  {
+    "Query": "这个函数运行结果不对，但我不知道哪里有问题\n\ndef calculate_average(numbers):\n    total = 0\n    for num in numbers:\n        total += num\n    return total / len(numbers) - 1"
+  },
+  {
+    "Query": "报错信息：UnboundLocalError: local variable 'count' referenced before assignment\n修复这个计数函数\n\ndef count_occurrences(text, char):\n    for c in text:\n        if c == char:\n            count += 1\n    return count"
+  },
+  {
+    "Query": "这个密码验证函数逻辑不对\n\ndef validate_password(password):\n    if len(password) < 8:\n        return False\n    has_upper = any(c.isupper() for c in password)\n    has_lower = any(c.islower() for c in password)\n    has_digit = any(c.isdigit() for c in password)\n    return has_upper or has_lower or has_digit"
+  }
+]
