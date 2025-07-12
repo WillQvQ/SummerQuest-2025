@@ -1,0 +1,1 @@
+终于对tokenizer有了更深入的理解，特别是如何添加特殊tokens，还有prompt指导tql，谢谢老师！
