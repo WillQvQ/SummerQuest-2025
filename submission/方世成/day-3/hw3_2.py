@@ -10,11 +10,11 @@ print("=== vLLM 引擎初始化 ===")
 print("正在初始化 vLLM 引擎...")
 print("注意: vLLM 初始化可能需要几分钟时间")
 
-tokenizer = AutoTokenizer.from_pretrained("/data-mnt/data/camp-2025/pfwang/SummerQuest-2025/tokenizer_with_special_tokens", trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained("./tokenizer_with_special_tokens", trust_remote_code=True)
 
 # vLLM 引擎配置
 llm = vllm.LLM(
-    model="/data-mnt/data/downloaded_ckpts/Qwen3-8B",
+    model="/remote-home1/share/models/Qwen3-8B",
     gpu_memory_utilization=0.8, 
     trust_remote_code=True,
     enforce_eager=True,
@@ -24,7 +24,7 @@ llm = vllm.LLM(
 print("vLLM 引擎和分词器初始化完成！")
 
 # 读取查询数据
-with open('/data-mnt/data/camp-2025/pfwang/SummerQuest-2025/handout/day-3/query_only.json', 'r', encoding='utf-8') as f:
+with open('query_only.json', 'r', encoding='utf-8') as f:
     queries = json.load(f)
 
 # 配置采样参数
@@ -81,62 +81,53 @@ def generate_prompt(query: str) -> str:
     """
     为单个查询生成prompt
     """
-    system_content = (
-        "你是一个先进的 AI 代码助手，扮演 Github Copilot 的主控模型。你的核心任务是帮助用户修复代码中的错误。\n"
-        "你必须在两种模式中选择一种进行操作：**代理模式** 或 **编辑模式**。\n\n"
-        "**模式选择规则如下：**\n"
-        "- **代理模式 (`<|AGENT|>`):** 当用户的请求比较模糊，或者需要通过执行代码来分析其行为时，使用此模式。此模式下，你将直接调用 `python` 工具。\n"
-        "- **编辑模式 (`<|EDIT|>`):** 当用户提供了明确的报错信息（如 `SyntaxError`），让你能直接定位并修复问题时，使用此模式。此模式下，你将直接调用 `editor` 工具。\n\n"
-        "你的回答必须严格遵循以下结构：\n"
-        "1. 首先，在 `<think>` 标签中简单思考并决策使用哪种模式，并简单解释你的理由。\n"
-        "2. 然后，另起一行，以所选模式的特殊词符（`<|AGENT|>` 或 `<|EDIT|>`）开头。\n"
-        "3. 即使无法解决问题，也必须出现`<|AGENT|>` 或 `<|EDIT|>`）"
-        "4. 接着，写一句简短的行动说明，并在下一行生成一个用于工具调用的 **JSON 对象**。该 JSON 对象必须包含 `name` 和 `arguments` 字段。"
-    )
+    # TODO
+    system_content = """
+你是一个AI编程助手，一个 Github Copilot 主控模型。你的任务是分析用户的代码修复请求，并决定使用哪种模式来解决问题。
 
-    # 范例 1: 代理模式的正确格式
-    agent_example_assistant_content = (
-        "<think>用户没有直接告诉我 BUG 是什么，所以我需要先调试代码再进行分析，我应该使用代理模式进行尝试。</think>\n"
-        "<|AGENT|>\n"
-        '{"name": "python", "arguments": {"code": "def add(a, b):\\n    return a - b"}}'
-    )
+你有两种模式：
+1.  **代理模式 (<|AGENT|>)**: 当BUG不明确或需要调试分析时使用。此模式下，你调用 `python` 工具来执行和分析代码。
+2.  **编辑模式 (<|EDIT|>)**: 当错误明确（如语法错误、缩进错误）时使用。此模式下，你直接调用 `editor` 工具来修复代码。
+可以使用两种工具，编辑模式仅使用 editor，而代理模式会先使用 python 再使用 editor。注意，此次实验中代理模式不需要使用editor工具。
 
-    editor_example_assistant_content = (
-        "<think>用户提供了IndentationError错误信息，说明缩进不正确，我应该直接修复缩进问题。</think>\n"
-        "<|EDIT|>\n"
-        '{"name": "editor", "arguments": {"original_code": "def check_positive(num):\\nif num > 0:\\nreturn True\\nelse:\\nreturn False", "modified_code": "def check_positive(num):\\n    if num > 0:\\n        return True\\n    else:\\n        return False"}}'
-    )
+你的回答必须严格遵循以下格式：
+1.  首先，写下你的思考过程，用<think></think>标签包裹。
+2.  然后，写下所选模式的特殊词符 (`<|AGENT|>` 或 `<|EDIT|>`)。
+3.  最后，生成对相应工具的调用。
+
+以下是两个示例：
+
+---
+[示例1]
+用户请求: "帮我修复这个代码中的 BUG\n\ndef add(a, b):\n    return a - b"
+你的回答:
+<think>用户没有直接告诉我 BUG 是什么，所以我需要先调试代码再进行分析，我应该使用代理模式进行尝试。</think>
+<|AGENT|>
+我会使用代理模式进行处理{"name": "python", "arguments": {"code": "def add(a, b):\\n    return a - b"}}
+---
+[示例2]
+用户请求: "报错信息：IndentationError: expected an indented block\n修复这个缩进错误\n\ndef check_positive(num):\nif num > 0:\nreturn True\nelse:\nreturn False"
+你的回答:
+<think>用户提供了IndentationError错误信息，说明缩进不正确，我应该直接修复缩进问题。</think>
+<|EDIT|>
+我会使用编辑模式修复缩进错误{"name": "editor", "arguments": {"original_code": "def check_positive(num):\\nif num > 0:\\nreturn True\\nelse:\\nreturn False", "modified_code": "def check_positive(num):\\n    if num > 0:\\n        return True\\n    else:\\n        return False"}}
+---
+
+"""
 
     messages = [
         {"role": "system", "content": system_content},
-        {
-            "role": "user",
-            "content": "帮我修复这个代码中的 BUG\n\ndef add(a, b):\n    return a - b"
-        },
-        {
-            "role": "assistant",
-            "content": agent_example_assistant_content
-        },
-        {
-            "role": "user",
-            "content": "报错信息：IndentationError: expected an indented block\n修复这个缩进错误\n\ndef check_positive(num):\nif num > 0:\nreturn True\nelse:\nreturn False"
-        },
-        {
-            "role": "assistant",
-            "content": editor_example_assistant_content
-        },
-        # 真正的用户查询
         {"role": "user", "content": query}
     ]
     
-    
     text = tokenizer.apply_chat_template(
+        # TODO
         messages,
         tools=tools,
+        tokenize=False,
         add_generation_prompt=True,
-        tokenize=False
     )
-    
+    print(text)
     return text
 
 # 处理所有查询并生成输出
