@@ -1,0 +1,14 @@
+{
+    "type": "function", 
+    "function": {
+        "name": "search", 
+        "description": "搜索引擎，在 xxx 的时候需要调用此工具", 
+        "parameters": {
+            "type": "object", 
+            "properties": {
+                "keyword": {"type": "string", "description": "使用搜索引擎所需的关键词"}, 
+                "top_k": {"type": "number", "default": 3, "description": "返回的搜索结果数量"}
+            }, 
+       "required": ["keyword"]}
+    }
+}
