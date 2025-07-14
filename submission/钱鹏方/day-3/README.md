@@ -1,0 +1,2 @@
+### 个人小结
+今天课程中学习了大模型基础知识、Tokenization 以及 Hugginface transformers 库的基本使用。本次作业中，我尝试了定义 special token，并通过 prompt engineering 的方式让大模型输出 special token 以及完成工具调用。其中，为了让未经 special tokens 训练的 LLM 能够正确地输出它们，对 prompt 做了一些微小的调整，使得能够获得比较完美的分数，即全部通过检查。 :)
