@@ -90,18 +90,16 @@ def generate_prompt(query: str) -> str:
     "请确保你的输出符合所选模式的格式，并调用相应的工具。\n"
     "示例：\n"
     
-    "1. **代理模式示例**:\n"
-    "   Query: `我的代码总是报错，能帮我找找问题吗？\\n\\ndef calc_sum(nums):\\n    total = 0\\n    for i in nums:\\ntotal += i`\n"
-    "   Output: `<think> 用户没有明确指出错误类型，我应该先调试代码，查看是否有异常</think>\\n<|AGENT|>\\n"
-    "   我会使用代理模式执行代码进行调试{\"name\": \"python\", \"arguments\": {\"code\": \"def calc_sum(nums):\\n    total = 0\\n    for i in nums:\\n        total += i\"}}`\n"
-    "   **注意**: `<think>` 用于思考用户指令，`<|AGENT|>` 标记代理模式。\n\n"
-    
-    "2. **编辑模式示例**:\n"
-    "   Query: `我的代码运行正常，但我想增加一个功能，能帮助我修改代码吗？\\n\\ndef greet(name):\\n    print('Hello ' + name)`\n"
-    "   Output: `<think> 用户要求我增加一个新的功能，给greet函数添加问候内容</think>\\n<|EDIT|>\\n"
-    "   我会使用编辑模式来修改代码，添加新的问候内容。{\"name\": \"editor\", \"arguments\": {\"original_code\": \"def greet(name):\\n    print('Hello ' + name)\", "
-    "\"modified_code\": \"def greet(name):\\n    print('Hello ' + name + ', welcome to the community!')\"}}`\n"
-    "   **注意**: `<think>` 用于思考用户指令，`<|EDIT|>` 标记编辑模式。\n\n"
+   " 1. **代理模式示例**:  "
+    "Query: `帮我修复这个代码中的 BUG\n\ndef add(a, b):\n    return a - b`  \
+    Output: `<think> 用户没有直接告诉我 BUG 是什么，所以我需要先调试代码再进行分析，我应该使用代理模式进行尝试</think>\n<|AGENT|>\n我会使用代理模式进行处理{\"name\": \"python\", \"arguments\": {\"code\": \"def add(a, b):\\n    return a - b\"}}`\
+    **注意**: `<think>` 用于思考用户指令，`<|AGENT|>` 标记代理模式。"
+
+    "2. **编辑模式示例**:  \
+    Query: `报错信息：IndentationError: expected an indented block\n修复这个缩进错误\n\ndef check_positive(num):\nif num > 0:\nreturn True\nelse:\nreturn False`  \
+    Output: `<think> 用户提供了IndentationError错误信息，说明缩进不正确，我应该直接修复缩进问题</think>\n<|EDIT|>\n我会使用编辑模式修复缩进错误{\"name\": \"editor\", \"arguments\": {\"original_code\": \"def check_positive(num):\\nif num > 0:\\nreturn True\\nelse:\\nreturn False\", \"modified_code\": \"def check_positive(num):\\n    if num > 0:\\n        return True\\n    else:\\n        return False\"}}`  \
+    **注意**: `<think>` 用于思考用户指令，`<|EDIT|>` 标记编辑模式。"
+
     
     "3. **同时使用代理模式和编辑模式示例**:\n"
     "   Query: `我的代码报错了，但我不确定为什么，能帮我修复吗？\\n\\ndef multiply(a, b):\\n    return a + b`\n"
@@ -161,7 +159,7 @@ for i, (query_item, output) in enumerate(zip(queries, outputs)):
     })
     
 # 保存结果到文件
-output_file = 'hw3_2.json'
+output_file = '/data-mnt/data/camp-2025/SummerQuest-2025/handout/day-3/hw3_2.json'
 with open(output_file, 'w', encoding='utf-8') as f:
     json.dump(results, f, ensure_ascii=False, indent=2)
 
