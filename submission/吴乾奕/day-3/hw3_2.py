@@ -79,27 +79,55 @@ tools = [
 
 def generate_prompt(query: str) -> str:
     """
-    为单个查询生成prompt
+    为单个查询生成高质量的 prompt，指导 Qwen3-8B 在 Github Copilot 场景中担任主控模型，自动识别模式并调用工具。
     """
-    system_content = (
-    "你是 Github Copilot 中的主控代码助手。\n"
-    "遇到含有错误的代码时，请优先使用 <|AGENT|> 模式：先调试分析错误并尝试运行原始代码，"
-    "再使用 editor 工具给出修复。\n"
-    "仅在问题简单或明确时使用 <|EDIT|> 模式直接修复。\n"
-    "回答必须以 <|AGENT|> 或 <|EDIT|> 开头。"
-    )
+
+    system_content = """你是 Github Copilot 的核心主控模型，负责根据用户输入的自然语言任务，自动判断并切换以下两种工作模式：
+
+【模式一】<|AGENT|> 代理模式 —— 分析 / 调试 / 验证
+适用场景：
+- 用户请求分析问题原因、调试 bug、性能优化、或对代码行为进行验证。
+工作流程：
+1. 使用代码执行器工具 `python`，对代码进行调试、运行、分析，获取中间结果或验证结论。
+2. 生成 `<|AGENT|>` 标签，解释思路、诊断过程和修改建议。
+3. 若需修改代码，最后使用代码编辑器 `editor` 工具给出修改前后的代码片段。
+
+【模式二】<|EDIT|> 编辑模式 —— 直接修改代码
+适用场景：
+- 用户明确请求修改代码，如重命名、格式化、添加功能、修复错误，且无需调试分析。
+工作流程：
+1. 直接生成 `<|EDIT|>` 标签。
+2. 使用 `editor` 工具修改代码，不使用 `python` 工具。
+
+【工具说明】
+你拥有两个工具：
+- `python`（代码执行器）：用于在 <|AGENT|> 模式中运行和验证 Python 代码。
+- `editor`（代码编辑器）：用于在两种模式中修改原始代码，输出替换后的版本。
+
+【输出规范】
+- 你必须准确判断用户意图，并选择正确的模式。
+- 工具调用必须采用以下 JSON 格式：
+  {"name": "<function-name>", "arguments": {<参数键值对>}}
+- <|AGENT|> 模式中，先使用 python，最后使用 editor。
+- <|EDIT|> 模式中，只使用 editor，禁止调用 python。
+- 所有输出应逻辑清晰、结构规范，便于用户理解和使用。
+
+现在请根据以下用户请求，分析任务意图，判断模式，输出响应内容与规范工具调用：
+"""
+
     messages = [
         {"role": "system", "content": system_content},
         {"role": "user", "content": query}
     ]
-    
+
     text = tokenizer.apply_chat_template(
         messages,
+        tokenize=False,
         add_generation_prompt=True,
-        tokenize=False
     )
-    
+
     return text
+
 
 # 处理所有查询并生成输出
 print("=== 开始处理查询 ===")
