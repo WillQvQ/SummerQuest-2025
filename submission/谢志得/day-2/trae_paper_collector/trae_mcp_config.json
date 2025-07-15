@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "arxiv-citation-analyzer": {
+      "command": "/opt/miniconda3/envs/py312/bin/python",
+      "args": ["/Users/yuning/workspace/MCP/arxiv_mcp_server.py"],
+      "env": {
+        "PYTHONPATH": "/Users/yuning/workspace/MCP"
+      },
+      "description": "ArXiv论文引用分析工具，支持alphaxiv链接，具备智能缓存机制",
+      "capabilities": [
+        "analyze_arxiv_citations"
+      ]
+    }
+  }
+}
