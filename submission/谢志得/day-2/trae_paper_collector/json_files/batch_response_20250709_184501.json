@@ -1,0 +1,3101 @@
+{
+  "timestamp": "2025-07-09T18:45:01.948196",
+  "request_paper_ids": [
+    "4e49bc6dd4a215aaea3a7c4d7fdd157adbccb49d",
+    "c64a10ec08a1ae26e043ac5b5f0d91d7d617369b",
+    "6b3ce0d47482e3080c19af5c5ccfe9915e5a8f8e",
+    "a98d89f8398e3d63721e7cb8ee96325f89833d23",
+    "de23d38bc2604dcf334dcc46aff217eb6bcd1fe1",
+    "fb970ce4383a78ad52c641bc38815d78ad737aad",
+    "16db56b5a57f2e675e5c4f60ca0fbd5764915a5e",
+    "90f2a86c37db66fcfbd2d2ec8df2ec136caf7df6",
+    "0681d80cd58b6135534cf279a69f5f999f47ebca",
+    "56a9aa8825b6c6441b0d22b9bc04852e1af80852",
+    "b39e8ff1babf6b5276c0af68ab766c46487e1df7",
+    "88e00d651413264261a1c3100710d491502930a7",
+    "181b4a18a17105c6c270ec533b96b519c9e28c42",
+    "2039018e618ccc34744addf94c2ab8ad141d7f24",
+    "ce31151064003530fd21ad5395bb48eff50dd63e",
+    "34a98d89b38d10aad635a8bf713058c8d0c06c3d",
+    "c784ce3b0c90a11f87d1164d16d4ddb041aa9d7f",
+    "34471a2fa18ea22efad5287cf4aeb18542c98a9b",
+    "668075792a7ab40457d92e09da28d35c879271c3",
+    "09cedd18546c334891df025aa3a4e21658affa23",
+    "84c149537dee8ef3a7ff54b6bb01e9a4c8eaa17c",
+    "3bbf541c2a3ce0ffaed3703cd486f0e1b2febb27",
+    "88aa6b1f37d1fd8e0a40499ce9bb87873f03aaa8",
+    "2cd94b619034ae0226f4391e3ff628fe9ce780a1",
+    "07e61eaafcbc78061fb87c2b893db9fc26c30eb9",
+    "f2d0f3d47ae850f49a58f4977393bd0025af4bec",
+    "f15a1a87c345a0b0b2b989064ede053d1411bb03",
+    "9b3239cff17327960804098e33e1ca903e7b9e85",
+    "d688af24de21449ef5fe5288746a51569942eb32",
+    "35b142ea69598e6241f0011312128031df55895c",
+    "1bd9466f0bb10d29a16f614943ec7823e13cb210",
+    "be8db99310602d66bba64bcf41a572c45816fbfc",
+    "126a4776ff8315fd506766cb8f3c722cf746ad9e",
+    "1b6e810ce0afd0dd093f789d2b2742d047e316d5",
+    "d6045d2ccc9c09ca1671348de86d07da6bc28eea",
+    "57d1e7ac339e783898f2c3b1af55737cbeee9fc5",
+    "8323c591e119eb09b28b29fd6c7bc76bd889df7a",
+    "0c908739fbff75f03469d13d4a1a07de3414ee19",
+    "bf82b02460c2cc442617a0920c4d0b07d468ed1f",
+    "985298bd0b6f4c84ab34bb15cfed0b092f43b83a"
+  ],
+  "response_count": 40,
+  "raw_response": [
+    {
+      "paperId": "4e49bc6dd4a215aaea3a7c4d7fdd157adbccb49d",
+      "externalIds": {
+        "ArXiv": "2506.11986",
+        "CorpusId": 279391488
+      },
+      "title": "Schema-R1: A reasoning training approach for schema linking in Text-to-SQL Task",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2506.11986, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2299043645",
+          "name": "Wuzhenghong Wen"
+        },
+        {
+          "authorId": "2367596011",
+          "name": "Su Pan"
+        },
+        {
+          "authorId": "2367090857",
+          "name": "yuwei Sun"
+        }
+      ],
+      "abstract": "Schema linking is a critical step in Text-to-SQL task, aiming to accurately predict the table names and column names required for the SQL query based on the given question. However, current fine-tuning approaches for schema linking models employ a rote-learning paradigm, excessively optimizing for ground truth schema linking outcomes while compromising reasoning ability. This limitation arises because of the difficulty in acquiring a high-quality reasoning sample for downstream tasks. To address this, we propose Schema-R1, a reasoning schema linking model trained using reinforcement learning. Specifically, Schema-R1 consists of three key steps: constructing small batches of high-quality reasoning samples, supervised fine-tuning for cold-start initialization, and rule-based reinforcement learning training. The final results demonstrate that our method effectively enhances the reasoning ability of the schema linking model, achieving a 10\\% improvement in filter accuracy compared to the existing method. Our code is available at https://github.com/hongWin/Schema-R1/."
+    },
+    {
+      "paperId": "c64a10ec08a1ae26e043ac5b5f0d91d7d617369b",
+      "externalIds": {
+        "ArXiv": "2506.04210",
+        "DBLP": "journals/corr/abs-2506-04210",
+        "DOI": "10.48550/arXiv.2506.04210",
+        "CorpusId": 279155405
+      },
+      "title": "Does Thinking More always Help? Understanding Test-Time Scaling in Reasoning Models",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2506.04210, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2655959",
+          "name": "Soumya Suvra Ghosal"
+        },
+        {
+          "authorId": "49081354",
+          "name": "Souradip Chakraborty"
+        },
+        {
+          "authorId": "2339656415",
+          "name": "Avinash Reddy"
+        },
+        {
+          "authorId": "2327002550",
+          "name": "Yifu Lu"
+        },
+        {
+          "authorId": "2268167170",
+          "name": "Mengdi Wang"
+        },
+        {
+          "authorId": "2271083353",
+          "name": "Dinesh Manocha"
+        },
+        {
+          "authorId": "2261325066",
+          "name": "Furong Huang"
+        },
+        {
+          "authorId": "2294564134",
+          "name": "Mohammad Ghavamzadeh"
+        },
+        {
+          "authorId": "3387859",
+          "name": "A. S. Bedi"
+        }
+      ],
+      "abstract": "Recent trends in test-time scaling for reasoning models (e.g., OpenAI o1, DeepSeek R1) have led to a popular belief that extending thinking traces using prompts like\"Wait\"or\"Let me rethink\"can improve performance. This raises a natural question: Does thinking more at test-time truly lead to better reasoning? To answer this question, we perform a detailed empirical study across models and benchmarks, which reveals a consistent pattern of initial performance improvements from additional thinking followed by a decline, due to\"overthinking\". To understand this non-monotonic trend, we consider a simple probabilistic model, which reveals that additional thinking increases output variance-creating an illusion of improved reasoning while ultimately undermining precision. Thus, observed gains from\"more thinking\"are not true indicators of improved reasoning, but artifacts stemming from the connection between model uncertainty and evaluation metric. This suggests that test-time scaling through extended thinking is not an effective way to utilize the inference thinking budget. Recognizing these limitations, we introduce an alternative test-time scaling approach, parallel thinking, inspired by Best-of-N sampling. Our method generates multiple independent reasoning paths within the same inference budget and selects the most consistent response via majority vote, achieving up to 20% higher accuracy compared to extended thinking. This provides a simple yet effective mechanism for test-time scaling of reasoning models."
+    },
+    {
+      "paperId": "6b3ce0d47482e3080c19af5c5ccfe9915e5a8f8e",
+      "externalIds": {
+        "ArXiv": "2505.17941",
+        "DBLP": "journals/corr/abs-2505-17941",
+        "DOI": "10.48550/arXiv.2505.17941",
+        "CorpusId": 278886376
+      },
+      "title": "VeriThinker: Learning to Verify Makes Reasoning Model Efficient",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2505.17941, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2273380103",
+          "name": "Zigeng Chen"
+        },
+        {
+          "authorId": "15532066",
+          "name": "Xinyin Ma"
+        },
+        {
+          "authorId": "150110431",
+          "name": "Gongfan Fang"
+        },
+        {
+          "authorId": "2049052456",
+          "name": "Ruonan Yu"
+        },
+        {
+          "authorId": "2322993154",
+          "name": "Xinchao Wang"
+        }
+      ],
+      "abstract": "Large Reasoning Models (LRMs) excel at complex tasks using Chain-of-Thought (CoT) reasoning. However, their tendency to overthinking leads to unnecessarily lengthy reasoning chains, dramatically increasing inference costs. To mitigate this issue, we introduce VeriThinker, a novel approach for CoT compression. Unlike conventional methods that fine-tune LRMs directly on the original reasoning task using synthetic concise CoT data, we innovatively fine-tune the model solely through an auxiliary verification task. By training LRMs to accurately verify the correctness of CoT solutions, the LRMs inherently become more discerning about the necessity of subsequent self-reflection steps, thereby effectively suppressing overthinking. Extensive experiments validate that VeriThinker substantially reduces reasoning chain lengths while maintaining or even slightly improving accuracy. When applied to DeepSeek-R1-Distill-Qwen-7B, our approach reduces reasoning tokens on MATH500 from 3790 to 2125 while improving accuracy by 0.8% (94.0% to 94.8%), and on AIME25, tokens decrease from 14321 to 10287 with a 2.1% accuracy gain (38.7% to 40.8%). Additionally, our experiments demonstrate that VeriThinker can also be zero-shot generalized to speculative reasoning. Code is available at https://github.com/czg1225/VeriThinker"
+    },
+    {
+      "paperId": "a98d89f8398e3d63721e7cb8ee96325f89833d23",
+      "externalIds": {
+        "ArXiv": "2504.10903",
+        "DBLP": "journals/corr/abs-2504-10903",
+        "DOI": "10.48550/arXiv.2504.10903",
+        "CorpusId": 277786677
+      },
+      "title": "Efficient Reasoning Models: A Survey",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2504.10903, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2356390733",
+          "name": "Sicheng Feng"
+        },
+        {
+          "authorId": "150110431",
+          "name": "Gongfan Fang"
+        },
+        {
+          "authorId": "15532066",
+          "name": "Xinyin Ma"
+        },
+        {
+          "authorId": "2322993154",
+          "name": "Xinchao Wang"
+        }
+      ],
+      "abstract": "Reasoning models have demonstrated remarkable progress in solving complex and logic-intensive tasks by generating extended Chain-of-Thoughts (CoTs) prior to arriving at a final answer. Yet, the emergence of this\"slow-thinking\"paradigm, with numerous tokens generated in sequence, inevitably introduces substantial computational overhead. To this end, it highlights an urgent need for effective acceleration. This survey aims to provide a comprehensive overview of recent advances in efficient reasoning. It categorizes existing works into three key directions: (1) shorter - compressing lengthy CoTs into concise yet effective reasoning chains; (2) smaller - developing compact language models with strong reasoning capabilities through techniques such as knowledge distillation, other model compression techniques, and reinforcement learning; and (3) faster - designing efficient decoding strategies to accelerate inference. A curated collection of papers discussed in this survey is available in our GitHub repository."
+    },
+    {
+      "paperId": "de23d38bc2604dcf334dcc46aff217eb6bcd1fe1",
+      "externalIds": {
+        "ArXiv": "2503.20783",
+        "DBLP": "journals/corr/abs-2503-20783",
+        "DOI": "10.48550/arXiv.2503.20783",
+        "CorpusId": 277322777
+      },
+      "title": "Understanding R1-Zero-Like Training: A Critical Perspective",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2503.20783, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2117943295",
+          "name": "Zi-Yan Liu"
+        },
+        {
+          "authorId": "2268428744",
+          "name": "Changyu Chen"
+        },
+        {
+          "authorId": "2352592692",
+          "name": "Wenjun Li"
+        },
+        {
+          "authorId": "2280066330",
+          "name": "Penghui Qi"
+        },
+        {
+          "authorId": "19201674",
+          "name": "Tianyu Pang"
+        },
+        {
+          "authorId": "2325201427",
+          "name": "Chao Du"
+        },
+        {
+          "authorId": "2280902347",
+          "name": "Wee Sun Lee"
+        },
+        {
+          "authorId": "2253977831",
+          "name": "Min Lin"
+        }
+      ],
+      "abstract": "DeepSeek-R1-Zero has shown that reinforcement learning (RL) at scale can directly enhance the reasoning capabilities of LLMs without supervised fine-tuning. In this work, we critically examine R1-Zero-like training by analyzing its two core components: base models and RL. We investigate a wide range of base models, including DeepSeek-V3-Base, to understand how pretraining characteristics influence RL performance. Our analysis reveals that DeepSeek-V3-Base already exhibit ''Aha moment'', while Qwen2.5 base models demonstrate strong reasoning capabilities even without prompt templates, suggesting potential pretraining biases. Additionally, we identify an optimization bias in Group Relative Policy Optimization (GRPO), which artificially increases response length (especially for incorrect outputs) during training. To address this, we introduce Dr. GRPO, an unbiased optimization method that improves token efficiency while maintaining reasoning performance. Leveraging these insights, we present a minimalist R1-Zero recipe that achieves 43.3% accuracy on AIME 2024 with a 7B base model, establishing a new state-of-the-art. Our code is available at https://github.com/sail-sg/understand-r1-zero."
+    },
+    {
+      "paperId": "fb970ce4383a78ad52c641bc38815d78ad737aad",
+      "externalIds": {
+        "ArXiv": "2503.19470",
+        "DBLP": "journals/corr/abs-2503-19470",
+        "DOI": "10.48550/arXiv.2503.19470",
+        "CorpusId": 277313597
+      },
+      "title": "ReSearch: Learning to Reason with Search for LLMs via Reinforcement Learning",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2503.19470, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "48622851",
+          "name": "Mingyang Chen"
+        },
+        {
+          "authorId": "2299324291",
+          "name": "Tianpeng Li"
+        },
+        {
+          "authorId": "2310650212",
+          "name": "Haoze Sun"
+        },
+        {
+          "authorId": "2326994839",
+          "name": "Yijie Zhou"
+        },
+        {
+          "authorId": "2327200247",
+          "name": "Chenzheng Zhu"
+        },
+        {
+          "authorId": "2337837645",
+          "name": "Haofen Wang"
+        },
+        {
+          "authorId": "2287274564",
+          "name": "Jeff Z. Pan"
+        },
+        {
+          "authorId": "2265358754",
+          "name": "Wen Zhang"
+        },
+        {
+          "authorId": "14499025",
+          "name": "Hua-zeng Chen"
+        },
+        {
+          "authorId": "2310445518",
+          "name": "Fan Yang"
+        },
+        {
+          "authorId": "2183768304",
+          "name": "Zenan Zhou"
+        },
+        {
+          "authorId": "2299165327",
+          "name": "Weipeng Chen"
+        }
+      ],
+      "abstract": "Large Language Models (LLMs) have shown remarkable capabilities in reasoning, exemplified by the success of OpenAI-o1 and DeepSeek-R1. However, integrating reasoning with external search processes remains challenging, especially for complex multi-hop questions requiring multiple retrieval steps. We propose ReSearch, a novel framework that trains LLMs to Reason with Search via reinforcement learning without using any supervised data on reasoning steps. Our approach treats search operations as integral components of the reasoning chain, where when and how to perform searches is guided by text-based thinking, and search results subsequently influence further reasoning. We train ReSearch on Qwen2.5-7B(-Instruct) and Qwen2.5-32B(-Instruct) models and conduct extensive experiments. Despite being trained on only one dataset, our models demonstrate strong generalizability across various benchmarks. Analysis reveals that ReSearch naturally elicits advanced reasoning capabilities such as reflection and self-correction during the reinforcement learning process."
+    },
+    {
+      "paperId": "16db56b5a57f2e675e5c4f60ca0fbd5764915a5e",
+      "externalIds": {
+        "ArXiv": "2503.18892",
+        "DBLP": "journals/corr/abs-2503-18892",
+        "DOI": "10.48550/arXiv.2503.18892",
+        "CorpusId": 277940848
+      },
+      "title": "SimpleRL-Zoo: Investigating and Taming Zero Reinforcement Learning for Open Base Models in the Wild",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2503.18892, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2069640466",
+          "name": "Weihao Zeng"
+        },
+        {
+          "authorId": "2296738020",
+          "name": "Yuzhen Huang"
+        },
+        {
+          "authorId": "2348876943",
+          "name": "Qian Liu"
+        },
+        {
+          "authorId": "2157222998",
+          "name": "Wei Liu"
+        },
+        {
+          "authorId": "2356799817",
+          "name": "Keqing He"
+        },
+        {
+          "authorId": "2356479376",
+          "name": "Zejun Ma"
+        },
+        {
+          "authorId": "2296750719",
+          "name": "Junxian He"
+        }
+      ],
+      "abstract": "DeepSeek-R1 has shown that long chain-of-thought (CoT) reasoning can naturally emerge through a simple reinforcement learning (RL) framework with rule-based rewards, where the training may directly start from the base models-a paradigm referred to as zero RL training. Most recent efforts to reproduce zero RL training have primarily focused on the Qwen2.5 model series, which may not be representative as we find the base models already exhibit strong instruction-following and self-reflection abilities. In this work, we investigate zero RL training across 10 diverse base models, spanning different families and sizes including LLama3-8B, Mistral-7B/24B, DeepSeek-Math-7B, Qwen2.5-math-7B, and all Qwen2.5 models from 0.5B to 32B. Leveraging several key design strategies-such as adjusting format reward and controlling query difficulty-we achieve substantial improvements in both reasoning accuracy and response length across most settings. However, by carefully monitoring the training dynamics, we observe that different base models exhibit distinct patterns during training. For instance, the increased response length does not always correlate with the emergence of certain cognitive behaviors such as verification (i.e., the\"aha moment\"). Notably, we observe the\"aha moment\"for the first time in small models not from the Qwen family. We share the key designs that enable successful zero RL training, along with our findings and practices. To facilitate further research, we open-source the code, models, and analysis tools."
+    },
+    {
+      "paperId": "90f2a86c37db66fcfbd2d2ec8df2ec136caf7df6",
+      "externalIds": {
+        "ArXiv": "2503.05179",
+        "DBLP": "journals/corr/abs-2503-05179",
+        "DOI": "10.48550/arXiv.2503.05179",
+        "CorpusId": 276885298
+      },
+      "title": "Sketch-of-Thought: Efficient LLM Reasoning with Adaptive Cognitive-Inspired Sketching",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2503.05179, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2349237513",
+          "name": "Simon A. Aytes"
+        },
+        {
+          "authorId": "90765684",
+          "name": "Jinheon Baek"
+        },
+        {
+          "authorId": "2260611009",
+          "name": "Sung Ju Hwang"
+        }
+      ],
+      "abstract": "Recent advances in large language models (LLMs) have enabled strong reasoning capabilities through Chain-of-Thought (CoT) prompting, which elicits step-by-step problem solving, but often at the cost of excessive verbosity in intermediate outputs, leading to increased computational overhead. We propose Sketch-of-Thought (SoT), a prompting framework that integrates cognitively inspired reasoning paradigms with linguistic constraints to reduce token usage while preserving reasoning accuracy. SoT is designed as a flexible, modular approach and is instantiated with three paradigms--Conceptual Chaining, Chunked Symbolism, and Expert Lexicons--each tailored to distinct reasoning tasks and selected dynamically at test-time by a lightweight routing model. Across 15 reasoning datasets spanning multiple domains, languages, and modalities, SoT achieves token reductions of up to 78% with minimal accuracy loss. In tasks such as mathematical and multi-hop reasoning, it even improves accuracy while shortening outputs."
+    },
+    {
+      "paperId": "0681d80cd58b6135534cf279a69f5f999f47ebca",
+      "externalIds": {
+        "ArXiv": "2503.04697",
+        "DBLP": "journals/corr/abs-2503-04697",
+        "DOI": "10.48550/arXiv.2503.04697",
+        "CorpusId": 276813519
+      },
+      "title": "L1: Controlling How Long A Reasoning Model Thinks With Reinforcement Learning",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2503.04697, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2114841965",
+          "name": "Pranjal Aggarwal"
+        },
+        {
+          "authorId": "2129663",
+          "name": "S. Welleck"
+        }
+      ],
+      "abstract": "Reasoning language models have shown an uncanny ability to improve performance at test-time by ``thinking longer''-that is, by generating longer chain-of-thought sequences and hence using more compute. However, the length of their chain-of-thought reasoning is not controllable, making it impossible to allocate test-time compute to achieve a desired level of performance. We introduce Length Controlled Policy Optimization (LCPO), a simple reinforcement learning method that optimizes for accuracy and adherence to user-specified length constraints. We use LCPO to train L1, a reasoning language model that produces outputs satisfying a length constraint given in its prompt. L1's length control allows for smoothly trading off computational cost and accuracy on a wide range of tasks, and outperforms the state-of-the-art S1 method for length control. Furthermore, we uncover an unexpected short chain-of-thought capability in models trained with LCPO. For instance, our 1.5B L1 model surpasses GPT-4o at equal reasoning lengths. Overall, LCPO enables precise control over reasoning length, allowing for fine-grained allocation of test-time compute and accuracy. We release code and models at https://www.cmu-l3.github.io/l1"
+    },
+    {
+      "paperId": "56a9aa8825b6c6441b0d22b9bc04852e1af80852",
+      "externalIds": {
+        "ArXiv": "2502.18600",
+        "DBLP": "journals/corr/abs-2502-18600",
+        "DOI": "10.48550/arXiv.2502.18600",
+        "CorpusId": 276618268
+      },
+      "title": "Chain of Draft: Thinking Faster by Writing Less",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2502.18600, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2347485107",
+          "name": "Silei Xu"
+        },
+        {
+          "authorId": "2350151999",
+          "name": "Wenhao Xie"
+        },
+        {
+          "authorId": "2347521088",
+          "name": "Lingxiao Zhao"
+        },
+        {
+          "authorId": "2347335880",
+          "name": "Pengcheng He"
+        }
+      ],
+      "abstract": "Large Language Models (LLMs) have demonstrated remarkable performance in solving complex reasoning tasks through mechanisms like Chain-of-Thought (CoT) prompting, which emphasizes verbose, step-by-step reasoning. However, humans typically employ a more efficient strategy: drafting concise intermediate thoughts that capture only essential information. In this work, we propose Chain of Draft (CoD), a novel paradigm inspired by human cognitive processes, where LLMs generate minimalistic yet informative intermediate reasoning outputs while solving tasks. By reducing verbosity and focusing on critical insights, CoD matches or surpasses CoT in accuracy while using as little as only 7.6% of the tokens, significantly reducing cost and latency across various reasoning tasks. Our code and data are available at https://github.com/sileix/chain-of-draft."
+    },
+    {
+      "paperId": "b39e8ff1babf6b5276c0af68ab766c46487e1df7",
+      "externalIds": {
+        "DBLP": "journals/corr/abs-2502-17416",
+        "ArXiv": "2502.17416",
+        "DOI": "10.48550/arXiv.2502.17416",
+        "CorpusId": 276575815
+      },
+      "title": "Reasoning with Latent Thoughts: On the Power of Looped Transformers",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2502.17416, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "10769461",
+          "name": "Nikunj Saunshi"
+        },
+        {
+          "authorId": "2312421",
+          "name": "Nishanth Dikkala"
+        },
+        {
+          "authorId": "2347184458",
+          "name": "Zhiyuan Li"
+        },
+        {
+          "authorId": "2283420123",
+          "name": "Sanjiv Kumar"
+        },
+        {
+          "authorId": "1981186",
+          "name": "Sashank J. Reddi"
+        }
+      ],
+      "abstract": "Large language models have shown remarkable reasoning abilities and scaling laws suggest that large parameter count, especially along the depth axis, is the primary driver. In this work, we make a stronger claim -- many reasoning problems require a large depth but not necessarily many parameters. This unlocks a novel application of looped models for reasoning. Firstly, we show that for many synthetic reasoning problems like addition, $p$-hop induction, and math problems, a $k$-layer transformer looped $L$ times nearly matches the performance of a $kL$-layer non-looped model, and is significantly better than a $k$-layer model. This is further corroborated by theoretical results showing that many such reasoning problems can be solved via iterative algorithms, and thus, can be solved effectively using looped models with nearly optimal depth. Perhaps surprisingly, these benefits also translate to practical settings of language modeling -- on many downstream reasoning tasks, a language model with $k$-layers looped $L$ times can be competitive to, if not better than, a $kL$-layer language model. In fact, our empirical analysis reveals an intriguing phenomenon: looped and non-looped models exhibit scaling behavior that depends on their effective depth, akin to the inference-time scaling of chain-of-thought (CoT) reasoning. We further elucidate the connection to CoT reasoning by proving that looped models implicitly generate latent thoughts and can simulate $T$ steps of CoT with $T$ loops. Inspired by these findings, we also present an interesting dichotomy between reasoning and memorization, and design a looping-based regularization that is effective on both fronts."
+    },
+    {
+      "paperId": "88e00d651413264261a1c3100710d491502930a7",
+      "externalIds": {
+        "DBLP": "journals/corr/abs-2502-11569",
+        "ArXiv": "2502.11569",
+        "DOI": "10.48550/arXiv.2502.11569",
+        "CorpusId": 276409399
+      },
+      "title": "Towards Reasoning Ability of Small Language Models",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2502.11569, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2345824933",
+          "name": "Gaurav Srivastava"
+        },
+        {
+          "authorId": "2346265532",
+          "name": "Shuxiang Cao"
+        },
+        {
+          "authorId": "2345876601",
+          "name": "Xuan Wang"
+        }
+      ],
+      "abstract": "Reasoning has long been viewed as an emergent property of large language models (LLMs), appearing at or above a certain scale ($\\sim$100B parameters). However, recent studies challenge this assumption, showing that small language models (SLMs) can also achieve competitive reasoning performance. SLMs are increasingly favored for their efficiency and deployability. However, there is a lack of systematic study on the reasoning abilities of diverse SLMs, including those trained from scratch or derived from LLMs through quantization, pruning, and distillation. This raises a critical question: Can SLMs achieve reasoning abilities comparable to LLMs? In this work, we systematically survey, benchmark, and analyze 72 SLMs from six model families across 14 reasoning benchmarks. For reliable evaluation, we examine four evaluation methods and compare four LLM judges against human evaluations on 800 data points. We repeat all experiments three times to ensure a robust performance assessment. Additionally, we analyze the impact of different prompting strategies in small models. Beyond accuracy, we also evaluate model robustness under adversarial conditions and intermediate reasoning steps. Our findings challenge the assumption that scaling is the only way to achieve strong reasoning. Instead, we foresee a future where SLMs with strong reasoning capabilities can be developed through structured training or post-training compression. They can serve as efficient alternatives to LLMs for reasoning-intensive tasks."
+    },
+    {
+      "paperId": "181b4a18a17105c6c270ec533b96b519c9e28c42",
+      "externalIds": {
+        "DBLP": "journals/corr/abs-2502-12143",
+        "ArXiv": "2502.12143",
+        "DOI": "10.48550/arXiv.2502.12143",
+        "CorpusId": 276422318
+      },
+      "title": "Small Models Struggle to Learn from Strong Reasoners",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2502.12143, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2307144076",
+          "name": "Yuetai Li"
+        },
+        {
+          "authorId": "2320808317",
+          "name": "Xiang Yue"
+        },
+        {
+          "authorId": "2268640874",
+          "name": "Zhangchen Xu"
+        },
+        {
+          "authorId": "2268521947",
+          "name": "Fengqing Jiang"
+        },
+        {
+          "authorId": "152145884",
+          "name": "Luyao Niu"
+        },
+        {
+          "authorId": "2328296250",
+          "name": "Bill Yuchen Lin"
+        },
+        {
+          "authorId": "31306695",
+          "name": "Bhaskar Ramasubramanian"
+        },
+        {
+          "authorId": "2288930670",
+          "name": "Radha Poovendran"
+        }
+      ],
+      "abstract": "Large language models (LLMs) excel in complex reasoning tasks, and distilling their reasoning capabilities into smaller models has shown promise. However, we uncover an interesting phenomenon, which we term the Small Model Learnability Gap: small models ($\\leq$3B parameters) do not consistently benefit from long chain-of-thought (CoT) reasoning or distillation from larger models. Instead, they perform better when fine-tuned on shorter, simpler reasoning chains that better align with their intrinsic learning capacity. To address this, we propose Mix Distillation, a simple yet effective strategy that balances reasoning complexity by combining long and short CoT examples or reasoning from both larger and smaller models. Our experiments demonstrate that Mix Distillation significantly improves small model reasoning performance compared to training on either data alone. These findings highlight the limitations of direct strong model distillation and underscore the importance of adapting reasoning complexity for effective reasoning capability transfer."
+    },
+    {
+      "paperId": "2039018e618ccc34744addf94c2ab8ad141d7f24",
+      "externalIds": {
+        "ArXiv": "2502.09601",
+        "DBLP": "journals/corr/abs-2502-09601",
+        "DOI": "10.48550/arXiv.2502.09601",
+        "CorpusId": 276317564
+      },
+      "title": "CoT-Valve: Length-Compressible Chain-of-Thought Tuning",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2502.09601, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "15532066",
+          "name": "Xinyin Ma"
+        },
+        {
+          "authorId": "2345187917",
+          "name": "Guangnian Wan"
+        },
+        {
+          "authorId": "2044524205",
+          "name": "Runpeng Yu"
+        },
+        {
+          "authorId": "150110431",
+          "name": "Gongfan Fang"
+        },
+        {
+          "authorId": "2322993154",
+          "name": "Xinchao Wang"
+        }
+      ],
+      "abstract": "Chain-of-Thought significantly enhances a model's reasoning capability, but it also comes with a considerable increase in inference costs due to long chains. With the observation that the reasoning path can be easily compressed under easy tasks but struggle on hard tasks, we explore the feasibility of elastically controlling the length of reasoning paths with only one model, thereby reducing the inference overhead of reasoning models dynamically based on task difficulty. We introduce a new tuning and inference strategy named CoT-Valve, designed to allow models to generate reasoning chains of varying lengths. To achieve this, we propose to identify a direction in the parameter space that, when manipulated, can effectively control the length of generated CoT. Moreover, we show that this property is valuable for compressing the reasoning chain. We construct datasets with chains from long to short for the same questions and explore two enhanced strategies for CoT-Valve: (1) a precise length-compressible CoT tuning method, and (2) a progressive chain length compression approach. Our experiments show that CoT-Valve successfully enables controllability and compressibility of the chain and shows better performance than the prompt-based control. We applied this method to QwQ-32B-Preview, reducing reasoning chains on GSM8K from 741 to 225 tokens with a minor performance drop (95.07% to 94.92%) and on AIME from 6827 to 4629 tokens, with only one additional incorrect answer."
+    },
+    {
+      "paperId": "ce31151064003530fd21ad5395bb48eff50dd63e",
+      "externalIds": {
+        "ArXiv": "2502.08235",
+        "DBLP": "journals/corr/abs-2502-08235",
+        "DOI": "10.48550/arXiv.2502.08235",
+        "CorpusId": 276287600
+      },
+      "title": "The Danger of Overthinking: Examining the Reasoning-Action Dilemma in Agentic Tasks",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2502.08235, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2326113379",
+          "name": "Alejandro Cuadron"
+        },
+        {
+          "authorId": "2265517766",
+          "name": "Dacheng Li"
+        },
+        {
+          "authorId": "2346810651",
+          "name": "Wenjie Ma"
+        },
+        {
+          "authorId": "2345365981",
+          "name": "Xingyao Wang"
+        },
+        {
+          "authorId": "2342357349",
+          "name": "Yichuan Wang"
+        },
+        {
+          "authorId": "92721493",
+          "name": "Siyuan Zhuang"
+        },
+        {
+          "authorId": "2344195930",
+          "name": "Shu Liu"
+        },
+        {
+          "authorId": "2344083070",
+          "name": "Luis Gaspar Schroeder"
+        },
+        {
+          "authorId": "2329106902",
+          "name": "Tian Xia"
+        },
+        {
+          "authorId": "2345007132",
+          "name": "Huanzhi Mao"
+        },
+        {
+          "authorId": "2148293848",
+          "name": "Nicholas Thumiger"
+        },
+        {
+          "authorId": "2336092118",
+          "name": "Aditya Desai"
+        },
+        {
+          "authorId": "2316149874",
+          "name": "Ion Stoica"
+        },
+        {
+          "authorId": "2285439921",
+          "name": "Ana Klimovic"
+        },
+        {
+          "authorId": "2337795179",
+          "name": "Graham Neubig"
+        },
+        {
+          "authorId": "2330646672",
+          "name": "Joseph E. Gonzalez"
+        }
+      ],
+      "abstract": "Large Reasoning Models (LRMs) represent a breakthrough in AI problem-solving capabilities, but their effectiveness in interactive environments can be limited. This paper introduces and analyzes overthinking in LRMs. A phenomenon where models favor extended internal reasoning chains over environmental interaction. Through experiments on software engineering tasks using SWE Bench Verified, we observe three recurring patterns: Analysis Paralysis, Rogue Actions, and Premature Disengagement. We propose a framework to study these behaviors, which correlates with human expert assessments, and analyze 4018 trajectories. We observe that higher overthinking scores correlate with decreased performance, with reasoning models exhibiting stronger tendencies toward overthinking compared to non-reasoning models. Our analysis reveals that simple efforts to mitigate overthinking in agentic environments, such as selecting the solution with the lower overthinking score, can improve model performance by almost 30% while reducing computational costs by 43%. These results suggest that mitigating overthinking has strong practical implications. We suggest that by leveraging native function-calling capabilities and selective reinforcement learning overthinking tendencies could be mitigated. We also open-source our evaluation framework and dataset to facilitate research in this direction at https://github.com/AlexCuadron/Overthinking."
+    },
+    {
+      "paperId": "34a98d89b38d10aad635a8bf713058c8d0c06c3d",
+      "externalIds": {
+        "DBLP": "journals/corr/abs-2502-04644",
+        "ArXiv": "2502.04644",
+        "DOI": "10.48550/arXiv.2502.04644",
+        "CorpusId": 276235557
+      },
+      "title": "Agentic Reasoning: Reasoning LLMs with Tools for the Deep Research",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2502.04644, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2290900099",
+          "name": "Junde Wu"
+        },
+        {
+          "authorId": "2275784890",
+          "name": "Jiayuan Zhu"
+        },
+        {
+          "authorId": "2344630471",
+          "name": "Yuyuan Liu"
+        }
+      ],
+      "abstract": "We introduce Agentic Reasoning, a framework that enhances large language model (LLM) reasoning by integrating external tool-using agents. Unlike conventional LLM-based reasoning approaches, which rely solely on internal inference, Agentic Reasoning dynamically engages web search, code execution, and structured reasoning-context memory to solve complex problems requiring deep research and multi-step logical deduction. Our framework introduces the Mind Map agent, which constructs a structured knowledge graph to track logical relationships, improving deductive reasoning. Additionally, the integration of web-search and coding agents enables real-time retrieval and computational analysis, enhancing reasoning accuracy and decision-making. Evaluations on PhD-level scientific reasoning (GPQA) and domain-specific deep research tasks demonstrate that our approach significantly outperforms existing models, including leading retrieval-augmented generation (RAG) systems and closed-source LLMs. Moreover, our results indicate that agentic reasoning improves expert-level knowledge synthesis, test-time scalability, and structured problem-solving. The code is at: https://github.com/theworldofagents/Agentic-Reasoning."
+    },
+    {
+      "paperId": "c784ce3b0c90a11f87d1164d16d4ddb041aa9d7f",
+      "externalIds": {
+        "DBLP": "journals/corr/abs-2501-19324",
+        "ArXiv": "2501.19324",
+        "DOI": "10.48550/arXiv.2501.19324",
+        "CorpusId": 276079559
+      },
+      "title": "Reward-Guided Speculative Decoding for Efficient LLM Reasoning",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2501.19324, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "66693547",
+          "name": "Baohao Liao"
+        },
+        {
+          "authorId": "48615640",
+          "name": "Yuhui Xu"
+        },
+        {
+          "authorId": "35279146",
+          "name": "Hanze Dong"
+        },
+        {
+          "authorId": "2268797933",
+          "name": "Junnan Li"
+        },
+        {
+          "authorId": "2062908179",
+          "name": "C. Monz"
+        },
+        {
+          "authorId": "2238207181",
+          "name": "Silvio Savarese"
+        },
+        {
+          "authorId": "36187119",
+          "name": "Doyen Sahoo"
+        },
+        {
+          "authorId": "2292439981",
+          "name": "Caiming Xiong"
+        }
+      ],
+      "abstract": "We introduce Reward-Guided Speculative Decoding (RSD), a novel framework aimed at improving the efficiency of inference in large language models (LLMs). RSD synergistically combines a lightweight draft model with a more powerful target model, incorporating a controlled bias to prioritize high-reward outputs, in contrast to existing speculative decoding methods that enforce strict unbiasedness. RSD employs a process reward model to evaluate intermediate decoding steps and dynamically decide whether to invoke the target model, optimizing the trade-off between computational cost and output quality. We theoretically demonstrate that a threshold-based mixture strategy achieves an optimal balance between resource utilization and performance. Extensive evaluations on challenging reasoning benchmarks, including Olympiad-level tasks, show that RSD delivers significant efficiency gains against decoding with the target model only (up to 4.4x fewer FLOPs), while achieving significant better accuracy than parallel decoding method on average (up to +3.5). These results highlight RSD as a robust and cost-effective approach for deploying LLMs in resource-intensive scenarios. The code is available at https://github.com/BaohaoLiao/RSD."
+    },
+    {
+      "paperId": "34471a2fa18ea22efad5287cf4aeb18542c98a9b",
+      "externalIds": {
+        "DBLP": "journals/corr/abs-2501-12948",
+        "ArXiv": "2501.12948",
+        "DOI": "10.48550/arXiv.2501.12948",
+        "CorpusId": 275789950
+      },
+      "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2501.12948, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2307073216",
+          "name": "DeepSeek-AI"
+        },
+        {
+          "authorId": "2278834796",
+          "name": "Daya Guo"
+        },
+        {
+          "authorId": "2278404250",
+          "name": "Dejian Yang"
+        },
+        {
+          "authorId": "2278587222",
+          "name": "Haowei Zhang"
+        },
+        {
+          "authorId": "2258088582",
+          "name": "Jun-Mei Song"
+        },
+        {
+          "authorId": "2337775212",
+          "name": "Ruoyu Zhang"
+        },
+        {
+          "authorId": "2274917091",
+          "name": "R. Xu"
+        },
+        {
+          "authorId": "2278223869",
+          "name": "Qihao Zhu"
+        },
+        {
+          "authorId": "2278830967",
+          "name": "Shirong Ma"
+        },
+        {
+          "authorId": "2330130435",
+          "name": "Peiyi Wang"
+        },
+        {
+          "authorId": "2289212464",
+          "name": "Xiaoling Bi"
+        },
+        {
+          "authorId": "2327287516",
+          "name": "Xiaokang Zhang"
+        },
+        {
+          "authorId": "2279159169",
+          "name": "Xingkai Yu"
+        },
+        {
+          "authorId": "2335511292",
+          "name": "Yu Wu"
+        },
+        {
+          "authorId": "2316170048",
+          "name": "Z. F. Wu"
+        },
+        {
+          "authorId": "1797090",
+          "name": "Zhibin Gou"
+        },
+        {
+          "authorId": "144485528",
+          "name": "Zhihong Shao"
+        },
+        {
+          "authorId": "2309773899",
+          "name": "Zhuoshu Li"
+        },
+        {
+          "authorId": "2337771690",
+          "name": "Ziyi Gao"
+        },
+        {
+          "authorId": "2278677183",
+          "name": "A. Liu"
+        },
+        {
+          "authorId": "2337687235",
+          "name": "Bing Xue"
+        },
+        {
+          "authorId": "2244285627",
+          "name": "Bing-Li Wang"
+        },
+        {
+          "authorId": "2337844023",
+          "name": "Bochao Wu"
+        },
+        {
+          "authorId": "2337688451",
+          "name": "Bei Feng"
+        },
+        {
+          "authorId": "2337772642",
+          "name": "Chengda Lu"
+        },
+        {
+          "authorId": "2278389597",
+          "name": "Chenggang Zhao"
+        },
+        {
+          "authorId": "2278221484",
+          "name": "C. Deng"
+        },
+        {
+          "authorId": "2337705874",
+          "name": "Chenyu Zhang"
+        },
+        {
+          "authorId": "2278217940",
+          "name": "C. Ruan"
+        },
+        {
+          "authorId": "2307085654",
+          "name": "Damai Dai"
+        },
+        {
+          "authorId": "2274200088",
+          "name": "Deli Chen"
+        },
+        {
+          "authorId": "2325992470",
+          "name": "Dong-Li Ji"
+        },
+        {
+          "authorId": "2278218944",
+          "name": "Erhang Li"
+        },
+        {
+          "authorId": "2278589731",
+          "name": "Fangyun Lin"
+        },
+        {
+          "authorId": "2337687526",
+          "name": "Fucong Dai"
+        },
+        {
+          "authorId": "2278218736",
+          "name": "Fuli Luo"
+        },
+        {
+          "authorId": "2278219957",
+          "name": "Guangbo Hao"
+        },
+        {
+          "authorId": "2278589675",
+          "name": "Guanting Chen"
+        },
+        {
+          "authorId": "2337746209",
+          "name": "Guowei Li"
+        },
+        {
+          "authorId": "2337801868",
+          "name": "H. Zhang"
+        },
+        {
+          "authorId": "2287769900",
+          "name": "Han Bao"
+        },
+        {
+          "authorId": "2278643857",
+          "name": "Hanwei Xu"
+        },
+        {
+          "authorId": "2316174862",
+          "name": "Haocheng Wang"
+        },
+        {
+          "authorId": "2278486342",
+          "name": "Honghui Ding"
+        },
+        {
+          "authorId": "2238628841",
+          "name": "Huajian Xin"
+        },
+        {
+          "authorId": "2278395340",
+          "name": "Huazuo Gao"
+        },
+        {
+          "authorId": "2305476903",
+          "name": "Hui Qu"
+        },
+        {
+          "authorId": "2338017035",
+          "name": "Hui Li"
+        },
+        {
+          "authorId": "2278226003",
+          "name": "Jianzhong Guo"
+        },
+        {
+          "authorId": "2278337977",
+          "name": "Jiashi Li"
+        },
+        {
+          "authorId": "2219717571",
+          "name": "Jiawei Wang"
+        },
+        {
+          "authorId": "2337776990",
+          "name": "Jingchang Chen"
+        },
+        {
+          "authorId": "2337749769",
+          "name": "Jingyang Yuan"
+        },
+        {
+          "authorId": "2278355944",
+          "name": "Junjie Qiu"
+        },
+        {
+          "authorId": "2337836211",
+          "name": "Junlong Li"
+        },
+        {
+          "authorId": "2333971037",
+          "name": "J. Cai"
+        },
+        {
+          "authorId": "2332054265",
+          "name": "J. Ni"
+        },
+        {
+          "authorId": "2337771119",
+          "name": "Jian Liang"
+        },
+        {
+          "authorId": "2337786826",
+          "name": "Jin Chen"
+        },
+        {
+          "authorId": "2278218552",
+          "name": "Kai Dong"
+        },
+        {
+          "authorId": "2335579723",
+          "name": "Kai Hu"
+        },
+        {
+          "authorId": "2278218724",
+          "name": "Kaige Gao"
+        },
+        {
+          "authorId": "2278219877",
+          "name": "Kang Guan"
+        },
+        {
+          "authorId": "2307742866",
+          "name": "Kexin Huang"
+        },
+        {
+          "authorId": "2329319668",
+          "name": "K. Yu"
+        },
+        {
+          "authorId": "2337705401",
+          "name": "Lean Wang"
+        },
+        {
+          "authorId": "2278256170",
+          "name": "Lecong Zhang"
+        },
+        {
+          "authorId": "2330538675",
+          "name": "Liang Zhao"
+        },
+        {
+          "authorId": "15068726",
+          "name": "Litong Wang"
+        },
+        {
+          "authorId": "2278257096",
+          "name": "Liyue Zhang"
+        },
+        {
+          "authorId": "2337753846",
+          "name": "Lei Xu"
+        },
+        {
+          "authorId": "2337787680",
+          "name": "Leyi Xia"
+        },
+        {
+          "authorId": "2278384213",
+          "name": "Mingchuan Zhang"
+        },
+        {
+          "authorId": "2337708168",
+          "name": "Minghua Zhang"
+        },
+        {
+          "authorId": "2312099468",
+          "name": "M. Tang"
+        },
+        {
+          "authorId": "2338070273",
+          "name": "Meng Li"
+        },
+        {
+          "authorId": "2337775620",
+          "name": "Miaojun Wang"
+        },
+        {
+          "authorId": "2337751092",
+          "name": "Mingming Li"
+        },
+        {
+          "authorId": "2337686905",
+          "name": "Ning Tian"
+        },
+        {
+          "authorId": "2278251752",
+          "name": "Panpan Huang"
+        },
+        {
+          "authorId": "2333052802",
+          "name": "Peng Zhang"
+        },
+        {
+          "authorId": "2198632851",
+          "name": "Qiancheng Wang"
+        },
+        {
+          "authorId": "2307394725",
+          "name": "Qinyu Chen"
+        },
+        {
+          "authorId": "2278218583",
+          "name": "Qiushi Du"
+        },
+        {
+          "authorId": "2278218130",
+          "name": "Ruiqi Ge"
+        },
+        {
+          "authorId": "2337774448",
+          "name": "Ruisong Zhang"
+        },
+        {
+          "authorId": "2337687339",
+          "name": "Ruizhe Pan"
+        },
+        {
+          "authorId": "2337768965",
+          "name": "Runji Wang"
+        },
+        {
+          "authorId": "2337764886",
+          "name": "R. J. Chen"
+        },
+        {
+          "authorId": "2337687334",
+          "name": "R. Jin"
+        },
+        {
+          "authorId": "2288751385",
+          "name": "Ruyi Chen"
+        },
+        {
+          "authorId": "2278389939",
+          "name": "Shanghao Lu"
+        },
+        {
+          "authorId": "2278397391",
+          "name": "Shangyan Zhou"
+        },
+        {
+          "authorId": "2278219833",
+          "name": "Shanhuang Chen"
+        },
+        {
+          "authorId": "2317259871",
+          "name": "Shengfeng Ye"
+        },
+        {
+          "authorId": "2330054226",
+          "name": "Shiyu Wang"
+        },
+        {
+          "authorId": "2278408463",
+          "name": "Shuiping Yu"
+        },
+        {
+          "authorId": "2278398119",
+          "name": "Shunfeng Zhou"
+        },
+        {
+          "authorId": "2337787780",
+          "name": "Shuting Pan"
+        },
+        {
+          "authorId": "2337775628",
+          "name": "S. S. Li"
+        },
+        {
+          "authorId": "2301799594",
+          "name": "Shuang Zhou"
+        },
+        {
+          "authorId": "2157824681",
+          "name": "Shao-Kang Wu"
+        },
+        {
+          "authorId": "2337686938",
+          "name": "Tao Yun"
+        },
+        {
+          "authorId": "2278220142",
+          "name": "Tian Pei"
+        },
+        {
+          "authorId": "2340400824",
+          "name": "T. Sun"
+        },
+        {
+          "authorId": "2337757182",
+          "name": "T. Wang"
+        },
+        {
+          "authorId": "2279051415",
+          "name": "Wangding Zeng"
+        },
+        {
+          "authorId": "2257129965",
+          "name": "Wanjia Zhao"
+        },
+        {
+          "authorId": "2326440587",
+          "name": "Wen Liu"
+        },
+        {
+          "authorId": "2278618633",
+          "name": "W. Liang"
+        },
+        {
+          "authorId": "2272467392",
+          "name": "W. Gao"
+        },
+        {
+          "authorId": "2298210246",
+          "name": "Wen-Xia Yu"
+        },
+        {
+          "authorId": "2341325349",
+          "name": "Wentao Zhang"
+        },
+        {
+          "authorId": "2337790804",
+          "name": "W. Xiao"
+        },
+        {
+          "authorId": "2316966121",
+          "name": "Wei An"
+        },
+        {
+          "authorId": "2257346982",
+          "name": "Xiaodong Liu"
+        },
+        {
+          "authorId": "2337844470",
+          "name": "Xiaohan Wang"
+        },
+        {
+          "authorId": "2326444644",
+          "name": "Xi-aokang Chen"
+        },
+        {
+          "authorId": "2278218185",
+          "name": "X. Nie"
+        },
+        {
+          "authorId": "2193630544",
+          "name": "Xin Cheng"
+        },
+        {
+          "authorId": "2336338617",
+          "name": "Xin Liu"
+        },
+        {
+          "authorId": "2239599436",
+          "name": "Xin Xie"
+        },
+        {
+          "authorId": "2326998908",
+          "name": "Xingchao Liu"
+        },
+        {
+          "authorId": "2312345351",
+          "name": "Xinyu Yang"
+        },
+        {
+          "authorId": "2337738744",
+          "name": "Xinyuan Li"
+        },
+        {
+          "authorId": "2278247813",
+          "name": "Xuecheng Su"
+        },
+        {
+          "authorId": "2337776686",
+          "name": "Xuheng Lin"
+        },
+        {
+          "authorId": "2337776625",
+          "name": "X. Q. Li"
+        },
+        {
+          "authorId": "2149112346",
+          "name": "Xiangyu Jin"
+        },
+        {
+          "authorId": "2262432943",
+          "name": "Xi-Cheng Shen"
+        },
+        {
+          "authorId": "2337775973",
+          "name": "Xiaosha Chen"
+        },
+        {
+          "authorId": "2316956218",
+          "name": "Xiaowen Sun"
+        },
+        {
+          "authorId": "2299743807",
+          "name": "Xiaoxiang Wang"
+        },
+        {
+          "authorId": "2337774374",
+          "name": "Xinnan Song"
+        },
+        {
+          "authorId": "2334871182",
+          "name": "Xinyi Zhou"
+        },
+        {
+          "authorId": "2337777409",
+          "name": "Xianzu Wang"
+        },
+        {
+          "authorId": "2337688042",
+          "name": "Xinxia Shan"
+        },
+        {
+          "authorId": "2278599324",
+          "name": "Y. K. Li"
+        },
+        {
+          "authorId": "2337725217",
+          "name": "Y. Q. Wang"
+        },
+        {
+          "authorId": "2337771864",
+          "name": "Y. X. Wei"
+        },
+        {
+          "authorId": "2338171554",
+          "name": "Yang Zhang"
+        },
+        {
+          "authorId": "2324603956",
+          "name": "Yanhong Xu"
+        },
+        {
+          "authorId": "2278381130",
+          "name": "Yao Li"
+        },
+        {
+          "authorId": "2278398317",
+          "name": "Yao Zhao"
+        },
+        {
+          "authorId": "2278377738",
+          "name": "Yaofeng Sun"
+        },
+        {
+          "authorId": "2278432120",
+          "name": "Yaohui Wang"
+        },
+        {
+          "authorId": "2338182791",
+          "name": "Yi Yu"
+        },
+        {
+          "authorId": "2337243026",
+          "name": "Yichao Zhang"
+        },
+        {
+          "authorId": "2337801571",
+          "name": "Yifan Shi"
+        },
+        {
+          "authorId": "2308644697",
+          "name": "Yi Xiong"
+        },
+        {
+          "authorId": "2317034993",
+          "name": "Ying He"
+        },
+        {
+          "authorId": "2278218072",
+          "name": "Yishi Piao"
+        },
+        {
+          "authorId": "2330376936",
+          "name": "Yisong Wang"
+        },
+        {
+          "authorId": "2316968504",
+          "name": "Yixuan Tan"
+        },
+        {
+          "authorId": "2342237203",
+          "name": "Yiyang Ma"
+        },
+        {
+          "authorId": "2278393359",
+          "name": "Yiyuan Liu"
+        },
+        {
+          "authorId": "2317130708",
+          "name": "Yongqiang Guo"
+        },
+        {
+          "authorId": "2337687328",
+          "name": "Yuan Ou"
+        },
+        {
+          "authorId": "2337765075",
+          "name": "Yuduan Wang"
+        },
+        {
+          "authorId": "2338990074",
+          "name": "Yue Gong"
+        },
+        {
+          "authorId": "2300352188",
+          "name": "Yu-Jing Zou"
+        },
+        {
+          "authorId": "2337718186",
+          "name": "Yujia He"
+        },
+        {
+          "authorId": "2326446831",
+          "name": "Yunfan Xiong"
+        },
+        {
+          "authorId": "2324528328",
+          "name": "Yu-Wei Luo"
+        },
+        {
+          "authorId": "2054452755",
+          "name": "Yu-mei You"
+        },
+        {
+          "authorId": "2337142726",
+          "name": "Yuxuan Liu"
+        },
+        {
+          "authorId": "2337775637",
+          "name": "Yuyang Zhou"
+        },
+        {
+          "authorId": "2337840145",
+          "name": "Y. X. Zhu"
+        },
+        {
+          "authorId": "2272475376",
+          "name": "Yanping Huang"
+        },
+        {
+          "authorId": "2278381130",
+          "name": "Yao Li"
+        },
+        {
+          "authorId": "2279900058",
+          "name": "Yi Zheng"
+        },
+        {
+          "authorId": "2291197888",
+          "name": "Yuchen Zhu"
+        },
+        {
+          "authorId": "2318919239",
+          "name": "Yunxiang Ma"
+        },
+        {
+          "authorId": "2337979045",
+          "name": "Ying Tang"
+        },
+        {
+          "authorId": "2337687962",
+          "name": "Yukun Zha"
+        },
+        {
+          "authorId": "2337777710",
+          "name": "Yuting Yan"
+        },
+        {
+          "authorId": "2278430558",
+          "name": "Z. Ren"
+        },
+        {
+          "authorId": "2278430558",
+          "name": "Z. Ren"
+        },
+        {
+          "authorId": "2278218357",
+          "name": "Zhangli Sha"
+        },
+        {
+          "authorId": "2278223920",
+          "name": "Zhe Fu"
+        },
+        {
+          "authorId": "2337940131",
+          "name": "Zhean Xu"
+        },
+        {
+          "authorId": "2279107352",
+          "name": "Zhenda Xie"
+        },
+        {
+          "authorId": "2148906520",
+          "name": "Zhen-guo Zhang"
+        },
+        {
+          "authorId": "2278220653",
+          "name": "Zhewen Hao"
+        },
+        {
+          "authorId": "2337695745",
+          "name": "Zhicheng Ma"
+        },
+        {
+          "authorId": "2337768819",
+          "name": "Zhigang Yan"
+        },
+        {
+          "authorId": "2326514370",
+          "name": "Zhiyu Wu"
+        },
+        {
+          "authorId": "2307422404",
+          "name": "Zihui Gu"
+        },
+        {
+          "authorId": "2337838091",
+          "name": "Zijia Zhu"
+        },
+        {
+          "authorId": "2117942065",
+          "name": "Zijun Liu"
+        },
+        {
+          "authorId": "2268382130",
+          "name": "Zi-An Li"
+        },
+        {
+          "authorId": "2279107375",
+          "name": "Ziwei Xie"
+        },
+        {
+          "authorId": "2271718109",
+          "name": "Ziyang Song"
+        },
+        {
+          "authorId": "2327000291",
+          "name": "Zizheng Pan"
+        },
+        {
+          "authorId": "2337821867",
+          "name": "Zhen Huang"
+        },
+        {
+          "authorId": "2238223352",
+          "name": "Zhipeng Xu"
+        },
+        {
+          "authorId": "2337972848",
+          "name": "Zhongyu Zhang"
+        },
+        {
+          "authorId": "2329999671",
+          "name": "Zhen Zhang"
+        }
+      ],
+      "abstract": "We introduce our first-generation reasoning models, DeepSeek-R1-Zero and DeepSeek-R1. DeepSeek-R1-Zero, a model trained via large-scale reinforcement learning (RL) without supervised fine-tuning (SFT) as a preliminary step, demonstrates remarkable reasoning capabilities. Through RL, DeepSeek-R1-Zero naturally emerges with numerous powerful and intriguing reasoning behaviors. However, it encounters challenges such as poor readability, and language mixing. To address these issues and further enhance reasoning performance, we introduce DeepSeek-R1, which incorporates multi-stage training and cold-start data before RL. DeepSeek-R1 achieves performance comparable to OpenAI-o1-1217 on reasoning tasks. To support the research community, we open-source DeepSeek-R1-Zero, DeepSeek-R1, and six dense models (1.5B, 7B, 8B, 14B, 32B, 70B) distilled from DeepSeek-R1 based on Qwen and Llama."
+    },
+    {
+      "paperId": "668075792a7ab40457d92e09da28d35c879271c3",
+      "externalIds": {
+        "ArXiv": "2501.12599",
+        "DBLP": "journals/corr/abs-2501-12599",
+        "DOI": "10.48550/arXiv.2501.12599",
+        "CorpusId": 275789974
+      },
+      "title": "Kimi k1.5: Scaling Reinforcement Learning with LLMs",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2501.12599, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2341539673",
+          "name": "Kimi Team"
+        },
+        {
+          "authorId": "2341539256",
+          "name": "Angang Du"
+        },
+        {
+          "authorId": "2341781297",
+          "name": "Bofei Gao"
+        },
+        {
+          "authorId": "2341539428",
+          "name": "Bowei Xing"
+        },
+        {
+          "authorId": "2341662472",
+          "name": "Changjiu Jiang"
+        },
+        {
+          "authorId": "2341673158",
+          "name": "Cheng Chen"
+        },
+        {
+          "authorId": "2341610884",
+          "name": "Cheng Li"
+        },
+        {
+          "authorId": "2341881368",
+          "name": "Chenjun Xiao"
+        },
+        {
+          "authorId": "2107625784",
+          "name": "Chenzhuang Du"
+        },
+        {
+          "authorId": "2257014858",
+          "name": "Chonghua Liao"
+        },
+        {
+          "authorId": "2342154906",
+          "name": "Chuning Tang"
+        },
+        {
+          "authorId": "2341905986",
+          "name": "Congcong Wang"
+        },
+        {
+          "authorId": "2302372580",
+          "name": "Dehao Zhang"
+        },
+        {
+          "authorId": "2341538388",
+          "name": "Enming Yuan"
+        },
+        {
+          "authorId": "2341538580",
+          "name": "Enzhe Lu"
+        },
+        {
+          "authorId": "2279278711",
+          "name": "Feng Tang"
+        },
+        {
+          "authorId": "2341539158",
+          "name": "Flood Sung"
+        },
+        {
+          "authorId": "2342076120",
+          "name": "Guangda Wei"
+        },
+        {
+          "authorId": "2341540112",
+          "name": "Guokun Lai"
+        },
+        {
+          "authorId": "2342368756",
+          "name": "Haiqing Guo"
+        },
+        {
+          "authorId": "2338702571",
+          "name": "Han Zhu"
+        },
+        {
+          "authorId": "2282923118",
+          "name": "Haochen Ding"
+        },
+        {
+          "authorId": "2307977572",
+          "name": "Hao-Xing Hu"
+        },
+        {
+          "authorId": "2328343249",
+          "name": "Haoming Yang"
+        },
+        {
+          "authorId": "2326269311",
+          "name": "Hao Zhang"
+        },
+        {
+          "authorId": "2341528471",
+          "name": "Haotian Yao"
+        },
+        {
+          "authorId": "2278097983",
+          "name": "Hao-Dong Zhao"
+        },
+        {
+          "authorId": "2341614056",
+          "name": "Haoyu Lu"
+        },
+        {
+          "authorId": "2341895767",
+          "name": "Haoze Li"
+        },
+        {
+          "authorId": "2341560823",
+          "name": "Haozhen Yu"
+        },
+        {
+          "authorId": "2162081759",
+          "name": "Hongcheng Gao"
+        },
+        {
+          "authorId": "2341854557",
+          "name": "Huabin Zheng"
+        },
+        {
+          "authorId": "2339663470",
+          "name": "Huan Yuan"
+        },
+        {
+          "authorId": "2280374580",
+          "name": "Jia Chen"
+        },
+        {
+          "authorId": "2304698000",
+          "name": "Jia-Xing Guo"
+        },
+        {
+          "authorId": "2277159507",
+          "name": "Jianling Su"
+        },
+        {
+          "authorId": "2341670570",
+          "name": "Jianzhou Wang"
+        },
+        {
+          "authorId": "2324221871",
+          "name": "Jie Zhao"
+        },
+        {
+          "authorId": "2325449522",
+          "name": "Jin Zhang"
+        },
+        {
+          "authorId": "2299445677",
+          "name": "Jingyuan Liu"
+        },
+        {
+          "authorId": "2341660422",
+          "name": "Junjie Yan"
+        },
+        {
+          "authorId": "2341905607",
+          "name": "Junyan Wu"
+        },
+        {
+          "authorId": "2220617138",
+          "name": "Li-Na Shi"
+        },
+        {
+          "authorId": "2336090947",
+          "name": "Li-Tao Ye"
+        },
+        {
+          "authorId": "2323432282",
+          "name": "Long Yu"
+        },
+        {
+          "authorId": "2323559064",
+          "name": "Meng-Xiao Dong"
+        },
+        {
+          "authorId": "2341654981",
+          "name": "Neo Y. Zhang"
+        },
+        {
+          "authorId": "2341530997",
+          "name": "Ningchen Ma"
+        },
+        {
+          "authorId": "2341304609",
+          "name": "Qi Pan"
+        },
+        {
+          "authorId": "2341541420",
+          "name": "Qucheng Gong"
+        },
+        {
+          "authorId": "2341613320",
+          "name": "Shaowei Liu"
+        },
+        {
+          "authorId": "2255373817",
+          "name": "Shen Ma"
+        },
+        {
+          "authorId": "2324711457",
+          "name": "Shu-Yan Wei"
+        },
+        {
+          "authorId": "2343287039",
+          "name": "Sihan Cao"
+        },
+        {
+          "authorId": "2334435029",
+          "name": "Si-Da Huang"
+        },
+        {
+          "authorId": "2319088441",
+          "name": "Tao Jiang"
+        },
+        {
+          "authorId": "2294350787",
+          "name": "Wei-Wei Gao"
+        },
+        {
+          "authorId": "2218062503",
+          "name": "Weiming Xiong"
+        },
+        {
+          "authorId": "2309423875",
+          "name": "Weiran He"
+        },
+        {
+          "authorId": "2341676205",
+          "name": "Weixiao Huang"
+        },
+        {
+          "authorId": "2335072605",
+          "name": "Wenhao Wu"
+        },
+        {
+          "authorId": "2335823841",
+          "name": "Wen He"
+        },
+        {
+          "authorId": "2302950917",
+          "name": "Xian-sen Wei"
+        },
+        {
+          "authorId": "2302377781",
+          "name": "Xian-Xian Jia"
+        },
+        {
+          "authorId": "2342480056",
+          "name": "Xingzhe Wu"
+        },
+        {
+          "authorId": "2309706542",
+          "name": "Xinran Xu"
+        },
+        {
+          "authorId": "1630384049",
+          "name": "Xinxing Zu"
+        },
+        {
+          "authorId": "2321474878",
+          "name": "Xinyu Zhou"
+        },
+        {
+          "authorId": "2215424271",
+          "name": "Xue-biao Pan"
+        },
+        {
+          "authorId": "2341539626",
+          "name": "Y. Charles"
+        },
+        {
+          "authorId": "2341668505",
+          "name": "Yang Li"
+        },
+        {
+          "authorId": "2314349608",
+          "name": "Yan-Ling Hu"
+        },
+        {
+          "authorId": "2108314740",
+          "name": "Yangyang Liu"
+        },
+        {
+          "authorId": "2315227698",
+          "name": "Yanru Chen"
+        },
+        {
+          "authorId": "2279312203",
+          "name": "Ye-Jia Wang"
+        },
+        {
+          "authorId": "2341669617",
+          "name": "Yibo Liu"
+        },
+        {
+          "authorId": "2342256370",
+          "name": "Yidao Qin"
+        },
+        {
+          "authorId": "2334443876",
+          "name": "Yifeng Liu"
+        },
+        {
+          "authorId": "2238089263",
+          "name": "Yingbo Yang"
+        },
+        {
+          "authorId": "2341733724",
+          "name": "Yiping Bao"
+        },
+        {
+          "authorId": "15394369",
+          "name": "Yulun Du"
+        },
+        {
+          "authorId": "2325105405",
+          "name": "Yuxin Wu"
+        },
+        {
+          "authorId": "2341669353",
+          "name": "Yuzhi Wang"
+        },
+        {
+          "authorId": "2293555939",
+          "name": "Zaida Zhou"
+        },
+        {
+          "authorId": "2294804802",
+          "name": "Zhaoji Wang"
+        },
+        {
+          "authorId": "2278452197",
+          "name": "Zhaowei Li"
+        },
+        {
+          "authorId": "2300334177",
+          "name": "Zhengxin Zhu"
+        },
+        {
+          "authorId": "2267340333",
+          "name": "Zheng Zhang"
+        },
+        {
+          "authorId": "2306441888",
+          "name": "Zhexu Wang"
+        },
+        {
+          "authorId": "2310614274",
+          "name": "Zhilin Yang"
+        },
+        {
+          "authorId": "1490968632",
+          "name": "Zhiqi Huang"
+        },
+        {
+          "authorId": "2341887548",
+          "name": "Zihao Huang"
+        },
+        {
+          "authorId": "2326452869",
+          "name": "Ziya Xu"
+        },
+        {
+          "authorId": "2341579297",
+          "name": "Zonghan Yang"
+        }
+      ],
+      "abstract": "Language model pretraining with next token prediction has proved effective for scaling compute but is limited to the amount of available training data. Scaling reinforcement learning (RL) unlocks a new axis for the continued improvement of artificial intelligence, with the promise that large language models (LLMs) can scale their training data by learning to explore with rewards. However, prior published work has not produced competitive results. In light of this, we report on the training practice of Kimi k1.5, our latest multi-modal LLM trained with RL, including its RL training techniques, multi-modal data recipes, and infrastructure optimization. Long context scaling and improved policy optimization methods are key ingredients of our approach, which establishes a simplistic, effective RL framework without relying on more complex techniques such as Monte Carlo tree search, value functions, and process reward models. Notably, our system achieves state-of-the-art reasoning performance across multiple benchmarks and modalities -- e.g., 77.5 on AIME, 96.2 on MATH 500, 94-th percentile on Codeforces, 74.9 on MathVista -- matching OpenAI's o1. Moreover, we present effective long2short methods that use long-CoT techniques to improve short-CoT models, yielding state-of-the-art short-CoT reasoning results -- e.g., 60.8 on AIME, 94.6 on MATH500, 47.3 on LiveCodeBench -- outperforming existing short-CoT models such as GPT-4o and Claude Sonnet 3.5 by a large margin (up to +550%)."
+    },
+    {
+      "paperId": "09cedd18546c334891df025aa3a4e21658affa23",
+      "externalIds": {
+        "ArXiv": "2501.12570",
+        "DBLP": "journals/corr/abs-2501-12570",
+        "DOI": "10.48550/arXiv.2501.12570",
+        "CorpusId": 275790112
+      },
+      "title": "O1-Pruner: Length-Harmonizing Fine-Tuning for O1-Like Reasoning Pruning",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2501.12570, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2341879393",
+          "name": "Haotian Luo"
+        },
+        {
+          "authorId": "2340181129",
+          "name": "Li Shen"
+        },
+        {
+          "authorId": "2341581713",
+          "name": "Haiying He"
+        },
+        {
+          "authorId": "2337059751",
+          "name": "Yibo Wang"
+        },
+        {
+          "authorId": "2255081098",
+          "name": "Shiwei Liu"
+        },
+        {
+          "authorId": "2341670177",
+          "name": "Wei Li"
+        },
+        {
+          "authorId": "2341570262",
+          "name": "Naiqiang Tan"
+        },
+        {
+          "authorId": "2258143633",
+          "name": "Xiaochun Cao"
+        },
+        {
+          "authorId": "2135519749",
+          "name": "Dacheng Tao"
+        }
+      ],
+      "abstract": "Recently, long-thought reasoning LLMs, such as OpenAI's O1, adopt extended reasoning processes similar to how humans ponder over complex problems. This reasoning paradigm significantly enhances the model's problem-solving abilities and has achieved promising results. However, long-thought reasoning process leads to a substantial increase in inference time. A pressing challenge is reducing the inference overhead of long-thought LLMs while ensuring accuracy. In this paper, we experimentally demonstrate that long-thought reasoning models struggle to effectively allocate token budgets based on problem difficulty and reasoning redundancies. To address this, we propose Length-Harmonizing Fine-Tuning (O1-Pruner), aiming at minimizing reasoning overhead while maintaining accuracy. This effective fine-tuning method first estimates the LLM's baseline performance through pre-sampling and then uses RL-style fine-tuning to encourage the model to generate shorter reasoning processes under accuracy constraints. This allows the model to achieve efficient reasoning with lower redundancy while maintaining accuracy. Experiments on various mathematical reasoning benchmarks show that O1-Pruner not only significantly reduces inference overhead but also achieves higher accuracy, providing a novel and promising solution to this challenge. Our code is coming soon at https://github.com/StarDewXXX/O1-Pruner"
+    },
+    {
+      "paperId": "84c149537dee8ef3a7ff54b6bb01e9a4c8eaa17c",
+      "externalIds": {
+        "ArXiv": "2412.21187",
+        "DBLP": "journals/corr/abs-2412-21187",
+        "DOI": "10.48550/arXiv.2412.21187",
+        "CorpusId": 275133600
+      },
+      "title": "Do NOT Think That Much for 2+3=? On the Overthinking of o1-Like LLMs",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2412.21187, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2118653801",
+          "name": "Xingyu Chen"
+        },
+        {
+          "authorId": "2311310481",
+          "name": "Jiahao Xu"
+        },
+        {
+          "authorId": "2336871884",
+          "name": "Tian Liang"
+        },
+        {
+          "authorId": "2280369306",
+          "name": "Zhiwei He"
+        },
+        {
+          "authorId": "2337797310",
+          "name": "Jianhui Pang"
+        },
+        {
+          "authorId": "2273685776",
+          "name": "Dian Yu"
+        },
+        {
+          "authorId": "2273672063",
+          "name": "Linfeng Song"
+        },
+        {
+          "authorId": "2324835420",
+          "name": "Qiuzhi Liu"
+        },
+        {
+          "authorId": "2338027059",
+          "name": "Mengfei Zhou"
+        },
+        {
+          "authorId": "2279826813",
+          "name": "Zhuosheng Zhang"
+        },
+        {
+          "authorId": "2279803148",
+          "name": "Rui Wang"
+        },
+        {
+          "authorId": "2332542850",
+          "name": "Zhaopeng Tu"
+        },
+        {
+          "authorId": "2238955130",
+          "name": "Haitao Mi"
+        },
+        {
+          "authorId": "2239076081",
+          "name": "Dong Yu"
+        }
+      ],
+      "abstract": "The remarkable performance of models like the OpenAI o1 can be attributed to their ability to emulate human-like long-time thinking during inference. These models employ extended chain-of-thought (CoT) processes, exploring multiple strategies to enhance problem-solving capabilities. However, a critical question remains: How to intelligently and efficiently scale computational resources during testing. This paper presents the first comprehensive study on the prevalent issue of overthinking in these models, where excessive computational resources are allocated for simple problems with minimal benefit. We introduce novel efficiency metrics from both outcome and process perspectives to evaluate the rational use of computational resources by o1-like models. Using a self-training paradigm, we propose strategies to mitigate overthinking, streamlining reasoning processes without compromising accuracy. Experimental results show that our approach successfully reduces computational overhead while preserving model performance across a range of testsets with varying difficulty levels, such as GSM8K, MATH500, GPQA, and AIME."
+    },
+    {
+      "paperId": "3bbf541c2a3ce0ffaed3703cd486f0e1b2febb27",
+      "externalIds": {
+        "DBLP": "journals/corr/abs-2412-18547",
+        "ArXiv": "2412.18547",
+        "DOI": "10.48550/arXiv.2412.18547",
+        "CorpusId": 274992044
+      },
+      "title": "Token-Budget-Aware LLM Reasoning",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2412.18547, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2170360833",
+          "name": "Tingxu Han"
+        },
+        {
+          "authorId": "2154723145",
+          "name": "Zhenting Wang"
+        },
+        {
+          "authorId": "2239197945",
+          "name": "Chunrong Fang"
+        },
+        {
+          "authorId": "2110773055",
+          "name": "Shiyun Zhao"
+        },
+        {
+          "authorId": "2333472479",
+          "name": "Shiqing Ma"
+        },
+        {
+          "authorId": "2238950128",
+          "name": "Zhenyu Chen"
+        }
+      ],
+      "abstract": "Reasoning is critical for large language models (LLMs) to excel in a wide range of tasks. While methods like Chain-of-Thought (CoT) reasoning and enhance LLM performance by decomposing problems into intermediate steps, they also incur significant overhead in token usage, leading to increased costs. We find that the reasoning process of current LLMs is unnecessarily lengthy and it can be compressed by including a reasonable token budget in the prompt, but the choice of token budget plays a crucial role in the actual compression effectiveness. We then propose a token-budget-aware LLM reasoning framework that dynamically adjusts the number of reasoning tokens based on the reasoning complexity of each problem. Experiments show that our method effectively reduces token costs in CoT reasoning with only a slight performance reduction, offering a practical solution to balance efficiency and accuracy in LLM reasoning. Code: https://github.com/GeniusHTX/TALE"
+    },
+    {
+      "paperId": "88aa6b1f37d1fd8e0a40499ce9bb87873f03aaa8",
+      "externalIds": {
+        "ArXiv": "2412.15115",
+        "DBLP": "journals/corr/abs-2412-15115",
+        "DOI": "10.48550/arXiv.2412.15115",
+        "CorpusId": 274859421
+      },
+      "title": "Qwen2.5 Technical Report",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2412.15115, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2336242315",
+          "name": "Qwen An Yang"
+        },
+        {
+          "authorId": "2257101724",
+          "name": "Baosong Yang"
+        },
+        {
+          "authorId": "2321681508",
+          "name": "Beichen Zhang"
+        },
+        {
+          "authorId": "2321578848",
+          "name": "Binyuan Hui"
+        },
+        {
+          "authorId": "2312091718",
+          "name": "Bo Zheng"
+        },
+        {
+          "authorId": "2325918197",
+          "name": "Bowen Yu"
+        },
+        {
+          "authorId": "2311714296",
+          "name": "Chengyuan Li"
+        },
+        {
+          "authorId": "2248487202",
+          "name": "Dayiheng Liu"
+        },
+        {
+          "authorId": "152159016",
+          "name": "Fei Huang"
+        },
+        {
+          "authorId": "51490462",
+          "name": "Guanting Dong"
+        },
+        {
+          "authorId": "2312183452",
+          "name": "Haoran Wei"
+        },
+        {
+          "authorId": "2314068968",
+          "name": "Huan Lin"
+        },
+        {
+          "authorId": "2243424858",
+          "name": "Jian Yang"
+        },
+        {
+          "authorId": "2321581897",
+          "name": "Jianhong Tu"
+        },
+        {
+          "authorId": "2323510768",
+          "name": "Jianwei Zhang"
+        },
+        {
+          "authorId": "2336243053",
+          "name": "Jianxin Yang"
+        },
+        {
+          "authorId": "2328943044",
+          "name": "Jiaxin Yang"
+        },
+        {
+          "authorId": "2237981776",
+          "name": "Jingren Zhou"
+        },
+        {
+          "authorId": "2326803484",
+          "name": "Junyang Lin"
+        },
+        {
+          "authorId": "2247877609",
+          "name": "Kai Dang"
+        },
+        {
+          "authorId": "2257001403",
+          "name": "Keming Lu"
+        },
+        {
+          "authorId": "2188063534",
+          "name": "Keqin Bao"
+        },
+        {
+          "authorId": "2303430522",
+          "name": "Kexin Yang"
+        },
+        {
+          "authorId": "2265527327",
+          "name": "Le Yu"
+        },
+        {
+          "authorId": "2223106060",
+          "name": "Mei Li"
+        },
+        {
+          "authorId": "2065790119",
+          "name": "Mingfeng Xue"
+        },
+        {
+          "authorId": "2288896179",
+          "name": "Pei Zhang"
+        },
+        {
+          "authorId": "2152206465",
+          "name": "Qin Zhu"
+        },
+        {
+          "authorId": "47447639",
+          "name": "Rui Men"
+        },
+        {
+          "authorId": "2248039532",
+          "name": "Runji Lin"
+        },
+        {
+          "authorId": "2309297259",
+          "name": "Tianhao Li"
+        },
+        {
+          "authorId": "2307468401",
+          "name": "Tingyu Xia"
+        },
+        {
+          "authorId": "2274095735",
+          "name": "Xingzhang Ren"
+        },
+        {
+          "authorId": "2312110505",
+          "name": "Xuancheng Ren"
+        },
+        {
+          "authorId": "2234000716",
+          "name": "Yang Fan"
+        },
+        {
+          "authorId": "2118000701",
+          "name": "Yang Su"
+        },
+        {
+          "authorId": "2163069125",
+          "name": "Yi-Chao Zhang"
+        },
+        {
+          "authorId": "2244411465",
+          "name": "Yunyang Wan"
+        },
+        {
+          "authorId": "2238712089",
+          "name": "Yuqi Liu"
+        },
+        {
+          "authorId": "2248072386",
+          "name": "Zeyu Cui"
+        },
+        {
+          "authorId": "2321656193",
+          "name": "Zhenru Zhang"
+        },
+        {
+          "authorId": "2337236034",
+          "name": "Zihan Qiu"
+        },
+        {
+          "authorId": "2325151882",
+          "name": "Shanghaoran Quan"
+        },
+        {
+          "authorId": "2108727290",
+          "name": "Zekun Wang"
+        }
+      ],
+      "abstract": "In this report, we introduce Qwen2.5, a comprehensive series of large language models (LLMs) designed to meet diverse needs. Compared to previous iterations, Qwen 2.5 has been significantly improved during both the pre-training and post-training stages. In terms of pre-training, we have scaled the high-quality pre-training datasets from the previous 7 trillion tokens to 18 trillion tokens. This provides a strong foundation for common sense, expert knowledge, and reasoning capabilities. In terms of post-training, we implement intricate supervised finetuning with over 1 million samples, as well as multistage reinforcement learning. Post-training techniques enhance human preference, and notably improve long text generation, structural data analysis, and instruction following. To handle diverse and varied use cases effectively, we present Qwen2.5 LLM series in rich sizes. Open-weight offerings include base and instruction-tuned models, with quantized versions available. In addition, for hosted solutions, the proprietary models currently include two mixture-of-experts (MoE) variants: Qwen2.5-Turbo and Qwen2.5-Plus, both available from Alibaba Cloud Model Studio. Qwen2.5 has demonstrated top-tier performance on a wide range of benchmarks evaluating language understanding, reasoning, mathematics, coding, human preference alignment, etc. Specifically, the open-weight flagship Qwen2.5-72B-Instruct outperforms a number of open and proprietary models and demonstrates competitive performance to the state-of-the-art open-weight model, Llama-3-405B-Instruct, which is around 5 times larger. Qwen2.5-Turbo and Qwen2.5-Plus offer superior cost-effectiveness while performing competitively against GPT-4o-mini and GPT-4o respectively. Additionally, as the foundation, Qwen2.5 models have been instrumental in training specialized models such as Qwen2.5-Math, Qwen2.5-Coder, QwQ, and multimodal models."
+    },
+    {
+      "paperId": "2cd94b619034ae0226f4391e3ff628fe9ce780a1",
+      "externalIds": {
+        "DBLP": "conf/aaai/KangSCZ25",
+        "ArXiv": "2412.11664",
+        "DOI": "10.48550/arXiv.2412.11664",
+        "CorpusId": 274776959
+      },
+      "title": "C3oT: Generating Shorter Chain-of-Thought without Compromising Effectiveness",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2412.11664, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2335626711",
+          "name": "Yu Kang"
+        },
+        {
+          "authorId": "2335621074",
+          "name": "Xianghui Sun"
+        },
+        {
+          "authorId": "2262635004",
+          "name": "Liangyu Chen"
+        },
+        {
+          "authorId": "2262217030",
+          "name": "Wei Zou"
+        }
+      ],
+      "abstract": "Generating Chain-of-Thought (CoT) before deriving the answer can effectively improve the reasoning capabilities of large language models (LLMs) and significantly improve the accuracy of the generated answer. However, in most cases, the length of the generated CoT is much longer than the desired final answer, which results in additional decoding costs. Furthermore, existing research has discovered that shortening the reasoning steps in CoT, even while preserving the key information, diminishes LLMs' abilities. These phenomena make it difficult to use LLMs and CoT in many real-world applications that only require the final answer and are sensitive to latency, such as search and recommendation. To reduce the costs of model decoding and shorten the length of the generated CoT, this paper presents Conditioned Compressed Chain-of-Thought (C3oT), a CoT compression framework that involves a compressor to compress an original longer CoT into a shorter CoT while maintaining key information and interpretability, a conditioned training method to train LLMs with both longer CoT and shorter CoT simultaneously to learn the corresponding relationships between them, and a conditioned inference method to gain the reasoning ability learned from longer CoT by generating shorter CoT. We conduct experiments over four datasets from arithmetic and commonsense scenarios, showing that the proposed method is capable of compressing the length of generated CoT by up to more than 50% without compromising its effectiveness."
+    },
+    {
+      "paperId": "07e61eaafcbc78061fb87c2b893db9fc26c30eb9",
+      "externalIds": {
+        "ArXiv": "2411.14698",
+        "DBLP": "journals/corr/abs-2411-14698",
+        "DOI": "10.48550/arXiv.2411.14698",
+        "CorpusId": 274192661
+      },
+      "title": "Improving Mathematical Reasoning Capabilities of Small Language Models via Feedback-Driven Distillation",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2411.14698, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2205622982",
+          "name": "Xunyu Zhu"
+        },
+        {
+          "authorId": "153154515",
+          "name": "Jian Li"
+        },
+        {
+          "authorId": "2112563365",
+          "name": "Can Ma"
+        },
+        {
+          "authorId": "2154491572",
+          "name": "Weiping Wang"
+        }
+      ],
+      "abstract": "Large Language Models (LLMs) demonstrate exceptional reasoning capabilities, often achieving state-of-the-art performance in various tasks. However, their substantial computational and memory demands, due to billions of parameters, hinder deployment in resource-constrained environments. A promising solution is knowledge distillation, where LLMs transfer reasoning capabilities to Small Language Models (SLMs, $\\le$ 1B parameters), enabling wider deployment on low-resource devices. Existing methods primarily focus on generating high-quality reasoning rationales for distillation datasets but often neglect the critical role of data quantity and quality. To address these challenges, we propose a Feedback-Driven Distillation (FDD) framework to enhance SLMs' mathematical reasoning capabilities. In the initialization stage, a distillation dataset is constructed by prompting LLMs to pair mathematical problems with corresponding reasoning rationales. We classify problems into easy and hard categories based on SLM performance. For easy problems, LLMs generate more complex variations, while for hard problems, new questions of similar complexity are synthesized. In addition, we propose a multi-round distillation paradigm to iteratively enrich the distillation datasets, thereby progressively improving the mathematical reasoning abilities of SLMs. Experimental results demonstrate that our method can make SLMs achieve SOTA mathematical reasoning performance."
+    },
+    {
+      "paperId": "f2d0f3d47ae850f49a58f4977393bd0025af4bec",
+      "externalIds": {
+        "DBLP": "conf/eurosys/ShengZYWZZPL025",
+        "ArXiv": "2409.19256",
+        "DOI": "10.1145/3689031.3696075",
+        "CorpusId": 272987758
+      },
+      "title": "HybridFlow: A Flexible and Efficient RLHF Framework",
+      "openAccessPdf": {
+        "url": "http://arxiv.org/pdf/2409.19256",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2409.19256, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2268673684",
+          "name": "Guangming Sheng"
+        },
+        {
+          "authorId": "2318688816",
+          "name": "Chi Zhang"
+        },
+        {
+          "authorId": "2324086586",
+          "name": "Zilingfeng Ye"
+        },
+        {
+          "authorId": "2323521119",
+          "name": "Xibin Wu"
+        },
+        {
+          "authorId": "2323637622",
+          "name": "Wang Zhang"
+        },
+        {
+          "authorId": "2323526959",
+          "name": "Ru Zhang"
+        },
+        {
+          "authorId": "9561490",
+          "name": "Yanghua Peng"
+        },
+        {
+          "authorId": "2267006156",
+          "name": "Haibin Lin"
+        },
+        {
+          "authorId": "2318983809",
+          "name": "Chuan Wu"
+        }
+      ],
+      "abstract": "Reinforcement Learning from Human Feedback (RLHF) is widely used in Large Language Model (LLM) alignment. Traditional RL can be modeled as a dataflow, where each node represents computation of a neural network (NN) and each edge denotes data dependencies between the NNs. RLHF complicates the dataflow by expanding each node into a distributed LLM training or generation program, and each edge into a many-to-many multicast. Traditional RL frameworks execute the dataflow using a single controller to instruct both intra-node computation and inter-node communication, which can be inefficient in RLHF due to large control dispatch overhead for distributed intra-node computation. Existing RLHF systems adopt a multi-controller paradigm, which can be inflexible due to nesting distributed computation and data communication. We propose HybridFlow, which combines single-controller and multi-controller paradigms in a hybrid manner to enable flexible representation and efficient execution of the RLHF data flow. We carefully design a set of hierarchical APIs that decouple and encapsulate computation and data dependencies in the complex RLHF dataflow, allowing efficient operation orchestration to implement RLHF algorithms and flexible mapping of the computation onto various devices. We further design a 3D-HybridEngine for efficient actor model resharding between training and generation phases, with zero memory redundancy and significantly reduced communication overhead. Our experimental results demonstrate 1.53x~20.57× throughput improvement when running various RLHF algorithms using HybridFlow, as compared with state-of-the-art baselines. HybridFlow source code is available at https://github.com/volcengine/verl"
+    },
+    {
+      "paperId": "f15a1a87c345a0b0b2b989064ede053d1411bb03",
+      "externalIds": {
+        "ArXiv": "2407.06023",
+        "DBLP": "journals/corr/abs-2407-06023",
+        "DOI": "10.48550/arXiv.2407.06023",
+        "CorpusId": 271050364
+      },
+      "title": "Distilling System 2 into System 1",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2407.06023, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2308246369",
+          "name": "Ping Yu"
+        },
+        {
+          "authorId": "2276766957",
+          "name": "Jing Xu"
+        },
+        {
+          "authorId": "2267341626",
+          "name": "Jason E Weston"
+        },
+        {
+          "authorId": "2308102420",
+          "name": "Ilia Kulikov"
+        }
+      ],
+      "abstract": "Large language models (LLMs) can spend extra compute during inference to generate intermediate thoughts, which helps to produce better final responses. Since Chain-of-Thought (Wei et al., 2022), many such System 2 techniques have been proposed such as Rephrase and Respond (Deng et al., 2023a), System 2 Attention (Weston and Sukhbaatar, 2023) and Branch-Solve-Merge (Saha et al., 2023). In this work we investigate self-supervised methods to ``compile'' (distill) higher quality outputs from System 2 techniques back into LLM generations without intermediate reasoning token sequences, as this reasoning has been distilled into System 1. We show that several such techniques can be successfully distilled, resulting in improved results compared to the original System 1 performance, and with less inference cost than System 2. We posit that such System 2 distillation will be an important feature of future continually learning AI systems, enabling them to focus System 2 capabilities on the reasoning tasks that they cannot yet do well."
+    },
+    {
+      "paperId": "9b3239cff17327960804098e33e1ca903e7b9e85",
+      "externalIds": {
+        "ArXiv": "2406.18665",
+        "DBLP": "journals/corr/abs-2406-18665",
+        "DOI": "10.48550/arXiv.2406.18665",
+        "CorpusId": 270764307
+      },
+      "title": "RouteLLM: Learning to Route LLMs with Preference Data",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2406.18665, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2199840167",
+          "name": "Isaac Ong"
+        },
+        {
+          "authorId": "2634674",
+          "name": "Amjad Almahairi"
+        },
+        {
+          "authorId": "2308466924",
+          "name": "Vincent Wu"
+        },
+        {
+          "authorId": "2537924",
+          "name": "Wei-Lin Chiang"
+        },
+        {
+          "authorId": "2251528079",
+          "name": "Tianhao Wu"
+        },
+        {
+          "authorId": "2254681613",
+          "name": "Joseph Gonzalez"
+        },
+        {
+          "authorId": "1793159",
+          "name": "M. W. Kadous"
+        },
+        {
+          "authorId": "2055174324",
+          "name": "Ion Stoica"
+        }
+      ],
+      "abstract": "Large language models (LLMs) exhibit impressive capabilities across a wide range of tasks, yet the choice of which model to use often involves a trade-off between performance and cost. More powerful models, though effective, come with higher expenses, while less capable models are more cost-effective. To address this dilemma, we propose several efficient router models that dynamically select between a stronger and a weaker LLM during inference, aiming to optimize the balance between cost and response quality. We develop a training framework for these routers leveraging human preference data and data augmentation techniques to enhance performance. Our evaluation on widely-recognized benchmarks shows that our approach significantly reduces costs-by over 2 times in certain cases-without compromising the quality of responses. Interestingly, our router models also demonstrate significant transfer learning capabilities, maintaining their performance even when the strong and weak models are changed at test time. This highlights the potential of these routers to provide a cost-effective yet high-performance solution for deploying LLMs."
+    },
+    {
+      "paperId": "d688af24de21449ef5fe5288746a51569942eb32",
+      "externalIds": {
+        "ArXiv": "2404.09170",
+        "CorpusId": 269149491
+      },
+      "title": "Distilling Reasoning Ability from Large Language Models with Adaptive Thinking",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2404.09170, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2296739794",
+          "name": "Xiao Chen"
+        },
+        {
+          "authorId": "2516087",
+          "name": "Sihang Zhou"
+        },
+        {
+          "authorId": "2024445866",
+          "name": "K. Liang"
+        },
+        {
+          "authorId": "2279159599",
+          "name": "Xinwang Liu"
+        }
+      ],
+      "abstract": "Chain of thought finetuning (cot-finetuning) aims to endow small language models (SLM) with reasoning ability to improve their performance towards specific tasks by allowing them to imitate the reasoning procedure of large language models (LLM) beyond simply predicting the answers. Most existing cot-finetuning methods adopt a pre-thinking mechanism, allowing the SLM to generate a rationale before providing an answer. This mechanism enables SLM to analyze and think about complex questions, but it also makes answer correctness highly sensitive to minor errors in rationale. Therefore, we propose a robust post-thinking mechanism to generate answers before rationale. Thanks to this answer-first setting, 1) the answer can escape from the adverse effects caused by minor errors in the rationale; 2) the rationale serves as an error amplifier to the answer, which makes the SLM focus on learning hard samples; 3) the inferring efficiency can also benefit from the setting since users can stop the generation right after answers are outputted when inference is conducted. However, although the post-thinking mechanism brings many advantages and improves the overall performance of SLM on specific tasks, it may lose the ability to think about the questions and decompose complex questions into simple sub-questions compared to pre-thinking mechanism. Therefore, a plug-and-play adaptive-thinking mechanism is proposed with the aid of the soft prompt tuning to integrate the merits of the pre-thinking mechanism and post-thinking mechanism, in which a perception module is introduced to adaptively prompt SLM answer or think first based on perceiving the complexity of the questions. Extensive experiments are conducted across 12 reasoning tasks and 2 representative language models to demonstrate the effectiveness of the proposed mechanism."
+    },
+    {
+      "paperId": "35b142ea69598e6241f0011312128031df55895c",
+      "externalIds": {
+        "ArXiv": "2402.03300",
+        "DBLP": "journals/corr/abs-2402-03300",
+        "DOI": "10.48550/arXiv.2402.03300",
+        "CorpusId": 267412607
+      },
+      "title": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2402.03300, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "144485528",
+          "name": "Zhihong Shao"
+        },
+        {
+          "authorId": "144202874",
+          "name": "Peiyi Wang"
+        },
+        {
+          "authorId": "2278223869",
+          "name": "Qihao Zhu"
+        },
+        {
+          "authorId": "2274917091",
+          "name": "R. Xu"
+        },
+        {
+          "authorId": "2258088582",
+          "name": "Jun-Mei Song"
+        },
+        {
+          "authorId": "2278384213",
+          "name": "Mingchuan Zhang"
+        },
+        {
+          "authorId": "2278599324",
+          "name": "Y. K. Li"
+        },
+        {
+          "authorId": "49176273",
+          "name": "Yu Wu"
+        },
+        {
+          "authorId": "2278834796",
+          "name": "Daya Guo"
+        }
+      ],
+      "abstract": "Mathematical reasoning poses a significant challenge for language models due to its complex and structured nature. In this paper, we introduce DeepSeekMath 7B, which continues pre-training DeepSeek-Coder-Base-v1.5 7B with 120B math-related tokens sourced from Common Crawl, together with natural language and code data. DeepSeekMath 7B has achieved an impressive score of 51.7% on the competition-level MATH benchmark without relying on external toolkits and voting techniques, approaching the performance level of Gemini-Ultra and GPT-4. Self-consistency over 64 samples from DeepSeekMath 7B achieves 60.9% on MATH. The mathematical reasoning capability of DeepSeekMath is attributed to two key factors: First, we harness the significant potential of publicly available web data through a meticulously engineered data selection pipeline. Second, we introduce Group Relative Policy Optimization (GRPO), a variant of Proximal Policy Optimization (PPO), that enhances mathematical reasoning abilities while concurrently optimizing the memory usage of PPO."
+    },
+    {
+      "paperId": "1bd9466f0bb10d29a16f614943ec7823e13cb210",
+      "externalIds": {
+        "DBLP": "journals/corr/abs-2312-10730",
+        "ArXiv": "2312.10730",
+        "DOI": "10.48550/arXiv.2312.10730",
+        "CorpusId": 266359672
+      },
+      "title": "Mixed Distillation Helps Smaller Language Model Better Reasoning",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2312.10730, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2275767060",
+          "name": "Chenglin Li"
+        },
+        {
+          "authorId": "1500384901",
+          "name": "Qianglong Chen"
+        },
+        {
+          "authorId": "2275199139",
+          "name": "Wang Caiyu"
+        },
+        {
+          "authorId": "2275546375",
+          "name": "Zhang Yin"
+        }
+      ],
+      "abstract": "While large language models (LLMs) have demonstrated exceptional performance in recent natural language processing (NLP) tasks, their deployment poses substantial challenges due to high computational and memory demands in real-world applications. Recent studies have focused on enhancing smaller models through knowledge distillation from LLMs, yielding promising results. However, these models often struggle to match the performance of LLMs, especially in tasks that require reasoning. In this work, we introduce Mixed Distillation (MD) framework, which capitalizes on the strengths of Program of Thought (PoT) and Chain of Thought (CoT) capabilities within LLMs, combining multiple prompting techniques and distilling these capabilities into smaller models. Our experimental results show that MD significantly enhances the single-path and multi-path reasoning ability of smaller models in various tasks. In terms of accuracy and generality of reasoning tasks, the model generated by it exceeds the comprehensive performance of two individually distilled models. Notably, LLaMA2-7B and CodeLlama-7B using MD achieved remarkable improvements of (84.5%) and (85.5%), respectively, outperforming GPT-3.5-Turbo by (2.5%) and (3.5%), on the SVAMP benchmark."
+    },
+    {
+      "paperId": "be8db99310602d66bba64bcf41a572c45816fbfc",
+      "externalIds": {
+        "ArXiv": "2305.20050",
+        "DBLP": "conf/iclr/LightmanKBEBLLS24",
+        "DOI": "10.48550/arXiv.2305.20050",
+        "CorpusId": 258987659
+      },
+      "title": "Let's Verify Step by Step",
+      "openAccessPdf": {
+        "url": "http://arxiv.org/pdf/2305.20050",
+        "status": "CLOSED",
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2305.20050, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2219360905",
+          "name": "Hunter Lightman"
+        },
+        {
+          "authorId": "13622184",
+          "name": "Vineet Kosaraju"
+        },
+        {
+          "authorId": "51178856",
+          "name": "Yura Burda"
+        },
+        {
+          "authorId": "144632352",
+          "name": "Harrison Edwards"
+        },
+        {
+          "authorId": "40566201",
+          "name": "Bowen Baker"
+        },
+        {
+          "authorId": "2110664120",
+          "name": "Teddy Lee"
+        },
+        {
+          "authorId": "2990741",
+          "name": "Jan Leike"
+        },
+        {
+          "authorId": "47971768",
+          "name": "John Schulman"
+        },
+        {
+          "authorId": "1701686",
+          "name": "I. Sutskever"
+        },
+        {
+          "authorId": "6062736",
+          "name": "K. Cobbe"
+        }
+      ],
+      "abstract": "In recent years, large language models have greatly improved in their ability to perform complex multi-step reasoning. However, even state-of-the-art models still regularly produce logical mistakes. To train more reliable models, we can turn either to outcome supervision, which provides feedback for a final result, or process supervision, which provides feedback for each intermediate reasoning step. Given the importance of training reliable models, and given the high cost of human feedback, it is important to carefully compare the both methods. Recent work has already begun this comparison, but many questions still remain. We conduct our own investigation, finding that process supervision significantly outperforms outcome supervision for training models to solve problems from the challenging MATH dataset. Our process-supervised model solves 78% of problems from a representative subset of the MATH test set. Additionally, we show that active learning significantly improves the efficacy of process supervision. To support related research, we also release PRM800K, the complete dataset of 800,000 step-level human feedback labels used to train our best reward model."
+    },
+    {
+      "paperId": "126a4776ff8315fd506766cb8f3c722cf746ad9e",
+      "externalIds": {
+        "DBLP": "journals/corr/abs-2212-08410",
+        "ACL": "2023.acl-short.151",
+        "ArXiv": "2212.08410",
+        "DOI": "10.48550/arXiv.2212.08410",
+        "CorpusId": 254823156
+      },
+      "title": "Teaching Small Language Models to Reason",
+      "openAccessPdf": {
+        "url": "http://arxiv.org/pdf/2212.08410",
+        "status": "GREEN",
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2212.08410, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2098834685",
+          "name": "Lucie Charlotte Magister"
+        },
+        {
+          "authorId": "1931758",
+          "name": "Jonathan Mallinson"
+        },
+        {
+          "authorId": "50290651",
+          "name": "Jakub Adamek"
+        },
+        {
+          "authorId": "3288074",
+          "name": "Eric Malmi"
+        },
+        {
+          "authorId": "3091861",
+          "name": "A. Severyn"
+        }
+      ],
+      "abstract": "Chain of thought prompting successfully improves the reasoning capabilities of large language models, achieving state of the art results on a range of datasets. However, these reasoning capabilities only appear to emerge in models with at least tens of billions of parameters. In this paper, we explore the transfer of such reasoning capabilities to smaller models via knowledge distillation, also investigating model and dataset size trade-off. Specifically, we finetune a student model on the chain of thought outputs generated by a larger teacher model. Our experiments show that the proposed method improves task performance across arithmetic, commonsense and symbolic reasoning datasets. For example, the accuracy of T5 XXL on GSM8K improves from 8.11% to 21.99% and 18.42% when finetuned on PaLM 540B and GPT-3 175B generated chains of thought, respectively."
+    },
+    {
+      "paperId": "1b6e810ce0afd0dd093f789d2b2742d047e316d5",
+      "externalIds": {
+        "ArXiv": "2201.11903",
+        "DBLP": "journals/corr/abs-2201-11903",
+        "CorpusId": 246411621
+      },
+      "title": "Chain of Thought Prompting Elicits Reasoning in Large Language Models",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2201.11903, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "119640649",
+          "name": "Jason Wei"
+        },
+        {
+          "authorId": "1524732527",
+          "name": "Xuezhi Wang"
+        },
+        {
+          "authorId": "1714772",
+          "name": "Dale Schuurmans"
+        },
+        {
+          "authorId": "40377863",
+          "name": "Maarten Bosma"
+        },
+        {
+          "authorId": "2226805",
+          "name": "Ed H. Chi"
+        },
+        {
+          "authorId": "144956443",
+          "name": "F. Xia"
+        },
+        {
+          "authorId": "1998340269",
+          "name": "Quoc Le"
+        },
+        {
+          "authorId": "65855107",
+          "name": "Denny Zhou"
+        }
+      ],
+      "abstract": "We explore how generating a chain of thought -- a series of intermediate reasoning steps -- significantly improves the ability of large language models to perform complex reasoning. In particular, we show how such reasoning abilities emerge naturally in sufficiently large language models via a simple method called chain of thought prompting, where a few chain of thought demonstrations are provided as exemplars in prompting. Experiments on three large language models show that chain of thought prompting improves performance on a range of arithmetic, commonsense, and symbolic reasoning tasks. The empirical gains can be striking. For instance, prompting a 540B-parameter language model with just eight chain of thought exemplars achieves state of the art accuracy on the GSM8K benchmark of math word problems, surpassing even finetuned GPT-3 with a verifier."
+    },
+    {
+      "paperId": "d6045d2ccc9c09ca1671348de86d07da6bc28eea",
+      "externalIds": {
+        "ArXiv": "2110.14168",
+        "DBLP": "journals/corr/abs-2110-14168",
+        "CorpusId": 239998651
+      },
+      "title": "Training Verifiers to Solve Math Word Problems",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2110.14168, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "6062736",
+          "name": "K. Cobbe"
+        },
+        {
+          "authorId": "13622184",
+          "name": "Vineet Kosaraju"
+        },
+        {
+          "authorId": "2275251620",
+          "name": "Mo Bavarian"
+        },
+        {
+          "authorId": "2108828435",
+          "name": "Mark Chen"
+        },
+        {
+          "authorId": "35450887",
+          "name": "Heewoo Jun"
+        },
+        {
+          "authorId": "40527594",
+          "name": "Lukasz Kaiser"
+        },
+        {
+          "authorId": "3407285",
+          "name": "Matthias Plappert"
+        },
+        {
+          "authorId": "2065005836",
+          "name": "Jerry Tworek"
+        },
+        {
+          "authorId": "2052366271",
+          "name": "Jacob Hilton"
+        },
+        {
+          "authorId": "7406311",
+          "name": "Reiichiro Nakano"
+        },
+        {
+          "authorId": "144239765",
+          "name": "Christopher Hesse"
+        },
+        {
+          "authorId": "47971768",
+          "name": "John Schulman"
+        }
+      ],
+      "abstract": "State-of-the-art language models can match human performance on many tasks, but they still struggle to robustly perform multi-step mathematical reasoning. To diagnose the failures of current models and support research, we introduce GSM8K, a dataset of 8.5K high quality linguistically diverse grade school math word problems. We find that even the largest transformer models fail to achieve high test performance, despite the conceptual simplicity of this problem distribution. To increase performance, we propose training verifiers to judge the correctness of model completions. At test time, we generate many candidate solutions and select the one ranked highest by the verifier. We demonstrate that verification significantly improves performance on GSM8K, and we provide strong empirical evidence that verification scales more effectively with increased data than a finetuning baseline."
+    },
+    {
+      "paperId": "57d1e7ac339e783898f2c3b1af55737cbeee9fc5",
+      "externalIds": {
+        "DBLP": "conf/nips/HendrycksBKABTS21",
+        "ArXiv": "2103.03874",
+        "CorpusId": 232134851
+      },
+      "title": "Measuring Mathematical Problem Solving With the MATH Dataset",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2103.03874, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "3422872",
+          "name": "Dan Hendrycks"
+        },
+        {
+          "authorId": "90909974",
+          "name": "Collin Burns"
+        },
+        {
+          "authorId": "148070327",
+          "name": "Saurav Kadavath"
+        },
+        {
+          "authorId": "2054194196",
+          "name": "Akul Arora"
+        },
+        {
+          "authorId": "104444594",
+          "name": "Steven Basart"
+        },
+        {
+          "authorId": "2090511698",
+          "name": "Eric Tang"
+        },
+        {
+          "authorId": "143711382",
+          "name": "D. Song"
+        },
+        {
+          "authorId": "5164568",
+          "name": "J. Steinhardt"
+        }
+      ],
+      "abstract": "Many intellectual endeavors require mathematical problem solving, but this skill remains beyond the capabilities of computers. To measure this ability in machine learning models, we introduce MATH, a new dataset of 12,500 challenging competition mathematics problems. Each problem in MATH has a full step-by-step solution which can be used to teach models to generate answer derivations and explanations. To facilitate future research and increase accuracy on MATH, we also contribute a large auxiliary pretraining dataset which helps teach models the fundamentals of mathematics. Even though we are able to increase accuracy on MATH, our results show that accuracy remains relatively low, even with enormous Transformer models. Moreover, we find that simply increasing budgets and model parameter counts will be impractical for achieving strong mathematical reasoning if scaling trends continue. While scaling Transformers is automatically solving most other text-based tasks, scaling is not currently solving MATH. To have more traction on mathematical problem solving we will likely need new algorithmic advancements from the broader research community."
+    },
+    {
+      "paperId": "8323c591e119eb09b28b29fd6c7bc76bd889df7a",
+      "externalIds": {
+        "MAG": "2973727699",
+        "ArXiv": "1909.08053",
+        "DBLP": "journals/corr/abs-1909-08053",
+        "CorpusId": 202660670
+      },
+      "title": "Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/1909.08053, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "1911755",
+          "name": "M. Shoeybi"
+        },
+        {
+          "authorId": "66870756",
+          "name": "M. Patwary"
+        },
+        {
+          "authorId": "41158993",
+          "name": "Raul Puri"
+        },
+        {
+          "authorId": "3081566",
+          "name": "P. LeGresley"
+        },
+        {
+          "authorId": "48991386",
+          "name": "J. Casper"
+        },
+        {
+          "authorId": "2301680",
+          "name": "Bryan Catanzaro"
+        }
+      ],
+      "abstract": "Recent work in language modeling demonstrates that training large transformer models advances the state of the art in Natural Language Processing applications. However, very large models can be quite difficult to train due to memory constraints. In this work, we present our techniques for training very large transformer models and implement a simple, efficient intra-layer model parallel approach that enables training transformer models with billions of parameters. Our approach does not require a new compiler or library changes, is orthogonal and complimentary to pipeline model parallelism, and can be fully implemented with the insertion of a few communication operations in native PyTorch. We illustrate this approach by converging transformer based models up to 8.3 billion parameters using 512 GPUs. We sustain 15.1 PetaFLOPs across the entire application with 76% scaling efficiency when compared to a strong single GPU baseline that sustains 39 TeraFLOPs, which is 30% of peak FLOPs. To demonstrate that large language models can further advance the state of the art (SOTA), we train an 8.3 billion parameter transformer language model similar to GPT-2 and a 3.9 billion parameter model similar to BERT. We show that careful attention to the placement of layer normalization in BERT-like models is critical to achieving increased performance as the model size grows. Using the GPT-2 model we achieve SOTA results on the WikiText103 (10.8 compared to SOTA perplexity of 15.8) and LAMBADA (66.5% compared to SOTA accuracy of 63.2%) datasets. Our BERT model achieves SOTA results on the RACE dataset (90.9% compared to SOTA accuracy of 89.4%)."
+    },
+    {
+      "paperId": "0c908739fbff75f03469d13d4a1a07de3414ee19",
+      "externalIds": {
+        "ArXiv": "1503.02531",
+        "MAG": "1821462560",
+        "DBLP": "journals/corr/HintonVD15",
+        "CorpusId": 7200347
+      },
+      "title": "Distilling the Knowledge in a Neural Network",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/1503.02531, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "1695689",
+          "name": "Geoffrey E. Hinton"
+        },
+        {
+          "authorId": "1689108",
+          "name": "O. Vinyals"
+        },
+        {
+          "authorId": "49959210",
+          "name": "J. Dean"
+        }
+      ],
+      "abstract": "A very simple way to improve the performance of almost any machine learning algorithm is to train many different models on the same data and then to average their predictions. Unfortunately, making predictions using a whole ensemble of models is cumbersome and may be too computationally expensive to allow deployment to a large number of users, especially if the individual models are large neural nets. Caruana and his collaborators have shown that it is possible to compress the knowledge in an ensemble into a single model which is much easier to deploy and we develop this approach further using a different compression technique. We achieve some surprising results on MNIST and we show that we can significantly improve the acoustic model of a heavily used commercial system by distilling the knowledge in an ensemble of models into a single model. We also introduce a new type of ensemble composed of one or more full models and many specialist models which learn to distinguish fine-grained classes that the full models confuse. Unlike a mixture of experts, these specialist models can be trained rapidly and in parallel."
+    },
+    {
+      "paperId": "bf82b02460c2cc442617a0920c4d0b07d468ed1f",
+      "externalIds": {
+        "DBLP": "journals/corr/abs-2503-15793",
+        "DOI": "10.48550/arXiv.2503.15793",
+        "CorpusId": 277785746
+      },
+      "title": "DNA Bench: When Silence is Smarter - Benchmarking Over-Reasoning in Reasoning LLMs",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null,
+        "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.48550/arXiv.2503.15793?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.48550/arXiv.2503.15793, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+      },
+      "authors": [
+        {
+          "authorId": "2312405141",
+          "name": "Masoud Hashemi"
+        },
+        {
+          "authorId": "2249757461",
+          "name": "Oluwanifemi Bamgbose"
+        },
+        {
+          "authorId": "100519532",
+          "name": "Sathwik Tejaswi Madhusudhan"
+        },
+        {
+          "authorId": "2351054187",
+          "name": "Jishnu Sethumadhavan Nair"
+        },
+        {
+          "authorId": "2335663456",
+          "name": "Aman Tiwari"
+        },
+        {
+          "authorId": "2329191670",
+          "name": "Vikas Yadav"
+        }
+      ],
+      "abstract": "Test-time scaling has significantly improved large language model (LLM) performance, enabling deeper reasoning to solve complex problems. However, this increased reasoning capability also leads to excessive token generation and unnecessary problem-solving attempts. We introduce “Don’t Answer Bench (DNA Bench)”, a new benchmark designed to evaluate LLMs’ ability to robustly understand the tricky reasoning triggers and avoiding unnecessary generation. DNA Bench consists of 150 adversarially designed prompts that are easy for humans to understand and respond to, but surprisingly not for many of the recent prominent LLMs. DNA Bench tests models’ abilities across different capabilities, such as instruction adherence, hallucination avoidance, redundancy filtering, and unanswerable question recognition. We evaluate reasoning LLMs (RLMs), including DeepSeek-R1, OpenAI O3-mini, Claude-3.7-sonnet and compare them against a powerful non-reasoning model, e.g., GPT-4o. Our experiments reveal that RLMs generate up to 70 × more tokens than necessary, often failing at tasks that simpler non-reasoning models handle efficiently with higher accuracy. Our findings underscore the need for more effective training and inference strategies in RLMs."
+    },
+    {
+      "paperId": "985298bd0b6f4c84ab34bb15cfed0b092f43b83a",
+      "externalIds": {
+        "CorpusId": 272648256
+      },
+      "title": "OpenAI o1 System Card",
+      "openAccessPdf": {
+        "url": "",
+        "status": null,
+        "license": null
+      },
+      "authors": [
+        {
+          "authorId": "1398503968",
+          "name": "Ahmed El-Kishky"
+        },
+        {
+          "authorId": "2365524239",
+          "name": "Ahmed El-Kishky"
+        }
+      ],
+      "abstract": null
+    }
+  ]
+}
