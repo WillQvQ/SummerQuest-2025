@@ -1,0 +1,22 @@
+{
+    "python.createEnvironment.trigger": "off",
+    "editor.fontSize": 18,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false,
+        "jsonc": true
+    },
+    "mcp": {
+        "servers": {
+            "my-mcp-server-570324c6": {
+                "type": "stdio",
+                "command": "python",
+                "args": ["C:/Users/24574/Desktop/hw1/SummerQuest-2025/submission/xiezhide/day-2/trae_paper_collector/arxiv_mcp_server.py"],
+                "env": {"PYTHONPATH": "C:/Users/24574/Desktop/hw1/SummerQuest-2025/submission/xiezhide/day-2/trae_paper_collector"}
+            }
+        }
+    },
+    "github.copilot.nextEditSuggestions.enabled": true
+}
