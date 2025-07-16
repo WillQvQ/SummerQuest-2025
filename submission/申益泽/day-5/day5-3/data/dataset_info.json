@@ -1,9 +1,0 @@
-{
-  "my_gsm8k_dataset": {
-    "file_name": "gsm8k_train_distill_data.jsonl",
-    "columns": {
-      "prompt": "instruction",
-      "response": "output"
-    }
-  }
-}
