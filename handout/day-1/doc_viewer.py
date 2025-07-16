@@ -502,8 +502,8 @@ if __name__ == "__main__":
     
     # 2. 筛选特定字段的记录
     print("\n2. 筛选记录演示:")
-    field_name = "主讲"  # 替换为你的字段名
-    field_value = "刘智耿( llamafactory, verl, vllm)"  # 替换为你要筛选的值
+    field_name = "课程"  # 替换为你的字段名
+    field_value = "常见框架介绍( llamafactory, verl, vllm)"  # 替换为你要筛选的值
     
     try:
         filtered_records = lark.get_filtered_records("default", field_name, field_value)
