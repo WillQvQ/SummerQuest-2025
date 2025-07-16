@@ -4,8 +4,9 @@ import torch
 
 class FakeSearch:
     def __init__(self, model_name="/remote-home1/share/models/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"):
-        self.accelerator = Accelerator()
-        self.device = self.accelerator.device
+        # 指定CUDA设备为2
+        self.accelerator = Accelerator(device_placement=False)
+        self.device = torch.device("cuda:2")
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
         model = AutoModelForCausalLM.from_pretrained(
             model_name,

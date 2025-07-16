@@ -6,6 +6,7 @@ from argparse import ArgumentParser
 from vllm import LLM, SamplingParams
 from torch.utils.data import Dataset, DataLoader  # 新增
 import re
+from search import FakeSearch
 
 model_path = {
     'DeepSeek-R1-Distill-Qwen-7B': "/remote-home1/share/models/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
@@ -54,16 +55,20 @@ class PromptDataset(Dataset):
             return f.readline().strip()
 
 class DataCollector:
-    def __init__(self, model_name: str, with_search: bool = True, use_tool: bool = True):
+    def __init__(self, model_name: str, with_search: bool = True, use_tool: bool = True, append_tool_res: bool = True):
         self.model_name = model_path.get(model_name, model_name)
         self.with_search = with_search
         self.use_tool = use_tool
-        self.output_path = f"collected_w_search_{self.with_search}_usetool_{self.use_tool}_{model_name.replace('/', '_')}.jsonl"
+        self.append_tool_res = append_tool_res
+        if not self.use_tool:
+            self.append_tool_res = False
+        self.output_path = f"collected_w_search_{self.with_search}_usetool_{self.use_tool}_appen_tool_call_{self.append_tool_res}_{model_name.replace('/', '_')}.jsonl"
         self.llm = self.build_llm(self.model_name, 2)
         self.sampling = SamplingParams(temperature=0.8, top_p=0.95, max_tokens=12000)
         self.tokenizer = self.llm.get_tokenizer() 
         # self.prompts = self.read_prompts()  
         self.prompt_dataset = PromptDataset(self.with_search)
+        self.search = FakeSearch() 
 
     def build_llm(self, model_name, num_gpus = None):
         if num_gpus is None:
@@ -157,21 +162,65 @@ class DataCollector:
         print(f"共 {num} 个问题，使用了工具的有 {use_tool} 个，占比 {use_tool/num:.2%}")
         print(f"平均思考长度为 {cot_len:.2f}")
     
+    def generate(self, prompts, sampling_params):
+        if not self.append_tool_res:
+            return self.llm.generate(prompts, sampling_params)
+        if not self.use_tool or not self.with_search:
+            return self.llm.generate(prompts, sampling_params)
+        else:
+            output_before_toolcall = []
+            search_args = []
+            res = []
+            outputs = self.llm.generate(prompts, sampling_params)
+            # import pdb; pdb.set_trace()
+            formatted_prompts = []
+            for i, output in enumerate(outputs):
+                o = output.outputs[0].text
+                if '<|TOOL|>' in o:
+                    tool_call_str = o.split('<|TOOL|>')[-1].strip()
+                    if tool_call_str.endswith('}'):
+                        try:
+                            tool_call = json.loads(tool_call_str)
+                            if tool_call['name'] == 'search' and 'arguments' in tool_call:
+                                search_results = self.search.search(
+                                    tool_call['arguments']['keyword'], 
+                                    tool_call['arguments'].get('top_k', 3)
+                                )
+                                use_tool = self.use_tool
+                                self.use_tool = False  # 禁用工具调用
+                                formatted_prompts.append(self.format_prompts_with_chat_template(
+                                    f"{prompts[i]}\n已知: {search_results}"
+                                ))
+                                
+                                self.use_tool = use_tool  # 恢复工具调用
+                                # import pdb; pdb.set_trace()
+                                output_before_toolcall.append(o.split("<|TOOL|>"+tool_call_str)[0].strip() + "\n<tool_call>\n" + tool_call_str + "\n</tool_call>")
+                        except json.JSONDecodeError:
+                            print(f"Error decoding JSON from tool call: {tool_call}")
+            outputs_after_toolcall = self.llm.generate(formatted_prompts, sampling_params)
+            for ob, oa in zip(output_before_toolcall, outputs_after_toolcall):
+                res.append({
+                    "prompt": prompts[i],
+                    "output": ob + oa.outputs[0].text
+                })
+            return res
+             
     def collect(self):
         pairs = []
         dataloader = DataLoader(self.prompt_dataset, batch_size=200, shuffle=False)
         for batch_prompts in dataloader:
             formatted_prompts = [self.format_prompts_with_chat_template(p) for p in batch_prompts]
-            results = self.llm.generate(formatted_prompts, self.sampling)
-            pairs += [(r.prompt, r.outputs[0].text) for r in results]
+            results = self.generate(formatted_prompts, self.sampling)
+            pairs += [(r['prompt'], r["output"]) for r in results]
         return pairs
     
 
 if __name__ == "__main__":
     data_collector = DataCollector(
-        model_name='Qwen2.5-0.5B-Instruct', # 'DeepSeek-R1-Distill-Qwen-7B', 
-        with_search=False,
-        use_tool=True
+        model_name='DeepSeek-R1-Distill-Qwen-7B', # 'Qwen2.5-0.5B-Instruct'
+        with_search=True,
+        use_tool=True,
+        append_tool_res=True
     )
     pairs = data_collector.collect()
     data_collector.save_results(data_collector.output_path, pairs)
