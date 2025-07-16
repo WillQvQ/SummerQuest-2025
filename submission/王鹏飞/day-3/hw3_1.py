@@ -46,9 +46,9 @@ for item in tasks:
     # 合并字段
     merged_text = item["Query"].strip() + "\n" + item["Output"].strip()
     # 编码并获取 token IDs
-    ids = [] # TODO
+    ids = tokenizer.encode(merged_text,add_special_tokens=False) # TODO
     # 解码验证
-    decoded = [] # TODO
+    decoded = tokenizer.decode(ids) # TODO
     records["tasks"].append({
         "text": merged_text,
         "token_ids": ids,
