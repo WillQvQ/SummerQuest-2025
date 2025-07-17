@@ -12,7 +12,7 @@ import json
 import logging
 from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.utils.data.distributed import DistributedSampler
-from torch.distributed import init_process_group, destroy_process_group
+from torch.distributed import init_process_group, destroy_process_group, barrier
 
 # 配置日志
 logging.basicConfig(level=logging.INFO)
@@ -177,7 +177,8 @@ def dynamic_padding_collator(features, tokenizer):
         "input_ids": torch.tensor(batch["input_ids"], dtype=torch.long),
         "attention_mask": torch.tensor(batch["attention_mask"], dtype=torch.long),
         "labels": torch.tensor(batch["labels"], dtype=torch.long),
-        "position_weights": torch.tensor(batch["position_weights"], dtype=torch.float)
+        # 修复：使用float32而不是默认的float64
+        "position_weights": torch.tensor(batch["position_weights"], dtype=torch.float32)
     }
 
 
@@ -361,7 +362,7 @@ def train_model_with_weighted_loss():
     dataset = []
     if local_rank == 0:
         try:
-            with open("complex_qa_dataset.json", "r") as f:
+            with open("squad_complex_qa_dataset.json", "r") as f:
                 dataset = json.load(f)
             logger.info(f"主进程: 成功加载 {len(dataset)} 个样本")
         except Exception as e:
@@ -455,7 +456,10 @@ def train_model_with_weighted_loss():
         save_strategy="steps",
         save_steps=100,
         report_to="tensorboard",
-        fp16=True,
+        # 修复1: 禁用混合精度训练
+        fp16=False,  # 改为False
+        # 修复2: 添加梯度裁剪
+        max_grad_norm=1.0,
         gradient_checkpointing=False,
         dataloader_num_workers=0,
         ddp_find_unused_parameters=False,
@@ -504,97 +508,224 @@ def train_model_with_weighted_loss():
         if "grad" in str(e).lower() or "backward" in str(e).lower():
             logger.error("检测到梯度计算问题，请检查模型结构和损失函数")
     
+    # 分布式同步：确保所有进程完成SFT训练
+    if world_size > 1:
+        barrier()
+        logger.info(f"进程 {local_rank}: 已完成SFT训练，准备PPO训练")
+    
     # 5. 第二阶段：PPO强化学习（使用加权损失）
-    # 只在主进程上执行PPO训练
-    if local_rank == 0:
-        logger.info("开始PPO训练...")
-        
-        # 准备PPO模型
-        if world_size > 1:
-            # 如果是分布式训练，获取原始模型
-            model = model.module
-        ppo_model = AutoModelForCausalLMWithValueHead.from_pretrained(model)
-        ppo_model.to(device)
-        
-        # PPO配置
-        ppo_config = PPOConfig(
-            batch_size=4,
-            mini_batch_size=1,
-            gradient_accumulation_steps=4,
-            learning_rate=1e-5,
-            optimize_cuda_cache=True,
-            log_with="tensorboard"
-        )
-        
-        # 创建PPO训练器
-        ppo_trainer = WeightedPPOTrainer(
-            config=ppo_config,
-            model=ppo_model,
-            ref_model=None,
-            tokenizer=tokenizer,
-        )
-        
-        # 创建PPO数据加载器
-        ppo_dataloader = DataLoader(
+    # 所有进程都准备PPO训练
+    
+    # 从SFT模型中获取基础模型（移除DDP包装）
+    if world_size > 1:
+        # 如果是分布式训练，获取原始模型
+        model = model.module
+    
+    # 准备PPO模型（所有进程都创建）
+    logger.info(f"进程 {local_rank}: 创建PPO模型")
+    ppo_model = AutoModelForCausalLMWithValueHead.from_pretrained(model)
+    ppo_model.to(device)
+    
+    # PPO配置
+    logger.info(f"进程 {local_rank}: 创建PPO配置")
+    ppo_config = PPOConfig(
+        batch_size=4,
+        mini_batch_size=1,
+        gradient_accumulation_steps=4,
+        learning_rate=1e-5,
+        optimize_cuda_cache=True,
+        log_with="tensorboard",
+        project_kwargs={"logging_dir": "./ppo_logs"}
+    )
+    
+    # 创建PPO训练器（所有进程都创建）
+    logger.info(f"进程 {local_rank}: 创建PPOTrainer")
+    ppo_trainer = WeightedPPOTrainer(
+        config=ppo_config,
+        model=ppo_model,
+        ref_model=None,
+        tokenizer=tokenizer,
+    )
+    
+    # 准备分布式采样器
+    if world_size > 1:
+        sampler = DistributedSampler(
             train_dataset,
-            batch_size=ppo_config.batch_size,
-            collate_fn=custom_collator,
+            num_replicas=world_size,
+            rank=local_rank,
             shuffle=True
         )
-        
-        # PPO训练循环
-        for epoch in range(1):
-            logger.info(f"PPO训练 epoch {epoch+1}/1")
-            for batch_idx, batch in enumerate(ppo_dataloader):
-                if batch is None:  # 跳过空批次
-                    logger.warning("跳过空批次")
-                    continue
+    else:
+        sampler = None
+    
+    # 创建PPO数据加载器（所有进程都创建）
+    logger.info(f"进程 {local_rank}: 创建PPO数据加载器")
+    ppo_dataloader = DataLoader(
+        train_dataset,
+        batch_size=ppo_config.batch_size,
+        collate_fn=custom_collator,
+        shuffle=(sampler is None),
+        sampler=sampler
+    )
+    
+    # PPO训练循环（所有进程都执行）
+    logger.info(f"进程 {local_rank}: 开始PPO训练...")
+
+    # 训练前同步
+    if world_size > 1:
+        barrier()
+
+    for epoch in range(1):
+        # 如果是分布式训练，设置epoch
+        if world_size > 1:
+            sampler.set_epoch(epoch)
+            
+        for batch_idx, batch in enumerate(ppo_dataloader):
+            if batch is None:  # 跳过空批次
+                logger.warning(f"进程 {local_rank}: 跳过空批次")
+                continue
+            
+            # 将数据移动到当前设备
+            batch = {k: v.to(device) for k, v in batch.items()}
+            
+            # 准备PPO输入 - 转换为张量列表
+            query_tensors = [q for q in batch["input_ids"]]
+            
+            # 获取模型响应 - 添加更严格的长度限制和错误处理
+            response_tensors = []
+            valid_responses = []
+            
+            for i, query in enumerate(query_tensors):
+                try:
+                    # 硬性限制查询长度
+                    query = query[:512]
                     
-                # 准备PPO输入
-                query_tensors = batch["input_ids"].to(device)
-                
-                # 获取模型响应
-                response_tensors = []
-                for query in query_tensors:
-                    response = ppo_model.generate(
+                    # 生成响应（添加额外的安全措施）
+                    generation_output = ppo_model.generate(
                         input_ids=query.unsqueeze(dim=0),
-                        max_new_tokens=50,
+                        max_new_tokens=min(50, 1000 - len(query)),  # 双重长度限制
                         do_sample=True,
                         temperature=0.7,
-                        pad_token_id=tokenizer.pad_token_id
+                        pad_token_id=tokenizer.pad_token_id,
+                        eos_token_id=tokenizer.eos_token_id,
+                        output_scores=True,
+                        return_dict_in_generate=True
                     )
-                    response_tensors.append(response.squeeze()[len(query):])
-                
-                # 提取位置权重
-                position_weights = batch["position_weights"].to(device)
-                
-                # 计算奖励（这里简化处理，实际中应使用奖励模型）
-                rewards = [torch.tensor([1.0], device=device) for _ in range(len(batch["input_ids"]))]
-                
-                # 执行PPO更新
-                try:
-                    stats = ppo_trainer.step(
-                        queries=[q.tolist() for q in query_tensors], 
-                        responses=[r.tolist() for r in response_tensors], 
-                        scores=rewards,
-                    )
+                    response = generation_output.sequences.squeeze()
                     
-                    # 记录训练统计信息
-                    ppo_trainer.log_stats(stats, batch, rewards)
+                    # === 关键修复：验证响应张量 ===
+                    # 1. 确保是张量
+                    if not torch.is_tensor(response):
+                        raise ValueError("响应不是张量")
+                        
+                    # 2. 确保数据类型正确
+                    if response.dtype != torch.long:
+                        response = response.long()
+                        
+                    # 3. 检查token ID范围
+                    valid_tokens = (response >= 0) & (response < tokenizer.vocab_size)
+                    if not valid_tokens.all():
+                        invalid_count = torch.sum(~valid_tokens).item()
+                        logger.warning(f"进程 {local_rank}: 响应 {i} 包含 {invalid_count} 个无效token ID")
+                        response = torch.tensor([tokenizer.eos_token_id], device=device)
                     
-                    if batch_idx % 5 == 0:
-                        logger.info(f"PPO训练 epoch {epoch+1}, batch {batch_idx}: 完成")
+                    # 4. 确保张量维度正确
+                    if response.dim() == 0:  # 标量
+                        response = response.unsqueeze(0)
+                    elif response.dim() > 1:  # 多维张量
+                        response = response.flatten()
+                    
+                    # 5. 检查响应长度
+                    if len(response) > 1000:
+                        logger.warning(f"进程 {local_rank}: 响应 {i} 长度异常 ({len(response)} tokens)，已截断")
+                        response = response[:1000]
+                    
+                    # 提取新生成的token
+                    if len(response) > len(query):
+                        new_tokens = response[len(query):]
+                        # 确保新token数量合理
+                        if len(new_tokens) > 100:
+                            new_tokens = new_tokens[:50]
+                        response_tensors.append(new_tokens)
+                        valid_responses.append(True)
+                    else:
+                        logger.warning(f"进程 {local_rank}: 生成响应长度不足，使用默认响应")
+                        default_response = torch.tensor([tokenizer.eos_token_id], device=device)
+                        response_tensors.append(default_response)
+                        valid_responses.append(False)
+                        
                 except Exception as e:
-                    logger.error(f"PPO训练出错: {str(e)}")
-                    continue
+                    logger.error(f"进程 {local_rank}: 生成响应时出错: {str(e)}")
+                    default_response = torch.tensor([tokenizer.eos_token_id], device=device)
+                    response_tensors.append(default_response)
+                    valid_responses.append(False)
+            
+            # === 额外验证：在PPO步骤前检查所有响应 ===
+            safe_response_tensors = []
+            for i, resp in enumerate(response_tensors):
+                # 检查张量类型和形状
+                if not isinstance(resp, torch.Tensor):
+                    logger.warning(f"进程 {local_rank}: 响应 {i} 不是张量，类型={type(resp)}")
+                    resp = torch.tensor([tokenizer.eos_token_id], device=device)
+                
+                # 检查张量元素数量
+                if resp.numel() > 1000:
+                    logger.warning(f"进程 {local_rank}: 响应 {i} 元素数量过多 ({resp.numel()})，已截断")
+                    resp = resp[:1000]
+                
+                # 检查数据类型
+                if resp.dtype != torch.long:
+                    resp = resp.long()
+                
+                safe_response_tensors.append(resp)
+            
+            # 使用安全验证后的响应
+            response_tensors = safe_response_tensors
+            
+            # 计算奖励 - 只对有效响应计算
+            rewards = []
+            for i, valid in enumerate(valid_responses):
+                if valid:
+                    rewards.append(torch.tensor([1.0], device=device))
+                else:
+                    rewards.append(torch.tensor([0.0], device=device))
+            
+            # 执行PPO更新
+            try:
+                # 添加额外日志
+                logger.info(f"进程 {local_rank}: 查询长度: {[len(q) for q in query_tensors]}")
+                logger.info(f"进程 {local_rank}: 响应长度: {[len(r) for r in response_tensors]}")
+                
+                stats = ppo_trainer.step(
+                    queries=query_tensors,
+                    responses=response_tensors,
+                    scores=rewards,
+                )
+                
+                # 记录训练统计信息（只在主进程记录）
+                if local_rank == 0:
+                    ppo_trainer.log_stats(stats, batch, rewards)
+                
+                if batch_idx % 5 == 0:
+                    logger.info(f"进程 {local_rank}: PPO训练 epoch {epoch+1}, batch {batch_idx}: 完成")
+            except Exception as e:
+                logger.error(f"进程 {local_rank}: PPO训练出错: {str(e)}")
+                # 打印堆栈跟踪以便调试
+                import traceback
+                logger.error(traceback.format_exc())
+                continue
+    
+    # 训练后同步
+    if world_size > 1:
+        barrier()
+        logger.info(f"进程 {local_rank}: PPO训练已完成")
     
     # 6. 保存最终模型（只在主进程上保存）
     if local_rank == 0:
         final_model_dir = "./final_model"
-        # 如果是分布式训练，获取原始模型
-        if world_size > 1:
-            model = model.module
-        model.save_pretrained(final_model_dir)
+        # 保存原始基础模型（移除Value Head）
+        base_model = ppo_model.pretrained_model
+        base_model.save_pretrained(final_model_dir)
         tokenizer.save_pretrained(final_model_dir)
         logger.info(f"训练完成，模型已保存到 {final_model_dir}")
     
