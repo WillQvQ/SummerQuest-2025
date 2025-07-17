@@ -170,10 +170,12 @@ class DataCollector:
         else:
             output_before_toolcall = []
             search_args = []
+            valid_prompts = []
             res = []
             outputs = self.llm.generate(prompts, sampling_params)
             # import pdb; pdb.set_trace()
             formatted_prompts = []
+            # import pdb; pdb.set_trace()
             for i, output in enumerate(outputs):
                 o = output.outputs[0].text
                 if '<|TOOL|>' in o:
@@ -182,32 +184,33 @@ class DataCollector:
                         try:
                             tool_call = json.loads(tool_call_str)
                             if tool_call['name'] == 'search' and 'arguments' in tool_call:
-                                search_results = self.search.search(
-                                    tool_call['arguments']['keyword'], 
-                                    tool_call['arguments'].get('top_k', 3)
+                                search_args.append(
+                                    (tool_call['arguments']['keyword'], 
+                                    tool_call['arguments'].get('top_k', 3))
                                 )
-                                use_tool = self.use_tool
-                                self.use_tool = False  # 禁用工具调用
-                                formatted_prompts.append(self.format_prompts_with_chat_template(
-                                    f"{prompts[i]}\n已知: {search_results}"
-                                ))
-                                
-                                self.use_tool = use_tool  # 恢复工具调用
-                                # import pdb; pdb.set_trace()
-                                output_before_toolcall.append(o.split("<|TOOL|>"+tool_call_str)[0].strip() + "\n<tool_call>\n" + tool_call_str + "\n</tool_call>")
-                        except json.JSONDecodeError:
+                            valid_prompts.append(prompts[i].split("<｜User｜>")[-1].split("<｜Assistant｜>")[0].strip())
+                            output_before_toolcall.append(o.split("<|TOOL|>"+tool_call_str)[0].strip() + "\n<tool_call>\n" + tool_call_str + "\n</tool_call>")
+                        except:
                             print(f"Error decoding JSON from tool call: {tool_call}")
+            search_results = self.search.search(search_args)
+            for i, sr in enumerate(search_results):
+                use_tool = self.use_tool
+                self.use_tool = False  # 禁用工具调用
+                formatted_prompts.append(self.format_prompts_with_chat_template(
+                    f"{valid_prompts[i]}\n已知: {sr}"
+                ))
+                self.use_tool = use_tool  # 恢复工具调用
             outputs_after_toolcall = self.llm.generate(formatted_prompts, sampling_params)
-            for ob, oa in zip(output_before_toolcall, outputs_after_toolcall):
+            for i, (ob, oa) in enumerate(zip(output_before_toolcall, outputs_after_toolcall)):
                 res.append({
-                    "prompt": prompts[i],
+                    "prompt": valid_prompts[i],
                     "output": ob + oa.outputs[0].text
                 })
             return res
              
     def collect(self):
         pairs = []
-        dataloader = DataLoader(self.prompt_dataset, batch_size=200, shuffle=False)
+        dataloader = DataLoader(self.prompt_dataset, batch_size=25, shuffle=False)
         for batch_prompts in dataloader:
             formatted_prompts = [self.format_prompts_with_chat_template(p) for p in batch_prompts]
             results = self.generate(formatted_prompts, self.sampling)
