@@ -2,3 +2,5 @@
 __pycache__
 **tokenizer_with_special_tokens**
 .vscode**
+wandb
+qwen25-lora-final
