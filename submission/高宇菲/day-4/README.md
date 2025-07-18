@@ -12,6 +12,10 @@
 
 /remote-home1/yfgao/miniconda3/envs/py312
 
+合成数据时使用了3张GPU，其中一张单独用来模拟搜索引擎。
+
+训练时用了两张GPU。
+
 4. 权重路径
 
 /remote-home1/yfgao/SummerQuest-2025/submission/高宇菲/day-4/src/qwen25-lora-final
@@ -29,5 +33,6 @@
     xxx(正式回答)
 }
 ```
+其中模拟搜索工具在src/search.py，仍使用r1-7b。提示词在46行。模拟工具使用一张GPU单独部署。
 
 训练时以prompt字段为输入，output字段为目标输出。20%测试集。
