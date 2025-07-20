@@ -1,16 +1,16 @@
 # SummerQuest-2025
 
-[邱锡鹏老师组(FNLP&SII)-暑期集训-2025](https://fudan-nlp.feishu.cn/docx/JV7FdDJicoA8m5xtX4pcslXEnWb)
+邱锡鹏老师组(FNLP&SII)-暑期集训-2025 已结束，课程讲义和录像仅限**参与课程的同学**和组内同学查看。错过这次活动的同学可以等待明年的暑期集训活动（会在此仓库预告），或者[申请进组实习](#申请进组方式)。
 
-## Day-1
+## 课程练习
 
-课程：
-- [飞书使用与文档自动化](https://fudan-nlp.feishu.cn/docx/O8iddfYpMoLUzCxIeSBc0qqunZc)
-- [Git使用以及团队协作](https://fudan-nlp.feishu.cn/docx/XeqJdxUp9oZBDJxza1RcKi6Onjd)
+课程练习对外公开，仓库长期接受 PR。
 
-练习：
 - [homework-1](https://fudan-nlp.feishu.cn/docx/Vq4Ndlji7oK8YVx8kqfczXgzn5b)
-
+- [homework-2](https://fudan-nlp.feishu.cn/docx/KPP9dOH3for6TqxJJVqc6KLGnbc)
+- [homework-3](https://fudan-nlp.feishu.cn/docx/Ro7PdHMyRoKmh5xUyrXcTfm5nnd)
+- [homework-4](https://fudan-nlp.feishu.cn/docx/H9CedqiYBoikmmxP3FPcw8nHnuf)
+- [homework-5](https://fudan-nlp.feishu.cn/docx/MIxmdnrBqovt3xxvBECcmnd1n2f)
 
 ## 练习提交方式
 
@@ -55,3 +55,18 @@ submission/
 └── 李四/
     └── day-1/
 ```
+
+## 练习评测方式
+
+day-1, day-2, day-3 和 day-5 的 hw5_1, hw5_2 可以通过[自动化测试代码](https://github.com/WillQvQ/SummerQuest-2025/tree/main/judgement)进行测试；其它练习为人工评阅。
+
+## 申请进组方式
+
+欢迎加入我们！您可以通过以下方式与我们取得联系：
+
+- 填写[联络问卷](https://fudan-nlp.feishu.cn/share/base/form/shrcn29UYq1MCpTH0GBZh3AWPPg)（推荐）
+- 发送邮件至 llm@fudan.edu.cn
+
+申请要求：
+- 本科生实习：需完成暑期集训练习或实验室的入门练习
+- 研究生招生：除完成上述要求外，还需具备相关科研经验
